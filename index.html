@@ -4,176 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ALEX // AI Engineer & Automation Specialist</title>
-  
-  <!-- Fonts -->
+  <meta name="description" content="Автоматизация, AI-агенты, Telegram-боты и сайты. Плюс легализация и бизнес в Грузии, трансферы, авто под ключ.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- GSAP & Lucide Icons -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <style>
-    :root {
-      --bg: #030712;
-      --card-bg: rgba(15, 23, 42, 0.55);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(47, 230, 201, 0.3);
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-faint: #475569;
-      --cyan: #2fe6c9;
-      --cyan-glow: rgba(47, 230, 201, 0.25);
-      --violet: #8b6bff;
-      --glass: rgba(255, 255, 255, 0.03);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-
-    /* Grid Overlay */
-    .grid-bg {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
-    }
-
-    /* Navigation */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      backdrop-filter: blur(16px); background: rgba(3, 7, 18, 0.7);
-      border-bottom: 1px solid var(--card-border);
-    }
-    .hwrap {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      height: 70px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand {
-      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 16px;
-      letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px;
-    }
-    .brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-    .nav-links { display: flex; gap: 24px; list-style: none; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--cyan); }
-
-    /* Sections */
-    section { padding: 120px 24px; max-width: 1200px; margin: 0 auto; position: relative; }
-    .section-tag {
-      font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--cyan);
-      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-    .section-tag::before { content: ''; width: 16px; height: 1px; background: var(--cyan); }
-    h2.section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 48px; }
-
-    /* Glass Cards & Tilt */
-    .glass-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      padding: 32px;
-      transition: border-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s;
-      transform-style: preserve-3d;
-    }
-    .glass-card:hover {
-      border-color: var(--card-border-hover);
-      box-shadow: 0 10px 30px -10px var(--cyan-glow);
-    }
-
-    /* Hero Section */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; padding-top: 100px; }
-    #hero-canvas { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-    .hero-content h1 { font-size: clamp(38px, 4.8vw, 62px); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 24px; }
-    .hero-content h1 span { background: linear-gradient(135deg, #fff 30%, var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero-subtitle { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 32px; font-family: 'JetBrains Mono', monospace; }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 10px;
-      font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
-    }
-    .btn-primary { background: var(--cyan); color: var(--bg); box-shadow: 0 4px 20px var(--cyan-glow); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(47, 230, 201, 0.4); }
-    .btn-secondary { background: var(--glass); color: var(--text); border: 1px solid var(--card-border); }
-    .btn-secondary:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--text-muted); }
-
-    /* Interactive Terminal Window */
-    .terminal-window {
-      background: #090d16; border: 1px solid var(--card-border); border-radius: 12px;
-      overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: 13px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-    .terminal-header { background: rgba(255,255,255,0.03); padding: 12px; display: flex; gap: 8px; border-bottom: 1px solid var(--card-border); }
-    .term-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .term-red { background: #ff5f56; } .term-yellow { background: #ffbd2e; } .term-green { background: #27c93f; }
-    .terminal-body { padding: 20px; color: var(--text-muted); line-height: 1.7; height: 280px; overflow-y: auto; }
-    .term-cmd { color: var(--cyan); }
-    .term-highlight { color: var(--violet); }
-
-    /* Stats Grid */
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-    .stat-card { text-align: center; }
-    .stat-num { font-size: 48px; font-weight: 800; color: var(--text); font-family: 'JetBrains Mono', monospace; }
-    .stat-num span { color: var(--cyan); }
-    .stat-label { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
-
-    /* Services Grid */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .service-card i { color: var(--cyan); margin-bottom: 20px; }
-    .service-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
-    .service-card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
-
-    /* Cases Grid */
-    .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-    .case-card { position: relative; overflow: hidden; }
-    .case-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--violet); text-transform: uppercase; margin-bottom: 8px; }
-    .case-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
-    .case-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
-
-    /* Timeline Section */
-    .timeline { position: relative; border-left: 2px solid var(--card-border); margin-left: 16px; padding-left: 32px; }
-    .timeline-progress { position: absolute; left: -2px; top: 0; width: 2px; background: var(--cyan); height: 0%; box-shadow: 0 0 10px var(--cyan); }
-    .timeline-item { margin-bottom: 40px; position: relative; }
-    .timeline-dot { position: absolute; left: -41px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--card-border); }
-    .timeline-item.active .timeline-dot { border-color: var(--cyan); background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-    .timeline-item h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
-    .timeline-item p { color: var(--text-muted); font-size: 14px; }
-
-    /* Advantages Grid */
-    .adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-
-    /* Contact CTA Section */
-    .contact-card { text-align: center; padding: 64px 32px; background: radial-gradient(circle at 50% 0%, rgba(47,230,201,0.1), transparent 70%), var(--card-bg); }
-    .contact-card h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; margin-bottom: 16px; }
-    .contact-card p { color: var(--text-muted); font-size: 16px; max-width: 500px; margin: 0 auto 32px; }
-
-    /* AI Floating Widget */
-    .ai-widget {
-      position: fixed; bottom: 24px; right: 24px; z-index: 99;
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      backdrop-filter: blur(16px); border-radius: 50px; padding: 10px 20px;
-      display: flex; align-items: center; gap: 12px; cursor: pointer; text-decoration: none; color: var(--text);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.3s;
-    }
-    .ai-widget:hover { border-color: var(--cyan); transform: scale(1.03); }
-    .ai-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--cyan); display: flex; align-items: center; justify-content: center; color: var(--bg); }
-    .ai-text { font-size: 13px; font-weight: 500; font-family: 'JetBrains Mono', monospace; }
-
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 120px; }
-      .nav-links { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="grid-bg"></div>
-  <canvas id="hero-canvas"></canvas>
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <header>
     <div class="hwrap">
@@ -183,36 +29,34 @@
         <li><a href="#cases">Кейсы</a></li>
         <li><a href="#process">Процесс</a></li>
         <li><a href="#why">Преимущества</a></li>
-        <li><a href="#contact">Контакты</a></li>
       </ul>
+      <a href="https://t.me/alex_berik" target="_blank" class="nav-cta">Написать →</a>
     </div>
   </header>
 
   <!-- Экран 1: Hero -->
   <section class="hero">
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
       <div class="section-tag">AI & AUTOMATION SPECIALIST</div>
-      <h1>Автоматизирую бизнес. <span>Создаю AI</span>, который работает вместо людей.</h1>
-      <p class="hero-subtitle">Telegram-боты • AI-агенты • Автоматизация • Сайты • Make • n8n</p>
+      <h1>Автоматизирую бизнес.<br><span class="accent">Строю AI</span>, который работает вместо отдела.</h1>
+      <p class="hero-subtitle">Telegram-боты · AI-агенты · Автоматизация Make/n8n · Сайты · Продвижение</p>
       <div class="hero-btns">
-        <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="rocket"></i> 🚀 Обсудить проект</a>
-        <a href="#cases" class="btn btn-secondary"><i data-lucide="folder-kanban"></i> 📂 Смотреть кейсы</a>
+        <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="rocket"></i> Обсудить проект</a>
+        <a href="#cases" class="btn btn-secondary"><i data-lucide="folder-kanban"></i> Смотреть кейсы</a>
       </div>
     </div>
-    
-    <!-- Интерактивный CLI-терминал -->
+
     <div class="terminal-window">
       <div class="terminal-header">
-        <div class="term-dot term-red"></div>
-        <div class="term-dot term-yellow"></div>
-        <div class="term-dot term-green"></div>
+        <div class="term-dot term-red"></div><div class="term-dot term-yellow"></div><div class="term-dot term-green"></div>
       </div>
       <div class="terminal-body" id="term-body">
         <div><span class="term-cmd">alex@ai-engine:~$</span> init_agent --mode=production</div>
         <div>[System] Connecting to LLM APIs... <span class="term-highlight">SUCCESS</span></div>
         <div>[System] Loading Make / n8n workflows... <span class="term-highlight">OK</span></div>
         <div>[System] Deploying AI Customer Support Agent...</div>
-        <div>> Status: <span style="color:#27c93f;">ACTIVE (24/7 Monitoring)</span></div>
+        <div>&gt; Status: <span style="color:#27c93f;">ACTIVE (24/7 Monitoring)</span></div>
         <div id="term-interactive"></div>
       </div>
     </div>
@@ -221,324 +65,130 @@
   <!-- Экран 2: Цифры -->
   <section id="stats">
     <div class="stats-grid">
-      <div class="glass-card stat-card">
-        <div class="stat-num" data-target="100">0<span>+</span></div>
-        <div class="stat-label">Автоматизаций</div>
-      </div>
-      <div class="glass-card stat-card">
-        <div class="stat-num" data-target="20">0<span>+</span></div>
-        <div class="stat-label">Сайтов & Лендингов</div>
-      </div>
-      <div class="glass-card stat-card">
-        <div class="stat-num" data-target="4">0</div>
-        <div class="stat-label">Ключевых направления</div>
-      </div>
-      <div class="glass-card stat-card">
-        <div class="stat-num">24<span>/7</span></div>
-        <div class="stat-label">Поддержка & AI-Мониторинг</div>
-      </div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="100">0<span class="accent">+</span></div><div class="stat-label">Автоматизаций</div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="20">0<span class="accent">+</span></div><div class="stat-label">Сайтов и ботов</div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="4">0</div><div class="stat-label">Ключевых направления</div></div>
+      <div class="glass-card stat-card"><div class="stat-num">24<span class="accent">/7</span></div><div class="stat-label">Поддержка и мониторинг</div></div>
     </div>
   </section>
 
   <!-- Экран 3: Чем занимаюсь -->
   <section id="services">
-    <div class="section-tag">SERVICES</div>
+    <div class="section-tag reveal">SERVICES</div>
     <h2 class="section-title">Чем занимаюсь</h2>
     <div class="services-grid">
       <div class="glass-card service-card" data-tilt>
-        <i data-lucide="bot" size="36"></i>
-        <h3>💻 AI и автоматизация</h3>
-        <p>Разработка умных Telegram-ботов, AI-агентов на базе LLM, построение сложных сценариев в Make и n8n без раздутого штата.</p>
+        <i data-lucide="bot" size="32" class="icon"></i>
+        <h3>AI и автоматизация</h3>
+        <p>Telegram-боты и AI-агенты на LLM, сложные сценарии в Make и n8n, внедрение AI-инструментов в существующие процессы бизнеса.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
-        <i data-lucide="globe" size="36"></i>
-        <h3>🌍 Легализация и бизнес в Грузии</h3>
-        <p>Полное сопровождение: открытие счетов в банке, бухгалтерия, регистрация ИП или компании, подбор недвижимости и ПТД / ВНЖ.</p>
+        <i data-lucide="globe" size="32" class="icon"></i>
+        <h3>Легализация и бизнес в Грузии</h3>
+        <p>Открытие счёта в банке, бухгалтерия, регистрация ИП/компании, подбор недвижимости, оформление ПТД/ВНЖ.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
-        <i data-lucide="navigation" size="36"></i>
-        <h3>🚗 Трансферы</h3>
-        <p>Встреча в аэропорту, поездки по городу и междугороду — свой водитель под ваш график, поездки за рубеж (AM/TR/AZ) по запросу.</p>
+        <i data-lucide="navigation" size="32" class="icon"></i>
+        <h3>Трансферы</h3>
+        <p>Встреча в аэропорту, поездки по городу и между городами, за рубеж по запросу — свой водитель под ваш график.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
-        <i data-lucide="car" size="36"></i>
-        <h3>🔧 Авто под ключ</h3>
-        <p>Подбор на местном рынке, в Европе или на аукционах США. Расчет доставки и растаможки, диагностика и поиск сервиса.</p>
+        <i data-lucide="car" size="32" class="icon"></i>
+        <h3>Авто под ключ</h3>
+        <p>Подбор на местном рынке, в Европе или на аукционах США — доставка, растаможка, диагностика, поиск сервиса.</p>
       </div>
     </div>
   </section>
 
   <!-- Экран 4: Кейсы -->
   <section id="cases">
-    <div class="section-tag">PORTFOLIO</div>
+    <div class="section-tag reveal">PORTFOLIO</div>
     <h2 class="section-title">Кейсы и проекты</h2>
     <div class="cases-grid">
+      <div class="glass-card case-card">
+        <div class="case-tag">AI · Career</div>
+        <h3>JobHunterAI</h3>
+        <p>Telegram-бот с AI: анализирует резюме, подбирает вакансии под профиль и автоматизирует первый контакт с работодателем.</p>
+        <div class="case-result">→ От поиска до отклика — без ручного перебора вакансий</div>
+      </div>
+      <div class="glass-card case-card">
+        <div class="case-tag">AI · Marketplace</div>
+        <h3>SellAI</h3>
+        <p>AI-агент для продаж на маркетплейсах (FB/Instagram): подбор товара, генерация карточек, анализ цен и конкурентов.</p>
+        <div class="case-result">→ Листинг и ценообразование — на автопилоте</div>
+      </div>
       <div class="glass-card case-card">
         <div class="case-tag">Auto & Sourcing</div>
         <h3>PARTS24</h3>
         <p>Автоматизированная экосистема подбора автозапчастей и интеграция поиска по аукционам.</p>
+        <div class="case-result">→ Поиск нужной детали за минуты, а не дни</div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">AI Ecosystem</div>
         <h3>Telegram AI Bot</h3>
         <p>Многоязычный бот-консультант с нейросетевым движком для автоквалификации входящих лидов.</p>
+        <div class="case-result">→ Лиды квалифицируются до звонка менеджера</div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">Automation Engine</div>
         <h3>Автоматизация бизнеса</h3>
         <p>Сквозная сборка процессов на Make и n8n: счета, CRM и поддержка клиентов без человеческих ошибок.</p>
+        <div class="case-result">→ Рутина закрыта без найма отдела</div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">Web Development</div>
         <h3>Landing Page & Web App</h3>
-        <p>Высококонверсионные и быстрые веб-страницы с интегрированной аналитикой и приемом заявок.</p>
+        <p>Высококонверсионные и быстрые веб-страницы с интегрированной аналитикой и приёмом заявок.</p>
+        <div class="case-result">→ Сайт, который реально приводит заявки</div>
       </div>
     </div>
   </section>
 
   <!-- Экран 5: Как проходит работа -->
   <section id="process">
-    <div class="section-tag">WORKFLOW</div>
+    <div class="section-tag reveal">WORKFLOW</div>
     <h2 class="section-title">Как проходит работа</h2>
     <div class="timeline" id="timeline">
       <div class="timeline-progress" id="timeline-progress"></div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <h3>1. Заявка</h3>
-        <p>Первичная связь, фиксация задачи и определение главных целей проекта.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <h3>2. Анализ</h3>
-        <p>Изучение бизнес-процессов, подбор архитектуры и согласование плана реализации.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <h3>3. Разработка</h3>
-        <p>Написание кода, настройка AI-моделей, связка webhooks и тестирование сценариев.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <h3>4. Запуск</h3>
-        <p>Деплой на продакшен, интеграция в существующие системы и ввод в эксплуатацию.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <h3>5. Поддержка</h3>
-        <p>Мониторинг 24/7, оперативные обновления и масштабирование под растущие нагрузки.</p>
-      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>1. Заявка</h3><p>Первичная связь, фиксация задачи и определение главных целей проекта.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>2. Анализ</h3><p>Изучение бизнес-процессов, подбор архитектуры и согласование плана реализации.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>3. Разработка</h3><p>Написание кода, настройка AI-моделей, связка вебхуков и тестирование сценариев.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>4. Запуск</h3><p>Деплой на продакшен, интеграция в существующие системы и ввод в эксплуатацию.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3>5. Поддержка</h3><p>Мониторинг 24/7, оперативные обновления и масштабирование под растущие нагрузки.</p></div>
     </div>
   </section>
 
   <!-- Экран 6: Почему выбирают меня -->
   <section id="why">
-    <div class="section-tag">ADVANTAGES</div>
+    <div class="section-tag reveal">ADVANTAGES</div>
     <h2 class="section-title">Почему выбирают меня</h2>
     <div class="adv-grid">
-      <div class="glass-card">
-        <h3>⚡ Скорость</h3>
-        <p>Быстрый запуск первых рабочих версий решений без бюрократии и задержек.</p>
-      </div>
-      <div class="glass-card">
-        <h3>🤖 AI-first подход</h3>
-        <p>Фокус на внедрении искусственного интеллекта для исключения рутины и сокращения издержек.</p>
-      </div>
-      <div class="glass-card">
-        <h3>🤝 Без посредников</h3>
-        <p>Прямой контакт с инженером-разработчиком — прозрачная коммуникация на каждом этапе.</p>
-      </div>
-      <div class="glass-card">
-        <h3>🛠 Современные технологии</h3>
-        <p>Использование передового стека: LLM-агенты, Make, n8n, современные web-фреймворки.</p>
-      </div>
-      <div class="glass-card">
-        <h3>🌐 Работаю удалённо</h3>
-        <p>Гибкость взаимодействия из любой точки мира с прозрачными отчетами и депонированием результатов.</p>
-      </div>
-      <div class="glass-card">
-        <h3>🛡 Поддержка после запуска</h3>
-        <p>Гарантия стабильности работы систем и помощь в решении любых вопросов после передачи проекта.</p>
-      </div>
+      <div class="glass-card"><h3>Скорость</h3><p>Быстрый запуск первых рабочих версий решений без бюрократии и задержек.</p></div>
+      <div class="glass-card"><h3>AI-first подход</h3><p>Фокус на внедрении искусственного интеллекта для исключения рутины и сокращения издержек.</p></div>
+      <div class="glass-card"><h3>Без посредников</h3><p>Прямой контакт с инженером-разработчиком — прозрачная коммуникация на каждом этапе.</p></div>
+      <div class="glass-card"><h3>Современные технологии</h3><p>LLM-агенты, Make, n8n, современные web-фреймворки — актуальный стек, а не шаблоны.</p></div>
+      <div class="glass-card"><h3>Работаю удалённо</h3><p>Гибкость взаимодействия из любой точки мира с прозрачными отчётами.</p></div>
+      <div class="glass-card"><h3>Поддержка после запуска</h3><p>Гарантия стабильности систем и помощь в решении вопросов после передачи проекта.</p></div>
     </div>
   </section>
 
   <!-- Экран 7: Контакты -->
   <section id="contact">
-    <div class="glass-card contact-card">
-      <div class="section-tag">GET IN TOUCH</div>
+    <div class="glass-card contact-card reveal">
+      <div class="section-tag" style="justify-content:center;">GET IN TOUCH</div>
       <h2>Есть идея? Давайте превратим её в работающий продукт.</h2>
       <p>Напишите пару слов о задаче — отвечу и предложу эффективный маршрут решения.</p>
-      <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary" style="font-size:16px; padding: 16px 36px;"><i data-lucide="send"></i> Написать в Telegram</a>
+      <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary" style="font-size:15.5px; padding: 17px 38px;"><i data-lucide="send"></i> Написать в Telegram</a>
     </div>
   </section>
 
-  <!-- Анимированный AI-ассистент -->
+  <footer class="site-foot">© 2026 ALEX · TBILISI, GE · +995 511 493 394</footer>
+
   <a href="https://t.me/alex_berik" target="_blank" class="ai-widget">
-    <div class="ai-avatar"><i data-lucide="bot" size="18"></i></div>
+    <div class="ai-avatar"><i data-lucide="bot" size="17"></i></div>
     <div class="ai-text">ALEX AI: Онлайн. Задать вопрос →</div>
   </a>
 
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // 1. Hero Particle Canvas Animation
-    const canvas = document.getElementById('hero-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let mouse = { x: null, y: null, radius: 120 };
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.x;
-      mouse.y = e.y;
-    });
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.density = (Math.random() * 20) + 1;
-      }
-      draw() {
-        ctx.fillStyle = 'rgba(47, 230, 201, 0.6)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      update() {
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < mouse.radius) {
-          let force = (mouse.radius - distance) / mouse.radius;
-          let directionX = (dx / distance) * force * this.density;
-          let directionY = (dy / distance) * force * this.density;
-          this.x -= directionX;
-          this.y -= directionY;
-        } else {
-          if (this.x !== this.baseX) this.x -= (this.x - this.baseX) * 0.05;
-          if (this.y !== this.baseY) this.y -= (this.y - this.baseY) * 0.05;
-        }
-      }
-    }
-
-    function initParticles() {
-      particles = [];
-      let numberOfParticles = (canvas.width * canvas.height) / 15000;
-      for (let i = 0; i < numberOfParticles; i++) {
-        particles.push(new Particle());
-      }
-    }
-    initParticles();
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].draw();
-        particles[i].update();
-      }
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
-
-    // 2. Interactive Terminal Typing Simulator
-    const termInteractive = document.getElementById('term-interactive');
-    const commands = [
-      'alex@ai-engine:~$ analyze --input="business_task"',
-      '> Calculating ROI & time efficiency...',
-      '> Optimization proposal ready.'
-    ];
-    let cmdIdx = 0, charIdx = 0;
-
-    function typeTerminal() {
-      if (cmdIdx < commands.length) {
-        if (charIdx < commands[cmdIdx].length) {
-          termInteractive.innerHTML += commands[cmdIdx].charAt(charIdx);
-          charIdx++;
-          setTimeout(typeTerminal, 40);
-        } else {
-          termInteractive.innerHTML += '<br>';
-          cmdIdx++;
-          charIdx = 0;
-          setTimeout(typeTerminal, 800);
-        }
-      }
-    }
-    setTimeout(typeTerminal, 1500);
-
-    // 3. Animated Counters on Scroll
-    const statNums = document.querySelectorAll('.stat-num[data-target]');
-    let statsTriggered = false;
-
-    window.addEventListener('scroll', () => {
-      const statsSec = document.getElementById('stats');
-      if (statsSec) {
-        const rect = statsSec.getBoundingClientRect();
-        if (rect.top < window.innerHeight && !statsTriggered) {
-          statsTriggered = true;
-          statNums.forEach(num => {
-            const target = +num.getAttribute('data-target');
-            let count = 0;
-            const speed = target / 30;
-            const update = () => {
-              count += speed;
-              if (count < target) {
-                num.childNodes[0].nodeValue = Math.ceil(count);
-                setTimeout(update, 30);
-              } else {
-                num.childNodes[0].nodeValue = target;
-              }
-            };
-            update();
-          });
-        }
-      }
-    });
-
-    // 4. 3D Tilt Effect on Hover
-    document.querySelectorAll('[data-tilt]').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width/2;
-        const y = e.clientY - rect.top - rect.height/2;
-        card.style.transform = `perspective(1000px) rotateX(${-y/20}deg) rotateY(${x/20}deg) translateY(-4px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
-      });
-    });
-
-    // 5. Scroll Timeline Progress Line
-    window.addEventListener('scroll', () => {
-      const timeline = document.getElementById('timeline');
-      const progress = document.getElementById('timeline-progress');
-      if (timeline) {
-        const rect = timeline.getBoundingClientRect();
-        const totalHeight = rect.height;
-        const visibleHeight = window.innerHeight - rect.top;
-        let pct = (visibleHeight / totalHeight) * 100;
-        pct = Math.max(0, Math.min(100, pct));
-        progress.style.height = pct + '%';
-
-        const items = document.querySelectorAll('.timeline-item');
-        items.forEach(item => {
-          const itemRect = item.getBoundingClientRect();
-          if (itemRect.top < window.innerHeight * 0.7) {
-            item.classList.add('active');
-          }
-        });
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
