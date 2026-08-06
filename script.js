@@ -1,7 +1,7 @@
 // ================= i18n =================
 const i18n = {
   ru: {
-    nav_services:"Услуги", nav_expats:"Экспатам", nav_auto:"Авто", nav_cases:"Кейсы", nav_why:"Почему я", nav_cta:"Написать →",
+    nav_services:"Услуги", nav_expats:"Экспатам", nav_auto:"Авто", nav_cases:"Кейсы", nav_process:"Процесс", nav_why:"Почему я", nav_cta:"Написать →",
     hero_tag:"AI & AUTOMATION SPECIALIST",
     hero_h1:'Автоматизирую бизнес.<br><span class="accent">Строю AI</span>, который работает вместо отдела.',
     hero_sub:"Telegram-боты · AI-агенты · Автоматизация Make/n8n · Сайты · Экспатам в Грузии · Авто под ключ",
@@ -57,18 +57,18 @@ const i18n = {
     c6_result:"→ Поставщики и покупатели запчастей — в одном месте",
 
     process_tag:"WORKFLOW", process_title:"Как проходит работа",
-    p1_title:"1. Заявка", p1_desc:"Первичная связь, фиксация задачи и определение главных целей проекта.",
-    p2_title:"2. Анализ", p2_desc:"Изучение процессов, подбор архитектуры и согласование плана реализации.",
-    p3_title:"3. Разработка", p3_desc:"Написание кода, настройка AI-моделей, связка вебхуков и тестирование сценариев.",
-    p4_title:"4. Запуск", p4_desc:"Деплой на продакшен, интеграция в существующие системы и ввод в эксплуатацию.",
-    p5_title:"5. Поддержка", p5_desc:"Мониторинг, оперативные обновления и масштабирование под растущие нагрузки.",
+    p1_title:"1. Заявка", p1_desc:"Пишете в Telegram — коротко о задаче: бот, сайт, переезд или машина. Отвечаю в течение дня.",
+    p2_title:"2. Разбор задачи", p2_desc:"Уточняю детали под ваше направление — архитектуру бота, юридические нюансы или параметры авто — и называю сроки со стоимостью.",
+    p3_title:"3. Работа без посредников", p3_desc:"Делаю сам: пишу код, готовлю документы или ищу нужный автомобиль — без передачи задачи на сторону.",
+    p4_title:"4. Сдача результата", p4_desc:"Бот в проде, документы на руках, авто растаможено — показываю, как всё работает, и передаю доступы.",
+    p5_title:"5. Сопровождение", p5_desc:"Остаюсь на связи после сдачи — от правок в коде до вопроса по продлению ВНЖ.",
     why_tag:"ADVANTAGES", why_title:"Почему выбирают меня",
-    w1_title:"Скорость", w1_desc:"Быстрый запуск первых рабочих версий решений без бюрократии и задержек.",
-    w2_title:"AI-first подход", w2_desc:"Фокус на внедрении искусственного интеллекта для исключения рутины и сокращения издержек.",
-    w3_title:"Без посредников", w3_desc:"Прямой контакт с инженером-разработчиком — прозрачная коммуникация на каждом этапе.",
-    w4_title:"Современные технологии", w4_desc:"LLM-агенты, Make, n8n, современные web-фреймворки — актуальный стек, а не шаблоны.",
-    w5_title:"Живу в Грузии", w5_desc:"Не консультант из другой страны — знаю рынок и процессы изнутри, каждый день.",
-    w6_title:"Поддержка после запуска", w6_desc:"Гарантия стабильности систем и помощь в решении вопросов после передачи проекта.",
+    w1_title:"Один человек, а не агентство", w1_desc:"Общаетесь напрямую со мной на всех этапах — без менеджеров-прокладок и испорченного телефона.",
+    w2_title:"Разные задачи — одна точка входа", w2_desc:"Не нужно отдельно искать программиста, юриста по релокации и перегонщика авто — закрываю это сам.",
+    w3_title:"Знаю процесс изнутри", w3_desc:"Сам проходил регистрацию бизнеса и открытие счёта в Грузии — не пересказываю статьи, а знаю нюансы на практике.",
+    w4_title:"Современный стек", w4_desc:"LLM-агенты, Make, n8n — те же инструменты, что используют крупные automation-студии.",
+    w5_title:"Прозрачные сроки и цена", w5_desc:"Называю стоимость и сроки после разбора задачи — без сюрпризов в процессе работы.",
+    w6_title:"На связи и после сдачи", w6_desc:"Мониторинг ботов, помощь с документами или машиной не заканчивается в день передачи проекта.",
     contact_tag:"GET IN TOUCH", contact_title:"Есть идея? Давайте превратим её в работающий продукт.",
     contact_desc:"Напишите пару слов о задаче — отвечу и предложу эффективный маршрут решения.",
     btn_telegram:"Написать в Telegram",
@@ -76,7 +76,7 @@ const i18n = {
     ai_text:"ALEX AI: Онлайн. Задать вопрос →"
   },
   en: {
-    nav_services:"Services", nav_expats:"For Expats", nav_auto:"Cars", nav_cases:"Cases", nav_why:"Why me", nav_cta:"Message →",
+    nav_services:"Services", nav_expats:"For Expats", nav_auto:"Cars", nav_cases:"Cases", nav_process:"Process", nav_why:"Why me", nav_cta:"Message →",
     hero_tag:"AI & AUTOMATION SPECIALIST",
     hero_h1:'Automating business.<br><span class="accent">Building AI</span> that works instead of a department.',
     hero_sub:"Telegram bots · AI agents · Make/n8n automation · Websites · Expats in Georgia · Car sourcing",
@@ -132,18 +132,18 @@ const i18n = {
     c6_result:"→ Suppliers and buyers of parts, in one place",
 
     process_tag:"WORKFLOW", process_title:"How the work happens",
-    p1_title:"1. Request", p1_desc:"Initial contact, capturing the task and defining the project's main goals.",
-    p2_title:"2. Analysis", p2_desc:"Studying processes, choosing an architecture, agreeing on an implementation plan.",
-    p3_title:"3. Build", p3_desc:"Writing code, configuring AI models, wiring webhooks, and testing scenarios.",
-    p4_title:"4. Launch", p4_desc:"Production deployment, integration into existing systems, and going live.",
-    p5_title:"5. Support", p5_desc:"Monitoring, prompt updates, and scaling as load grows.",
+    p1_title:"1. Request", p1_desc:"Message me on Telegram — a short note on the task: a bot, a site, relocation, or a car. I reply within a day.",
+    p2_title:"2. Breaking it down", p2_desc:"I clarify the details for your specific case — bot architecture, legal nuances, or car specs — and give you a timeline and price.",
+    p3_title:"3. No middlemen", p3_desc:"I do it myself: write the code, prepare the paperwork, or source the car — nothing gets handed off to a subcontractor.",
+    p4_title:"4. Handover", p4_desc:"Bot's in production, paperwork's in hand, the car's cleared customs — I walk you through it and hand over access.",
+    p5_title:"5. Ongoing support", p5_desc:"I stay reachable after handover — from a code fix to a question about renewing residency.",
     why_tag:"ADVANTAGES", why_title:"Why work with me",
-    w1_title:"Speed", w1_desc:"Fast launch of the first working versions, without bureaucracy or delays.",
-    w2_title:"AI-first approach", w2_desc:"Focused on deploying AI to remove routine work and cut costs.",
-    w3_title:"No middlemen", w3_desc:"Direct contact with the engineer — transparent communication at every step.",
-    w4_title:"Modern stack", w4_desc:"LLM agents, Make, n8n, modern web frameworks — a current stack, not templates.",
-    w5_title:"Based in Georgia", w5_desc:"Not a consultant from another country — I know the market and process firsthand, every day.",
-    w6_title:"Support after launch", w6_desc:"Guaranteed system stability and help with anything after handover.",
+    w1_title:"One person, not an agency", w1_desc:"You talk to me directly at every stage — no account managers, no telephone game.",
+    w2_title:"Different needs, one contact", w2_desc:"No need to separately find a developer, a relocation lawyer, and a car broker — I cover this myself.",
+    w3_title:"I know the process firsthand", w3_desc:"I've personally gone through business registration and opening a bank account in Georgia — not repeating articles, I know the actual nuances.",
+    w4_title:"Modern stack", w4_desc:"LLM agents, Make, n8n — the same tools used by large automation studios.",
+    w5_title:"Transparent price and timeline", w5_desc:"I quote cost and timeline after breaking down the task — no surprises mid-project.",
+    w6_title:"Reachable after handover", w6_desc:"Monitoring bots, helping with paperwork or a car doesn't stop the day the project is delivered.",
     contact_tag:"GET IN TOUCH", contact_title:"Have an idea? Let's turn it into a working product.",
     contact_desc:"Send a few words about the task — I'll reply with an effective route to solve it.",
     btn_telegram:"Message on Telegram",
@@ -151,7 +151,7 @@ const i18n = {
     ai_text:"ALEX AI: Online. Ask a question →"
   },
   ka: {
-    nav_services:"სერვისები", nav_expats:"ექსპატებს", nav_auto:"ავტო", nav_cases:"ქეისები", nav_why:"რატომ მე", nav_cta:"დაწერეთ →",
+    nav_services:"სერვისები", nav_expats:"ექსპატებს", nav_auto:"ავტო", nav_cases:"ქეისები", nav_process:"პროცესი", nav_why:"რატომ მე", nav_cta:"დაწერეთ →",
     hero_tag:"AI & AUTOMATION SPECIALIST",
     hero_h1:'ვაავტომატიზირებ ბიზნესს.<br><span class="accent">ვქმნი AI-ს</span>, რომელიც განყოფილების ნაცვლად მუშაობს.',
     hero_sub:"Telegram ბოტები · AI აგენტები · Make/n8n · საიტები · ექსპატებს საქართველოში · ავტო",
@@ -205,18 +205,18 @@ const i18n = {
     c6_result:"→ მომწოდებლები და მყიდველები ერთად",
 
     process_tag:"WORKFLOW", process_title:"როგორ მიმდინარეობს სამუშაო",
-    p1_title:"1. განაცხადი", p1_desc:"პირველადი კონტაქტი და მიზნების განსაზღვრა.",
-    p2_title:"2. ანალიზი", p2_desc:"პროცესების შესწავლა და არქიტექტურის შერჩევა.",
-    p3_title:"3. დეველოპმენტი", p3_desc:"კოდის წერა, AI მოდელების კონფიგურაცია, ტესტირება.",
-    p4_title:"4. გაშვება", p4_desc:"დეპლოი და ინტეგრაცია არსებულ სისტემებში.",
-    p5_title:"5. მხარდაჭერა", p5_desc:"მონიტორინგი და მასშტაბირება.",
+    p1_title:"1. განაცხადი", p1_desc:"დამიწერეთ Telegram-ში ამოცანის შესახებ — ბოტი, საიტი, გადმოსახლება თუ მანქანა. ვპასუხობ დღის განმავლობაში.",
+    p2_title:"2. ამოცანის დაზუსტება", p2_desc:"ვაზუსტებ დეტალებს თქვენი მიმართულებით და ვასახელებ ვადებსა და ღირებულებას.",
+    p3_title:"3. შუამავლების გარეშე", p3_desc:"ყველაფერს ვაკეთებ თვითონ — კოდი, დოკუმენტები ან მანქანის ძებნა.",
+    p4_title:"4. ჩაბარება", p4_desc:"ბოტი მუშაობს, დოკუმენტები მზადაა, მანქანა განბაჟებულია — გადმოგცემთ წვდომებს.",
+    p5_title:"5. მხარდაჭერა", p5_desc:"ხელმისაწვდომი ვრჩები ჩაბარების შემდეგაც.",
     why_tag:"ADVANTAGES", why_title:"რატომ მირჩევენ",
-    w1_title:"სისწრაფე", w1_desc:"სამუშაო ვერსიების სწრაფი გაშვება.",
-    w2_title:"AI-first მიდგომა", w2_desc:"ფოკუსი AI-ის დანერგვაზე.",
-    w3_title:"შუამავლების გარეშე", w3_desc:"პირდაპირი კონტაქტი ინჟინერთან.",
-    w4_title:"თანამედროვე სტეკი", w4_desc:"LLM აგენტები, Make, n8n.",
-    w5_title:"ვცხოვრობ საქართველოში", w5_desc:"ვიცნობ ბაზარს შიგნიდან, ყოველდღე.",
-    w6_title:"მხარდაჭერა გაშვების შემდეგ", w6_desc:"სისტემების სტაბილურობის გარანტია.",
+    w1_title:"ერთი ადამიანი, არა სააგენტო", w1_desc:"პირდაპირი კონტაქტი ჩემთან ყველა ეტაპზე.",
+    w2_title:"სხვადასხვა ამოცანა — ერთი წერტილი", w2_desc:"არ გჭირდებათ ცალკე პროგრამისტი, იურისტი და ავტოგადამზიდველი.",
+    w3_title:"ვიცნობ პროცესს შიგნიდან", w3_desc:"თვითონ გავიარე ბიზნესის რეგისტრაცია და ანგარიშის გახსნა საქართველოში.",
+    w4_title:"თანამედროვე სტეკი", w4_desc:"LLM აგენტები, Make, n8n — იგივე ხელსაწყოები, რასაც დიდი სტუდიები იყენებენ.",
+    w5_title:"გამჭვირვალე ფასი და ვადები", w5_desc:"ვასახელებ ღირებულებას ამოცანის დაზუსტების შემდეგ.",
+    w6_title:"ხელმისაწვდომი ჩაბარების შემდეგაც", w6_desc:"მონიტორინგი და დახმარება არ სრულდება ჩაბარების დღეს.",
     contact_tag:"GET IN TOUCH", contact_title:"გაქვთ იდეა? გადავაქციოთ ის მუშა პროდუქტად.",
     contact_desc:"მოგვწერეთ ამოცანის შესახებ — შემოგთავაზებთ გადაწყვეტის მარშრუტს.",
     btn_telegram:"Telegram-ში დაწერა",
@@ -224,7 +224,7 @@ const i18n = {
     ai_text:"ALEX AI: ონლაინ →"
   },
   ua: {
-    nav_services:"Послуги", nav_expats:"Експатам", nav_auto:"Авто", nav_cases:"Кейси", nav_why:"Чому я", nav_cta:"Написати →",
+    nav_services:"Послуги", nav_expats:"Експатам", nav_auto:"Авто", nav_cases:"Кейси", nav_process:"Процес", nav_why:"Чому я", nav_cta:"Написати →",
     hero_tag:"AI & AUTOMATION SPECIALIST",
     hero_h1:'Автоматизую бізнес.<br><span class="accent">Створюю AI</span>, який працює замість відділу.',
     hero_sub:"Telegram-боти · AI-агенти · Make/n8n · Сайти · Експатам у Грузії · Авто під ключ",
@@ -278,18 +278,18 @@ const i18n = {
     c6_result:"→ Постачальники й покупці в одному місці",
 
     process_tag:"WORKFLOW", process_title:"Як відбувається робота",
-    p1_title:"1. Заявка", p1_desc:"Перший контакт і визначення головних цілей проєкту.",
-    p2_title:"2. Аналіз", p2_desc:"Вивчення процесів і підбір архітектури.",
-    p3_title:"3. Розробка", p3_desc:"Написання коду, налаштування AI-моделей, тестування.",
-    p4_title:"4. Запуск", p4_desc:"Деплой і інтеграція в існуючі системи.",
-    p5_title:"5. Підтримка", p5_desc:"Моніторинг і масштабування.",
+    p1_title:"1. Заявка", p1_desc:"Пишете в Telegram коротко про задачу — бот, сайт, переїзд чи авто. Відповідаю протягом дня.",
+    p2_title:"2. Розбір задачі", p2_desc:"Уточнюю деталі під ваш напрямок і називаю строки з вартістю.",
+    p3_title:"3. Без посередників", p3_desc:"Роблю сам: код, документи або пошук авто — без передачі на аутсорс.",
+    p4_title:"4. Передача результату", p4_desc:"Бот у проді, документи на руках, авто розмитнене — передаю доступи.",
+    p5_title:"5. Супровід", p5_desc:"Залишаюсь на зв'язку і після здачі проєкту.",
     why_tag:"ADVANTAGES", why_title:"Чому обирають мене",
-    w1_title:"Швидкість", w1_desc:"Швидкий запуск перших робочих версій.",
-    w2_title:"AI-first підхід", w2_desc:"Фокус на впровадженні AI.",
-    w3_title:"Без посередників", w3_desc:"Прямий контакт з інженером.",
-    w4_title:"Сучасні технології", w4_desc:"LLM-агенти, Make, n8n.",
-    w5_title:"Живу в Грузії", w5_desc:"Знаю ринок зсередини, щодня.",
-    w6_title:"Підтримка після запуску", w6_desc:"Гарантія стабільності систем.",
+    w1_title:"Одна людина, не агенція", w1_desc:"Спілкуєтесь напряму зі мною на всіх етапах.",
+    w2_title:"Різні задачі — одна точка входу", w2_desc:"Не треба окремо шукати розробника, юриста й перегонщика авто.",
+    w3_title:"Знаю процес зсередини", w3_desc:"Сам реєстрував бізнес і відкривав рахунок у Грузії.",
+    w4_title:"Сучасний стек", w4_desc:"LLM-агенти, Make, n8n — інструменти великих automation-студій.",
+    w5_title:"Прозорі строки і ціна", w5_desc:"Називаю вартість після розбору задачі, без сюрпризів.",
+    w6_title:"На зв'язку і після здачі", w6_desc:"Моніторинг і допомога не закінчуються в день передачі проєкту.",
     contact_tag:"GET IN TOUCH", contact_title:"Є ідея? Перетворімо її на робочий продукт.",
     contact_desc:"Напишіть кілька слів про задачу — відповім і запропоную маршрут рішення.",
     btn_telegram:"Написати в Telegram",
@@ -391,14 +391,24 @@ animateParticles();
 const termInteractive = document.getElementById('term-interactive');
 let termTimeoutId = null;
 
+let termRunId = 0;
 function restartTerminal(){
   if(termTimeoutId) clearTimeout(termTimeoutId);
+  termRunId++;
+  const myRun = termRunId;
   termInteractive.innerHTML = '';
   let lineIdx = 0, charIdx = 0;
   const lines = i18n[currentLang].term;
   function typeLine(){
+    if(myRun !== termRunId) return; // a newer run (language switch) superseded this one
     if(lineIdx >= lines.length){
-      termInteractive.innerHTML += '<span class="term-caret"></span>';
+      // loop forever: pause, clear, restart from the top — the terminal never goes idle/fades
+      termTimeoutId = setTimeout(()=>{
+        if(myRun !== termRunId) return;
+        termInteractive.innerHTML = '';
+        lineIdx = 0; charIdx = 0;
+        typeLine();
+      }, 2200);
       return;
     }
     const line = lines[lineIdx];
@@ -407,6 +417,7 @@ function restartTerminal(){
       termInteractive.innerHTML += `<div class="term-line-${lineIdx}"></div>`;
     }
     const target = document.querySelector(`.term-line-${lineIdx}`);
+    if(!target){ return; }
     if(charIdx < line.length){
       target.textContent = line.slice(0, charIdx+1);
       if(isOutput) target.classList.add('term-highlight');
@@ -449,21 +460,22 @@ class BgField {
   spawn() {
     return {
       x: Math.random() * this.canvas.width, y: Math.random() * this.canvas.height,
-      vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
-      size: this.shape === 'cube' ? (6 + Math.random() * 10) : (1.6 + Math.random() * 2),
-      rot: Math.random() * Math.PI * 2, rotSpeed: (Math.random() - 0.5) * 0.01,
+      vx: (Math.random() - 0.5) * 0.55, vy: (Math.random() - 0.5) * 0.55,
+      size: this.shape === 'cube' ? (6 + Math.random() * 10) : (1.8 + Math.random() * 2.2),
+      rot: Math.random() * Math.PI * 2, rotSpeed: (Math.random() - 0.5) * 0.018,
       color: this.colors[Math.floor(Math.random() * this.colors.length)],
-      opacity: 0.25 + Math.random() * 0.35
+      opacity: 0.3 + Math.random() * 0.4
     };
   }
   step() {
     const { ctx, canvas } = this;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // constellation links — wider reach and brighter so the "connected dots" effect actually reads
     for (let i = 0; i < this.items.length; i++) for (let j = i + 1; j < this.items.length; j++) {
       const a = this.items[i], b = this.items[j];
       const dx = a.x - b.x, dy = a.y - b.y, dist = Math.sqrt(dx*dx+dy*dy);
-      if (dist < 160) {
-        ctx.strokeStyle = a.color.replace(')', `, ${0.10*(1-dist/160)})`).replace('rgb','rgba');
+      if (dist < 220) {
+        ctx.strokeStyle = a.color.replace(')', `, ${0.22*(1-dist/220)})`).replace('rgb','rgba');
         ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
       }
     }
@@ -502,7 +514,8 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.fromTo('.hero-content > *', { opacity:0, y:28 }, { opacity:1, y:0, duration:0.9, ease:'power3.out', stagger:0.12, delay:0.2 });
 gsap.fromTo('.terminal-window', { opacity:0, y:40, scale:0.96 }, { opacity:1, y:0, scale:1, duration:1, ease:'power3.out', delay:0.4 });
 gsap.to('.hero-content', { yPercent:-12, opacity:0.3, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
-gsap.to('.terminal-window', { yPercent:-6, scale:0.94, opacity:0.4, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
+/* terminal window stays fully visible while scrolling — only a tiny parallax drift, no fade */
+gsap.to('.terminal-window', { yPercent:-4, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
 gsap.to('#hero-canvas', { yPercent:15, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
 
 document.querySelectorAll('.cine-section').forEach(sec => {
