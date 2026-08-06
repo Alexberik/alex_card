@@ -147,3 +147,24 @@ footer.site-foot { text-align:center; padding: 40px 24px 60px; font-family:'JetB
   .nav-links { display: none; }
   section { padding: 90px 20px; }
 }
+
+/* ================= v6 additions ================= */
+
+/* language switcher in nav */
+.langs { display:flex; gap:4px; margin-left: 18px; }
+.langs button { background: transparent; border: 1px solid var(--card-border); color: var(--text-muted);
+  padding: 6px 10px; border-radius: 6px; cursor: pointer; font-family:'JetBrains Mono',monospace; font-size: 11px; transition: all .2s; }
+.langs button.active { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+.langs button:hover { border-color: var(--card-border-hover); }
+
+/* per-section themed animated background canvas */
+section { position: relative; overflow: hidden; }
+.section-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .8; }
+section#stats, section#contact { overflow: visible; }
+
+/* cinematic scale-in wrapper for whole sections */
+.cine-section { will-change: transform, opacity; }
+
+/* subtle top/bottom fade mask so section backgrounds blend with the page bg */
+.section-bg-mask { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(var(--bg), transparent 18%, transparent 82%, var(--bg)); }

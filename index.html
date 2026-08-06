@@ -25,12 +25,20 @@
     <div class="hwrap">
       <div class="brand"><span class="brand-dot"></span> ALEX // AI ENGINEER</div>
       <ul class="nav-links">
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#cases">Кейсы</a></li>
-        <li><a href="#process">Процесс</a></li>
-        <li><a href="#why">Преимущества</a></li>
+        <li><a href="#services" data-i18n="nav_services"></a></li>
+        <li><a href="#cases" data-i18n="nav_cases"></a></li>
+        <li><a href="#process" data-i18n="nav_process"></a></li>
+        <li><a href="#why" data-i18n="nav_why"></a></li>
       </ul>
-      <a href="https://t.me/alex_berik" target="_blank" class="nav-cta">Написать →</a>
+      <div style="display:flex;align-items:center;">
+        <a href="https://t.me/alex_berik" target="_blank" class="nav-cta" data-i18n="nav_cta"></a>
+        <div class="langs">
+          <button data-lang="ru" class="active">RU</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="ka">KA</button>
+          <button data-lang="ua">UA</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -38,12 +46,12 @@
   <section class="hero">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
-      <div class="section-tag">AI & AUTOMATION SPECIALIST</div>
-      <h1>Автоматизирую бизнес.<br><span class="accent">Строю AI</span>, который работает вместо отдела.</h1>
-      <p class="hero-subtitle">Telegram-боты · AI-агенты · Автоматизация Make/n8n · Сайты · Продвижение</p>
+      <div class="section-tag" data-i18n="hero_tag"></div>
+      <h1 data-i18n-html="hero_h1"></h1>
+      <p class="hero-subtitle" data-i18n="hero_sub"></p>
       <div class="hero-btns">
-        <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="rocket"></i> Обсудить проект</a>
-        <a href="#cases" class="btn btn-secondary"><i data-lucide="folder-kanban"></i> Смотреть кейсы</a>
+        <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="rocket"></i> <span data-i18n="btn_discuss"></span></a>
+        <a href="#cases" class="btn btn-secondary"><i data-lucide="folder-kanban"></i> <span data-i18n="btn_cases"></span></a>
       </div>
     </div>
 
@@ -63,130 +71,136 @@
   </section>
 
   <!-- Экран 2: Цифры -->
-  <section id="stats">
+  <section id="stats" class="cine-section">
+    <canvas class="section-bg" data-theme="cubes-cyan"></canvas>
     <div class="stats-grid">
-      <div class="glass-card stat-card"><div class="stat-num" data-target="100">0<span class="accent">+</span></div><div class="stat-label">Автоматизаций</div></div>
-      <div class="glass-card stat-card"><div class="stat-num" data-target="20">0<span class="accent">+</span></div><div class="stat-label">Сайтов и ботов</div></div>
-      <div class="glass-card stat-card"><div class="stat-num" data-target="4">0</div><div class="stat-label">Ключевых направления</div></div>
-      <div class="glass-card stat-card"><div class="stat-num">24<span class="accent">/7</span></div><div class="stat-label">Поддержка и мониторинг</div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="100">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat1"></div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="20">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat2"></div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="4">0</div><div class="stat-label" data-i18n="stat3"></div></div>
+      <div class="glass-card stat-card"><div class="stat-num">24<span class="accent">/7</span></div><div class="stat-label" data-i18n="stat4"></div></div>
     </div>
   </section>
 
   <!-- Экран 3: Чем занимаюсь -->
-  <section id="services">
-    <div class="section-tag reveal">SERVICES</div>
-    <h2 class="section-title">Чем занимаюсь</h2>
+  <section id="services" class="cine-section">
+    <canvas class="section-bg" data-theme="cubes-cyan"></canvas>
+    <div class="section-tag reveal" data-i18n="services_tag"></div>
+    <h2 class="section-title" data-i18n="services_title"></h2>
     <div class="services-grid">
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="bot" size="32" class="icon"></i>
-        <h3>AI и автоматизация</h3>
-        <p>Telegram-боты и AI-агенты на LLM, сложные сценарии в Make и n8n, внедрение AI-инструментов в существующие процессы бизнеса.</p>
+        <h3 data-i18n="s1_title"></h3>
+        <p data-i18n="s1_desc"></p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="globe" size="32" class="icon"></i>
-        <h3>Легализация и бизнес в Грузии</h3>
-        <p>Открытие счёта в банке, бухгалтерия, регистрация ИП/компании, подбор недвижимости, оформление ПТД/ВНЖ.</p>
+        <h3 data-i18n="s2_title"></h3>
+        <p data-i18n="s2_desc"></p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="navigation" size="32" class="icon"></i>
-        <h3>Трансферы</h3>
-        <p>Встреча в аэропорту, поездки по городу и между городами, за рубеж по запросу — свой водитель под ваш график.</p>
+        <h3 data-i18n="s3_title"></h3>
+        <p data-i18n="s3_desc"></p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="car" size="32" class="icon"></i>
-        <h3>Авто под ключ</h3>
-        <p>Подбор на местном рынке, в Европе или на аукционах США — доставка, растаможка, диагностика, поиск сервиса.</p>
+        <h3 data-i18n="s4_title"></h3>
+        <p data-i18n="s4_desc"></p>
       </div>
     </div>
   </section>
 
   <!-- Экран 4: Кейсы -->
-  <section id="cases">
-    <div class="section-tag reveal">PORTFOLIO</div>
-    <h2 class="section-title">Кейсы и проекты</h2>
+  <section id="cases" class="cine-section">
+    <canvas class="section-bg" data-theme="dots-mixed"></canvas>
+    <div class="section-tag reveal" data-i18n="cases_tag"></div>
+    <h2 class="section-title" data-i18n="cases_title"></h2>
     <div class="cases-grid">
       <div class="glass-card case-card">
         <div class="case-tag">AI · Career</div>
         <h3>JobHunterAI</h3>
-        <p>Telegram-бот с AI: анализирует резюме, подбирает вакансии под профиль и автоматизирует первый контакт с работодателем.</p>
-        <div class="case-result">→ От поиска до отклика — без ручного перебора вакансий</div>
+        <p data-i18n="c1_desc"></p>
+        <div class="case-result" data-i18n="c1_result"></div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">AI · Marketplace</div>
         <h3>SellAI</h3>
-        <p>AI-агент для продаж на маркетплейсах (FB/Instagram): подбор товара, генерация карточек, анализ цен и конкурентов.</p>
-        <div class="case-result">→ Листинг и ценообразование — на автопилоте</div>
+        <p data-i18n="c2_desc"></p>
+        <div class="case-result" data-i18n="c2_result"></div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">Auto & Sourcing</div>
         <h3>PARTS24</h3>
-        <p>Автоматизированная экосистема подбора автозапчастей и интеграция поиска по аукционам.</p>
-        <div class="case-result">→ Поиск нужной детали за минуты, а не дни</div>
+        <p data-i18n="c3_desc"></p>
+        <div class="case-result" data-i18n="c3_result"></div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">AI Ecosystem</div>
         <h3>Telegram AI Bot</h3>
-        <p>Многоязычный бот-консультант с нейросетевым движком для автоквалификации входящих лидов.</p>
-        <div class="case-result">→ Лиды квалифицируются до звонка менеджера</div>
+        <p data-i18n="c4_desc"></p>
+        <div class="case-result" data-i18n="c4_result"></div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">Automation Engine</div>
-        <h3>Автоматизация бизнеса</h3>
-        <p>Сквозная сборка процессов на Make и n8n: счета, CRM и поддержка клиентов без человеческих ошибок.</p>
-        <div class="case-result">→ Рутина закрыта без найма отдела</div>
+        <h3 data-i18n="c5_title"></h3>
+        <p data-i18n="c5_desc"></p>
+        <div class="case-result" data-i18n="c5_result"></div>
       </div>
       <div class="glass-card case-card">
         <div class="case-tag">Web Development</div>
-        <h3>Landing Page & Web App</h3>
-        <p>Высококонверсионные и быстрые веб-страницы с интегрированной аналитикой и приёмом заявок.</p>
-        <div class="case-result">→ Сайт, который реально приводит заявки</div>
+        <h3 data-i18n="c6_title"></h3>
+        <p data-i18n="c6_desc"></p>
+        <div class="case-result" data-i18n="c6_result"></div>
       </div>
     </div>
   </section>
 
   <!-- Экран 5: Как проходит работа -->
-  <section id="process">
-    <div class="section-tag reveal">WORKFLOW</div>
-    <h2 class="section-title">Как проходит работа</h2>
+  <section id="process" class="cine-section">
+    <canvas class="section-bg" data-theme="dots-violet"></canvas>
+    <div class="section-tag reveal" data-i18n="process_tag"></div>
+    <h2 class="section-title" data-i18n="process_title"></h2>
     <div class="timeline" id="timeline">
       <div class="timeline-progress" id="timeline-progress"></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3>1. Заявка</h3><p>Первичная связь, фиксация задачи и определение главных целей проекта.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3>2. Анализ</h3><p>Изучение бизнес-процессов, подбор архитектуры и согласование плана реализации.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3>3. Разработка</h3><p>Написание кода, настройка AI-моделей, связка вебхуков и тестирование сценариев.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3>4. Запуск</h3><p>Деплой на продакшен, интеграция в существующие системы и ввод в эксплуатацию.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3>5. Поддержка</h3><p>Мониторинг 24/7, оперативные обновления и масштабирование под растущие нагрузки.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p1_title"></h3><p data-i18n="p1_desc"></p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p2_title"></h3><p data-i18n="p2_desc"></p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p3_title"></h3><p data-i18n="p3_desc"></p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p4_title"></h3><p data-i18n="p4_desc"></p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p5_title"></h3><p data-i18n="p5_desc"></p></div>
     </div>
   </section>
 
   <!-- Экран 6: Почему выбирают меня -->
-  <section id="why">
-    <div class="section-tag reveal">ADVANTAGES</div>
-    <h2 class="section-title">Почему выбирают меня</h2>
+  <section id="why" class="cine-section">
+    <canvas class="section-bg" data-theme="cubes-violet"></canvas>
+    <div class="section-tag reveal" data-i18n="why_tag"></div>
+    <h2 class="section-title" data-i18n="why_title"></h2>
     <div class="adv-grid">
-      <div class="glass-card"><h3>Скорость</h3><p>Быстрый запуск первых рабочих версий решений без бюрократии и задержек.</p></div>
-      <div class="glass-card"><h3>AI-first подход</h3><p>Фокус на внедрении искусственного интеллекта для исключения рутины и сокращения издержек.</p></div>
-      <div class="glass-card"><h3>Без посредников</h3><p>Прямой контакт с инженером-разработчиком — прозрачная коммуникация на каждом этапе.</p></div>
-      <div class="glass-card"><h3>Современные технологии</h3><p>LLM-агенты, Make, n8n, современные web-фреймворки — актуальный стек, а не шаблоны.</p></div>
-      <div class="glass-card"><h3>Работаю удалённо</h3><p>Гибкость взаимодействия из любой точки мира с прозрачными отчётами.</p></div>
-      <div class="glass-card"><h3>Поддержка после запуска</h3><p>Гарантия стабильности систем и помощь в решении вопросов после передачи проекта.</p></div>
+      <div class="glass-card"><h3 data-i18n="w1_title"></h3><p data-i18n="w1_desc"></p></div>
+      <div class="glass-card"><h3 data-i18n="w2_title"></h3><p data-i18n="w2_desc"></p></div>
+      <div class="glass-card"><h3 data-i18n="w3_title"></h3><p data-i18n="w3_desc"></p></div>
+      <div class="glass-card"><h3 data-i18n="w4_title"></h3><p data-i18n="w4_desc"></p></div>
+      <div class="glass-card"><h3 data-i18n="w5_title"></h3><p data-i18n="w5_desc"></p></div>
+      <div class="glass-card"><h3 data-i18n="w6_title"></h3><p data-i18n="w6_desc"></p></div>
     </div>
   </section>
 
   <!-- Экран 7: Контакты -->
-  <section id="contact">
+  <section id="contact" class="cine-section">
+    <canvas class="section-bg" data-theme="dots-converge"></canvas>
     <div class="glass-card contact-card reveal">
-      <div class="section-tag" style="justify-content:center;">GET IN TOUCH</div>
-      <h2>Есть идея? Давайте превратим её в работающий продукт.</h2>
-      <p>Напишите пару слов о задаче — отвечу и предложу эффективный маршрут решения.</p>
-      <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary" style="font-size:15.5px; padding: 17px 38px;"><i data-lucide="send"></i> Написать в Telegram</a>
+      <div class="section-tag" style="justify-content:center;" data-i18n="contact_tag"></div>
+      <h2 data-i18n="contact_title"></h2>
+      <p data-i18n="contact_desc"></p>
+      <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary" style="font-size:15.5px; padding: 17px 38px;"><i data-lucide="send"></i> <span data-i18n="btn_telegram"></span></a>
     </div>
   </section>
 
-  <footer class="site-foot">© 2026 ALEX · TBILISI, GE · +995 511 493 394</footer>
+  <footer class="site-foot" data-i18n="footer_text"></footer>
 
   <a href="https://t.me/alex_berik" target="_blank" class="ai-widget">
     <div class="ai-avatar"><i data-lucide="bot" size="17"></i></div>
-    <div class="ai-text">ALEX AI: Онлайн. Задать вопрос →</div>
+    <div class="ai-text" data-i18n="ai_text"></div>
   </a>
 
   <script src="script.js"></script>
