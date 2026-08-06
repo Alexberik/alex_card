@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ALEX // AI Engineer & Automation Specialist</title>
-  <meta name="description" content="Автоматизация, AI-агенты, Telegram-боты и сайты. Плюс легализация и бизнес в Грузии, трансферы, авто под ключ.">
+  <meta name="description" content="Автоматизация, AI-агенты, Telegram-боты и сайты. Легализация и бизнес в Грузии, трансферы, авто под ключ, продвижение.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,11 +26,12 @@
       <div class="brand"><span class="brand-dot"></span> ALEX // AI ENGINEER</div>
       <ul class="nav-links">
         <li><a href="#services" data-i18n="nav_services"></a></li>
+        <li><a href="#expats" data-i18n="nav_expats"></a></li>
+        <li><a href="#auto" data-i18n="nav_auto"></a></li>
         <li><a href="#cases" data-i18n="nav_cases"></a></li>
-        <li><a href="#process" data-i18n="nav_process"></a></li>
         <li><a href="#why" data-i18n="nav_why"></a></li>
       </ul>
-      <div style="display:flex;align-items:center;">
+      <div style="display:flex;align-items:center;gap:10px;">
         <a href="https://t.me/alex_berik" target="_blank" class="nav-cta" data-i18n="nav_cta"></a>
         <div class="langs">
           <button data-lang="ru" class="active">RU</button>
@@ -42,7 +43,7 @@
     </div>
   </header>
 
-  <!-- Экран 1: Hero -->
+  <!-- HERO -->
   <section class="hero">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
@@ -55,33 +56,29 @@
       </div>
     </div>
 
+    <!-- real "whoami" terminal, typed via JS from i18n.term array -->
     <div class="terminal-window">
       <div class="terminal-header">
         <div class="term-dot term-red"></div><div class="term-dot term-yellow"></div><div class="term-dot term-green"></div>
       </div>
       <div class="terminal-body" id="term-body">
-        <div><span class="term-cmd">alex@ai-engine:~$</span> init_agent --mode=production</div>
-        <div>[System] Connecting to LLM APIs... <span class="term-highlight">SUCCESS</span></div>
-        <div>[System] Loading Make / n8n workflows... <span class="term-highlight">OK</span></div>
-        <div>[System] Deploying AI Customer Support Agent...</div>
-        <div>&gt; Status: <span style="color:#27c93f;">ACTIVE (24/7 Monitoring)</span></div>
         <div id="term-interactive"></div>
       </div>
     </div>
   </section>
 
-  <!-- Экран 2: Цифры -->
+  <!-- STATS -->
   <section id="stats" class="cine-section">
     <canvas class="section-bg" data-theme="cubes-cyan"></canvas>
     <div class="stats-grid">
-      <div class="glass-card stat-card"><div class="stat-num" data-target="100">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat1"></div></div>
-      <div class="glass-card stat-card"><div class="stat-num" data-target="20">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat2"></div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="6">0</div><div class="stat-label" data-i18n="stat1"></div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="6">0</div><div class="stat-label" data-i18n="stat2"></div></div>
       <div class="glass-card stat-card"><div class="stat-num" data-target="4">0</div><div class="stat-label" data-i18n="stat3"></div></div>
       <div class="glass-card stat-card"><div class="stat-num">24<span class="accent">/7</span></div><div class="stat-label" data-i18n="stat4"></div></div>
     </div>
   </section>
 
-  <!-- Экран 3: Чем занимаюсь -->
+  <!-- SERVICES OVERVIEW -->
   <section id="services" class="cine-section">
     <canvas class="section-bg" data-theme="cubes-cyan"></canvas>
     <div class="section-tag reveal" data-i18n="services_tag"></div>
@@ -107,55 +104,82 @@
         <h3 data-i18n="s4_title"></h3>
         <p data-i18n="s4_desc"></p>
       </div>
+      <div class="glass-card service-card" data-tilt>
+        <i data-lucide="trending-up" size="32" class="icon"></i>
+        <h3 data-i18n="s5_title"></h3>
+        <p data-i18n="s5_desc"></p>
+      </div>
+      <div class="glass-card service-card" data-tilt>
+        <i data-lucide="file-text" size="32" class="icon"></i>
+        <h3 data-i18n="s6_title"></h3>
+        <p data-i18n="s6_desc"></p>
+      </div>
     </div>
   </section>
 
-  <!-- Экран 4: Кейсы -->
+  <!-- EXPATS DETAIL -->
+  <section id="expats" class="cine-section">
+    <canvas class="section-bg" data-theme="dots-violet"></canvas>
+    <div class="section-tag reveal" data-i18n="expats_tag"></div>
+    <h2 class="section-title" data-i18n="expats_title"></h2>
+    <p class="subgrid-note" data-i18n="expats_note"></p>
+    <div class="services-grid">
+      <div class="glass-card service-card" data-tilt><i data-lucide="plane-landing" size="30" class="icon"></i><h3 data-i18n="e1_title"></h3><p data-i18n="e1_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="briefcase" size="30" class="icon"></i><h3 data-i18n="e2_title"></h3><p data-i18n="e2_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="landmark" size="30" class="icon"></i><h3 data-i18n="e3_title"></h3><p data-i18n="e3_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="home" size="30" class="icon"></i><h3 data-i18n="e4_title"></h3><p data-i18n="e4_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="car-front" size="30" class="icon"></i><h3 data-i18n="e5_title"></h3><p data-i18n="e5_desc"></p></div>
+    </div>
+  </section>
+
+  <!-- AUTO DETAIL -->
+  <section id="auto" class="cine-section">
+    <canvas class="section-bg" data-theme="cubes-violet"></canvas>
+    <div class="section-tag reveal" data-i18n="auto_tag"></div>
+    <h2 class="section-title" data-i18n="auto_title"></h2>
+    <p class="subgrid-note" data-i18n="auto_note"></p>
+    <div class="services-grid">
+      <div class="glass-card service-card" data-tilt><i data-lucide="map-pin" size="30" class="icon"></i><h3 data-i18n="a1_title"></h3><p data-i18n="a1_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="ship" size="30" class="icon"></i><h3 data-i18n="a2_title"></h3><p data-i18n="a2_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="gavel" size="30" class="icon"></i><h3 data-i18n="a3_title"></h3><p data-i18n="a3_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="wrench" size="30" class="icon"></i><h3 data-i18n="a4_title"></h3><p data-i18n="a4_desc"></p></div>
+    </div>
+  </section>
+
+  <!-- CASES / REAL PROJECTS -->
   <section id="cases" class="cine-section">
     <canvas class="section-bg" data-theme="dots-mixed"></canvas>
     <div class="section-tag reveal" data-i18n="cases_tag"></div>
     <h2 class="section-title" data-i18n="cases_title"></h2>
     <div class="cases-grid">
       <div class="glass-card case-card">
-        <div class="case-tag">AI · Career</div>
-        <h3>JobHunterAI</h3>
-        <p data-i18n="c1_desc"></p>
-        <div class="case-result" data-i18n="c1_result"></div>
+        <div class="case-tag">AI · Career</div><h3>JobHunterAI</h3>
+        <p data-i18n="c1_desc"></p><div class="case-result" data-i18n="c1_result"></div>
       </div>
       <div class="glass-card case-card">
-        <div class="case-tag">AI · Marketplace</div>
-        <h3>SellAI</h3>
-        <p data-i18n="c2_desc"></p>
-        <div class="case-result" data-i18n="c2_result"></div>
+        <div class="case-tag">AI · Marketplace</div><h3>SellAI</h3>
+        <p data-i18n="c2_desc"></p><div class="case-result" data-i18n="c2_result"></div>
       </div>
       <div class="glass-card case-card">
-        <div class="case-tag">Auto & Sourcing</div>
-        <h3>PARTS24</h3>
-        <p data-i18n="c3_desc"></p>
-        <div class="case-result" data-i18n="c3_result"></div>
+        <div class="case-tag">Brand · Relocation</div><h3>MAGIC</h3>
+        <p data-i18n="c3_desc"></p><div class="case-result" data-i18n="c3_result"></div>
       </div>
       <div class="glass-card case-card">
-        <div class="case-tag">AI Ecosystem</div>
-        <h3>Telegram AI Bot</h3>
-        <p data-i18n="c4_desc"></p>
-        <div class="case-result" data-i18n="c4_result"></div>
+        <div class="case-tag">AI · Multi-agent</div><h3>AI-Office</h3>
+        <p data-i18n="c4_desc"></p><div class="case-result" data-i18n="c4_result"></div>
       </div>
       <div class="glass-card case-card">
-        <div class="case-tag">Automation Engine</div>
-        <h3 data-i18n="c5_title"></h3>
-        <p data-i18n="c5_desc"></p>
-        <div class="case-result" data-i18n="c5_result"></div>
+        <div class="case-tag">Content Automation</div><h3 data-i18n="c5_title"></h3>
+        <p data-i18n="c5_desc"></p><div class="case-result" data-i18n="c5_result"></div>
       </div>
       <div class="glass-card case-card">
-        <div class="case-tag">Web Development</div>
-        <h3 data-i18n="c6_title"></h3>
-        <p data-i18n="c6_desc"></p>
-        <div class="case-result" data-i18n="c6_result"></div>
+        <div class="case-tag">B2B Marketplace</div><h3 data-i18n="c6_title"></h3>
+        <p data-i18n="c6_desc"></p><div class="case-result" data-i18n="c6_result"></div>
       </div>
     </div>
   </section>
 
-  <!-- Экран 5: Как проходит работа -->
+  <!-- PROCESS -->
   <section id="process" class="cine-section">
     <canvas class="section-bg" data-theme="dots-violet"></canvas>
     <div class="section-tag reveal" data-i18n="process_tag"></div>
@@ -170,7 +194,7 @@
     </div>
   </section>
 
-  <!-- Экран 6: Почему выбирают меня -->
+  <!-- WHY -->
   <section id="why" class="cine-section">
     <canvas class="section-bg" data-theme="cubes-violet"></canvas>
     <div class="section-tag reveal" data-i18n="why_tag"></div>
@@ -185,7 +209,7 @@
     </div>
   </section>
 
-  <!-- Экран 7: Контакты -->
+  <!-- CONTACT -->
   <section id="contact" class="cine-section">
     <canvas class="section-bg" data-theme="dots-converge"></canvas>
     <div class="glass-card contact-card reveal">
@@ -193,6 +217,10 @@
       <h2 data-i18n="contact_title"></h2>
       <p data-i18n="contact_desc"></p>
       <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary" style="font-size:15.5px; padding: 17px 38px;"><i data-lucide="send"></i> <span data-i18n="btn_telegram"></span></a>
+      <div class="contact-links-row">
+        <a href="mailto:alexberik@gmail.com"><i data-lucide="mail" size="15"></i> alexberik@gmail.com</a>
+        <a href="tel:+995511493394"><i data-lucide="phone" size="15"></i> +995 511 493 394</a>
+      </div>
     </div>
   </section>
 
