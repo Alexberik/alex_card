@@ -1,3 +1,10 @@
+// ================= Cinematic beam reveal on load =================
+window.addEventListener('load', () => {
+  const beam = document.getElementById('beam-reveal');
+  requestAnimationFrame(() => { if (beam) beam.classList.add('animate'); });
+  setTimeout(() => { if (beam) beam.remove(); }, 1300);
+});
+
 // ================= i18n =================
 const i18n = {
   ru: {
@@ -19,6 +26,8 @@ const i18n = {
       "alex@tbilisi:~$ status",
       "> Открыт для новых проектов. Пишите в Telegram →"
     ],
+    divider1_title:'AI, который <span class="accent">работает</span>, пока вы спите',
+    divider2_title:'От идеи до запуска — <span class="accent">без посредников</span>',
     services_tag:"SERVICES", services_title:"Чем занимаюсь",
     s1_title:"AI и автоматизация", s1_desc:"Telegram-боты и AI-агенты на LLM, сценарии в Make и n8n, внедрение AI-инструментов в бизнес-процессы.",
     s2_title:"Легализация и бизнес в Грузии", s2_desc:"Переезд, регистрация ИП/компании, банковский счёт, ПТД/ВНЖ — полное сопровождение.",
@@ -94,6 +103,8 @@ const i18n = {
       "alex@tbilisi:~$ status",
       "> Open for new projects. Message on Telegram →"
     ],
+    divider1_title:'AI that <span class="accent">works</span> while you sleep',
+    divider2_title:'From idea to launch — <span class="accent">no middlemen</span>',
     services_tag:"SERVICES", services_title:"What I do",
     s1_title:"AI & automation", s1_desc:"Telegram bots and AI agents on LLMs, Make and n8n scenarios, deploying AI tools into business processes.",
     s2_title:"Legal setup & business in Georgia", s2_desc:"Relocation, company/IE registration, bank account, work permit / residency — full support.",
@@ -167,6 +178,8 @@ const i18n = {
       "alex@tbilisi:~$ status",
       "> ღიაა ახალი პროექტებისთვის. დაწერეთ Telegram-ში →"
     ],
+    divider1_title:'AI, რომელიც <span class="accent">მუშაობს</span> მაშინაც, როცა გძინავთ',
+    divider2_title:'იდეიდან გაშვებამდე — <span class="accent">შუამავლების გარეშე</span>',
     services_tag:"SERVICES", services_title:"რას ვაკეთებ",
     s1_title:"AI და ავტომატიზაცია", s1_desc:"Telegram ბოტები და AI აგენტები, Make და n8n სცენარები, AI ხელსაწყოების დანერგვა.",
     s2_title:"ლეგალიზაცია და ბიზნესი", s2_desc:"გადმოსახლება, ბიზნესის რეგისტრაცია, საბანკო ანგარიში, ნებართვა/ბინადრობა.",
@@ -240,6 +253,8 @@ const i18n = {
       "alex@tbilisi:~$ status",
       "> Відкритий для нових проєктів. Пишіть у Telegram →"
     ],
+    divider1_title:'AI, який <span class="accent">працює</span>, поки ви спите',
+    divider2_title:'Від ідеї до запуску — <span class="accent">без посередників</span>',
     services_tag:"SERVICES", services_title:"Чим займаюсь",
     s1_title:"AI та автоматизація", s1_desc:"Telegram-боти та AI-агенти, сценарії в Make і n8n, впровадження AI в бізнес-процеси.",
     s2_title:"Легалізація та бізнес у Грузії", s2_desc:"Переїзд, реєстрація бізнесу, банківський рахунок, дозвіл на роботу/ВНП.",
@@ -534,6 +549,10 @@ document.querySelectorAll('.reveal').forEach(el => {
       opacity:1, y:0, scale:1, duration:0.7, ease:'power3.out', stagger:0.08,
       scrollTrigger:{ trigger:grid, start:'top 82%', toggleActions:'play none none reverse' } });
   });
+});
+document.querySelectorAll('.neon-divider').forEach(div => {
+  gsap.fromTo(div, { opacity:0, scale:0.96 }, { opacity:1, scale:1, duration:1.1, ease:'power2.out',
+    scrollTrigger:{ trigger:div, start:'top 80%', toggleActions:'play none none reverse' } });
 });
 document.querySelectorAll('h2.section-title').forEach(h => {
   gsap.fromTo(h, { opacity:0, y:24 }, { opacity:1, y:0, duration:0.8, ease:'power3.out',
