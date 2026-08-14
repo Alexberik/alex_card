@@ -5,6 +5,31 @@ window.addEventListener('load', () => {
   setTimeout(() => { if (beam) beam.remove(); }, 1300);
 });
 
+// ================= Visit counter (countapi.mileshilliard.com — free, no auth) =================
+(function initVisitCounter(){
+  const COUNTER_KEY = 'alexberik_alexcard_visits';
+  const numEl = document.getElementById('visit-counter-num');
+  if (!numEl) return;
+
+  function animateCount(target){
+    let start = 0;
+    const duration = 900;
+    const startTime = performance.now();
+    function step(now){
+      const p = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      numEl.textContent = Math.round(eased * target).toLocaleString('ru-RU');
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  fetch(`https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`)
+    .then(r => r.json())
+    .then(data => { animateCount(parseInt(data.value, 10) || 0); })
+    .catch(() => { numEl.textContent = '—'; });
+})();
+
 // ================= i18n =================
 const i18n = {
   ru: {
@@ -15,15 +40,15 @@ const i18n = {
     btn_discuss:"Обсудить проект", btn_cases:"Смотреть кейсы",
     stat1:"Реализованных проектов", stat2:"Направлений услуг", stat3:"Языка интерфейса сайта", stat4:"Поддержка и мониторинг",
     term: [
-      "alex@tbilisi:~$ whoami",
-      "> Alex — AI Engineer & Automation Specialist. База: Тбилиси, Грузия.",
-      "alex@tbilisi:~$ ls ./projects",
+      "magic@tbilisi:~$ whoami",
+      "> MAGIC — AI Engineer & Automation Specialist. База: Тбилиси, Грузия.",
+      "magic@tbilisi:~$ ls ./projects",
       "> JobHunterAI · SellAI · MAGIC · AI-Office · Content-Farm · Auto-Parts-Marketplace",
-      "alex@tbilisi:~$ cat ./stack.txt",
+      "magic@tbilisi:~$ cat ./stack.txt",
       "> Make · n8n · Telegram Bot API · LLM-агенты · web-разработка",
-      "alex@tbilisi:~$ cat ./services.txt",
+      "magic@tbilisi:~$ cat ./services.txt",
       "> Автоматизация и AI · Экспатам в Грузии · Трансферы · Авто под ключ · Продвижение",
-      "alex@tbilisi:~$ status",
+      "magic@tbilisi:~$ status",
       "> Открыт для новых проектов. Пишите в Telegram →"
     ],
     divider1_title:'AI, который <span class="accent">работает</span>, пока вы спите',
@@ -51,7 +76,7 @@ const i18n = {
     a3_title:"Аукционы США", a3_desc:"Подбор на американских автоаукционах — расчёт полной стоимости с доставкой и пошлинами.",
     a4_title:"Диагностика и сервис", a4_desc:"Техническая проверка перед покупкой и поиск надёжного сервиса после.",
 
-    cases_tag:"PORTFOLIO", cases_title:"Кейсы и проекты",
+    cases_tag:"PORTFOLIO", cases_title:"Кейсы и проекты", case_more:"Подробнее →",
     c1_desc:"Telegram-бот с AI: анализирует резюме, подбирает вакансии под профиль и автоматизирует первый контакт с работодателем.",
     c1_result:"→ От поиска до отклика — без ручного перебора вакансий",
     c2_desc:"AI-агент для продаж на маркетплейсах (FB/Instagram): подбор товара, генерация карточек, анализ цен и конкурентов.",
@@ -64,6 +89,30 @@ const i18n = {
     c5_result:"→ Контент выходит по расписанию, а не от случая к случаю",
     c6_title:"Auto-Parts Marketplace", c6_desc:"B2B-приложение маркетплейса автозапчастей для грузинского рынка.",
     c6_result:"→ Поставщики и покупатели запчастей — в одном месте",
+    c7_title:"QR-меню", c7_desc:"Бесконтактное QR-меню с самообслуживанием и оплатой для ресторанов — заказ привязан к столику.",
+    c7_result:"→ Быстрее оборот столов, меньше нагрузка на персонал",
+    c1_problem:"Поиск работы отнимает часы — десятки вакансий, ручной отклик, никакого трекинга.",
+    c1_solution:"Telegram-бот на LLM: парсит jobs.ge и HH, подбирает вакансии под профиль, готовит отклик.",
+    c1_stack:"Python · aiogram 3 · OpenAI API · SQLite",
+    c2_problem:"Продажа товаров на маркетплейсах — рутина: фото, описание, цена, слежка за конкурентами.",
+    c2_solution:"AI-агент в Telegram: генерирует карточку из фото, следит за ценами, считает выгоду, напоминает об устаревших объявлениях.",
+    c2_stack:"Make.com · OpenAI API · Google Sheets",
+    c3_problem:"Экспатам сложно найти проверенного консультанта и разобраться в переезде.",
+    c3_solution:"TikTok-бренд аватара MAGIC — двуязычный контент (RU/EN) плюс консалтинг по релокации, авто и бизнесу.",
+    c3_stack:"TikTok · Контент-стратегия · Консалтинг",
+    c4_problem:"Ручной контроль над рутинными бизнес-процессами не масштабируется.",
+    c4_solution:"Концепция мультиагентного «AI-офиса»: менеджер + агенты-отделы с визуальной оргструктурой и постановкой задач.",
+    c4_stack:"AI-агенты · Оркестрация · Визуализация",
+    c5_problem:"Регулярный постинг контента на 4 платформы съедает время каждый день.",
+    c5_solution:"n8n-конвейер генерации контента для FB/TikTok/Instagram/YouTube с модерацией в Telegram перед публикацией.",
+    c5_stack:"n8n · AI-генерация · Telegram-модерация",
+    c6_problem:"Автосервисы и поставщики запчастей в Грузии ищут друг друга вручную.",
+    c6_solution:"B2B-маркетплейс на React Native: сервисы находят поставщиков, заказывают запчасти, курьер довозит через Bolt/Yango.",
+    c6_stack:"React Native · NestJS · PostgreSQL",
+    c7_problem:"Очереди у кассы и ручной приём заказов замедляют ресторан в пиковые часы.",
+    c7_solution:"QR-код на столе открывает меню, заказ привязывается к столику, интеграция с POS, оплата прямо в приложении — без ожидания официанта.",
+    c7_stack:"QR Ordering · POS-интеграция · In-app оплата",
+    modal_problem:"Задача", modal_solution:"Решение", modal_stack:"Стек", modal_result:"Результат", modal_link:"Открыть",
 
     process_tag:"WORKFLOW", process_title:"Как проходит работа",
     p1_title:"1. Заявка", p1_desc:"Пишете в Telegram — коротко о задаче: бот, сайт, переезд или машина. Отвечаю в течение дня.",
@@ -81,8 +130,9 @@ const i18n = {
     contact_tag:"GET IN TOUCH", contact_title:"Есть идея? Давайте превратим её в работающий продукт.",
     contact_desc:"Напишите пару слов о задаче — отвечу и предложу эффективный маршрут решения.",
     btn_telegram:"Написать в Telegram",
-    footer_text:"© 2026 ALEX · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
-    ai_text:"ALEX AI: Онлайн. Задать вопрос →"
+    visits_label:"Визитов на сайт:",
+    footer_text:"© 2026 MAGIC · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
+    ai_text:"MAGIC AI: Онлайн. Задать вопрос →"
   },
   en: {
     nav_services:"Services", nav_expats:"For Expats", nav_auto:"Cars", nav_cases:"Cases", nav_process:"Process", nav_why:"Why me", nav_cta:"Message →",
@@ -92,15 +142,15 @@ const i18n = {
     btn_discuss:"Discuss a project", btn_cases:"View cases",
     stat1:"Completed projects", stat2:"Service directions", stat3:"Site interface languages", stat4:"Support & monitoring",
     term: [
-      "alex@tbilisi:~$ whoami",
-      "> Alex — AI Engineer & Automation Specialist. Based in Tbilisi, Georgia.",
-      "alex@tbilisi:~$ ls ./projects",
+      "magic@tbilisi:~$ whoami",
+      "> MAGIC — AI Engineer & Automation Specialist. Based in Tbilisi, Georgia.",
+      "magic@tbilisi:~$ ls ./projects",
       "> JobHunterAI · SellAI · MAGIC · AI-Office · Content-Farm · Auto-Parts-Marketplace",
-      "alex@tbilisi:~$ cat ./stack.txt",
+      "magic@tbilisi:~$ cat ./stack.txt",
       "> Make · n8n · Telegram Bot API · LLM agents · web development",
-      "alex@tbilisi:~$ cat ./services.txt",
+      "magic@tbilisi:~$ cat ./services.txt",
       "> Automation & AI · Expats in Georgia · Transfers · Car sourcing · Promotion",
-      "alex@tbilisi:~$ status",
+      "magic@tbilisi:~$ status",
       "> Open for new projects. Message on Telegram →"
     ],
     divider1_title:'AI that <span class="accent">works</span> while you sleep',
@@ -128,7 +178,7 @@ const i18n = {
     a3_title:"US auctions", a3_desc:"Sourcing from US car auctions — full cost estimate with shipping and duties.",
     a4_title:"Diagnostics & service", a4_desc:"Pre-purchase technical inspection and finding a trustworthy service after.",
 
-    cases_tag:"PORTFOLIO", cases_title:"Cases & projects",
+    cases_tag:"PORTFOLIO", cases_title:"Cases & projects", case_more:"Details →",
     c1_desc:"An AI Telegram bot: analyzes resumes, matches jobs to the profile, and automates the first contact with employers.",
     c1_result:"→ From search to application — no manual scrolling through listings",
     c2_desc:"An AI agent for marketplace sales (FB/Instagram): product selection, listing generation, price and competitor analysis.",
@@ -141,6 +191,30 @@ const i18n = {
     c5_result:"→ Content ships on schedule, not by chance",
     c6_title:"Auto-Parts Marketplace", c6_desc:"A B2B auto parts marketplace app for the Georgian market.",
     c6_result:"→ Suppliers and buyers of parts, in one place",
+    c7_title:"QR Menu", c7_desc:"A contactless self-service QR menu with in-app payment for restaurants — orders tied to the table.",
+    c7_result:"→ Faster table turnover, less load on staff",
+    c1_problem:"Job hunting eats hours — dozens of listings, manual applications, zero tracking.",
+    c1_solution:"A Telegram bot powered by an LLM: parses jobs.ge and HH, matches listings to the profile, drafts the first message.",
+    c1_stack:"Python · aiogram 3 · OpenAI API · SQLite",
+    c2_problem:"Selling on marketplaces is a grind — photos, descriptions, pricing, watching competitors.",
+    c2_solution:"An AI agent in Telegram: builds a listing card from a photo, tracks prices, calculates margin, flags stale listings.",
+    c2_stack:"Make.com · OpenAI API · Google Sheets",
+    c3_problem:"Expats struggle to find a trustworthy consultant and make sense of relocating.",
+    c3_solution:"The MAGIC TikTok avatar brand — bilingual (RU/EN) content plus relocation, auto and business consulting.",
+    c3_stack:"TikTok · Content strategy · Consulting",
+    c4_problem:"Manual oversight of routine business processes doesn't scale.",
+    c4_solution:"A multi-agent \"AI office\" concept: a manager agent plus department agents with a visual org chart and task routing.",
+    c4_stack:"AI agents · Orchestration · Visualization",
+    c5_problem:"Posting content across 4 platforms daily eats the whole day.",
+    c5_solution:"An n8n content pipeline for FB/TikTok/Instagram/YouTube with Telegram moderation before anything publishes.",
+    c5_stack:"n8n · AI generation · Telegram moderation",
+    c6_problem:"Auto shops and parts suppliers in Georgia find each other by word of mouth.",
+    c6_solution:"A React Native B2B marketplace: shops find suppliers, order parts, courier delivery via Bolt/Yango.",
+    c6_stack:"React Native · NestJS · PostgreSQL",
+    c7_problem:"Queues at the register and manual order-taking slow a restaurant down at peak hours.",
+    c7_solution:"A QR code on the table opens the menu, the order is tied to that table, synced with the POS, paid right in the app — no waiting for a waiter.",
+    c7_stack:"QR ordering · POS integration · In-app payment",
+    modal_problem:"The problem", modal_solution:"The solution", modal_stack:"Stack", modal_result:"Result", modal_link:"Open",
 
     process_tag:"WORKFLOW", process_title:"How the work happens",
     p1_title:"1. Request", p1_desc:"Message me on Telegram — a short note on the task: a bot, a site, relocation, or a car. I reply within a day.",
@@ -158,8 +232,9 @@ const i18n = {
     contact_tag:"GET IN TOUCH", contact_title:"Have an idea? Let's turn it into a working product.",
     contact_desc:"Send a few words about the task — I'll reply with an effective route to solve it.",
     btn_telegram:"Message on Telegram",
-    footer_text:"© 2026 ALEX · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
-    ai_text:"ALEX AI: Online. Ask a question →"
+    visits_label:"Site visits:",
+    footer_text:"© 2026 MAGIC · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
+    ai_text:"MAGIC AI: Online. Ask a question →"
   },
   ka: {
     nav_services:"სერვისები", nav_expats:"ექსპატებს", nav_auto:"ავტო", nav_cases:"ქეისები", nav_process:"პროცესი", nav_why:"რატომ მე", nav_cta:"დაწერეთ →",
@@ -169,13 +244,13 @@ const i18n = {
     btn_discuss:"განვიხილოთ პროექტი", btn_cases:"ქეისების ნახვა",
     stat1:"დასრულებული პროექტი", stat2:"სერვისის მიმართულება", stat3:"საიტის ენა", stat4:"მხარდაჭერა",
     term: [
-      "alex@tbilisi:~$ whoami",
-      "> Alex — AI ინჟინერი და ავტომატიზაციის სპეციალისტი. თბილისი, საქართველო.",
-      "alex@tbilisi:~$ ls ./projects",
+      "magic@tbilisi:~$ whoami",
+      "> MAGIC — AI ინჟინერი და ავტომატიზაციის სპეციალისტი. თბილისი, საქართველო.",
+      "magic@tbilisi:~$ ls ./projects",
       "> JobHunterAI · SellAI · MAGIC · AI-Office · Content-Farm · Auto-Parts-Marketplace",
-      "alex@tbilisi:~$ cat ./services.txt",
+      "magic@tbilisi:~$ cat ./services.txt",
       "> ავტომატიზაცია და AI · ექსპატებს საქართველოში · ტრანსფერები · ავტო · პრომოუშენი",
-      "alex@tbilisi:~$ status",
+      "magic@tbilisi:~$ status",
       "> ღიაა ახალი პროექტებისთვის. დაწერეთ Telegram-ში →"
     ],
     divider1_title:'AI, რომელიც <span class="accent">მუშაობს</span> მაშინაც, როცა გძინავთ',
@@ -203,7 +278,7 @@ const i18n = {
     a3_title:"აშშ-ის აუქციონები", a3_desc:"შერჩევა ამერიკულ აუქციონებზე — სრული ღირებულების გათვლა.",
     a4_title:"დიაგნოსტიკა და სერვისი", a4_desc:"ტექნიკური შემოწმება ყიდვამდე და საიმედო სერვისის ძებნა.",
 
-    cases_tag:"PORTFOLIO", cases_title:"ქეისები და პროექტები",
+    cases_tag:"PORTFOLIO", cases_title:"ქეისები და პროექტები", case_more:"დეტალურად →",
     c1_desc:"AI Telegram ბოტი: აანალიზებს რეზიუმეს, არჩევს ვაკანსიებს, ავტომატიზირებს კონტაქტს დამსაქმებელთან.",
     c1_result:"→ ძიებიდან გამოხმაურებამდე ხელით გარჩევის გარეშე",
     c2_desc:"AI აგენტი მარკეტფლეისებზე გაყიდვისთვის — პროდუქტი, კარტები, ფასების ანალიზი.",
@@ -216,6 +291,30 @@ const i18n = {
     c5_result:"→ კონტენტი გამოდის გრაფიკით",
     c6_title:"Auto-Parts Marketplace", c6_desc:"B2B მარკეტფლეისი ავტონაწილებისთვის საქართველოს ბაზრისთვის.",
     c6_result:"→ მომწოდებლები და მყიდველები ერთად",
+    c7_title:"QR-მენიუ", c7_desc:"უკონტაქტო QR-მენიუ თვითმომსახურებით და გადახდით რესტორნებისთვის — შეკვეთა მიბმულია მაგიდაზე.",
+    c7_result:"→ მაგიდების უფრო სწრაფი ბრუნვა, ნაკლები დატვირთვა პერსონალზე",
+    c1_problem:"სამსახურის ძებნა საათებს იტაცებს — ათობით ვაკანსია, ხელით გამოხმაურება.",
+    c1_solution:"Telegram-ბოტი LLM-ზე: აანალიზებს jobs.ge და HH-ს, არჩევს ვაკანსიებს პროფილის მიხედვით.",
+    c1_stack:"Python · aiogram 3 · OpenAI API · SQLite",
+    c2_problem:"მარკეტფლეისებზე გაყიდვა რუტინაა — ფოტო, აღწერა, ფასი, კონკურენტები.",
+    c2_solution:"AI აგენტი Telegram-ში: ქმნის კარტს ფოტოდან, ადევნებს თვალს ფასებს და ამოწმებს მოძველებულ განცხადებებს.",
+    c2_stack:"Make.com · OpenAI API · Google Sheets",
+    c3_problem:"ექსპატებს უჭირთ სანდო კონსულტანტის პოვნა და გადაადგილების გარკვევა.",
+    c3_solution:"TikTok ავატარ-ბრენდი MAGIC — ორენოვანი კონტენტი (RU/EN) და კონსალტინგი გადაადგილებაზე, ავტოზე და ბიზნესზე.",
+    c3_stack:"TikTok · კონტენტ-სტრატეგია · კონსალტინგი",
+    c4_problem:"რუტინული ბიზნეს-პროცესების ხელით კონტროლი არ მასშტაბირდება.",
+    c4_solution:"მულტი-აგენტური „AI ოფისის“ კონცეფცია — მენეჯერი და განყოფილება-აგენტები ვიზუალური სქემით.",
+    c4_stack:"AI აგენტები · ორკესტრაცია · ვიზუალიზაცია",
+    c5_problem:"კონტენტის ყოველდღიური გამოქვეყნება 4 პლატფორმაზე დროს ჭამს.",
+    c5_solution:"n8n კონვეიერი FB/TikTok/Instagram/YouTube-სთვის, მოდერაცია Telegram-ში გამოქვეყნებამდე.",
+    c5_stack:"n8n · AI გენერაცია · Telegram მოდერაცია",
+    c6_problem:"საქართველოში სერვისები და მომწოდებლები ერთმანეთს ხელით პოულობენ.",
+    c6_solution:"B2B მარკეტფლეისი React Native-ზე — მომწოდებლების ძებნა, შეკვეთა, მიწოდება Bolt/Yango-თი.",
+    c6_stack:"React Native · NestJS · PostgreSQL",
+    c7_problem:"რიგები სალაროსთან და ხელით მიღებული შეკვეთები ანელებს რესტორანს პიკის საათებში.",
+    c7_solution:"QR კოდი მაგიდაზე ხსნის მენიუს, შეკვეთა ეკვრება მაგიდას, სინქრონიზდება POS-თან, გადახდა პირდაპირ აპში.",
+    c7_stack:"QR შეკვეთები · POS ინტეგრაცია · In-app გადახდა",
+    modal_problem:"ამოცანა", modal_solution:"გადაწყვეტა", modal_stack:"სტეკი", modal_result:"შედეგი", modal_link:"გახსნა",
 
     process_tag:"WORKFLOW", process_title:"როგორ მიმდინარეობს სამუშაო",
     p1_title:"1. განაცხადი", p1_desc:"დამიწერეთ Telegram-ში ამოცანის შესახებ — ბოტი, საიტი, გადმოსახლება თუ მანქანა. ვპასუხობ დღის განმავლობაში.",
@@ -233,8 +332,9 @@ const i18n = {
     contact_tag:"GET IN TOUCH", contact_title:"გაქვთ იდეა? გადავაქციოთ ის მუშა პროდუქტად.",
     contact_desc:"მოგვწერეთ ამოცანის შესახებ — შემოგთავაზებთ გადაწყვეტის მარშრუტს.",
     btn_telegram:"Telegram-ში დაწერა",
-    footer_text:"© 2026 ALEX · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
-    ai_text:"ALEX AI: ონლაინ →"
+    visits_label:"საიტის ვიზიტები:",
+    footer_text:"© 2026 MAGIC · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
+    ai_text:"MAGIC AI: ონლაინ →"
   },
   ua: {
     nav_services:"Послуги", nav_expats:"Експатам", nav_auto:"Авто", nav_cases:"Кейси", nav_process:"Процес", nav_why:"Чому я", nav_cta:"Написати →",
@@ -244,13 +344,13 @@ const i18n = {
     btn_discuss:"Обговорити проєкт", btn_cases:"Дивитись кейси",
     stat1:"Реалізованих проєктів", stat2:"Напрямків послуг", stat3:"Мови інтерфейсу сайту", stat4:"Підтримка й моніторинг",
     term: [
-      "alex@tbilisi:~$ whoami",
-      "> Alex — AI Engineer & Automation Specialist. База: Тбілісі, Грузія.",
-      "alex@tbilisi:~$ ls ./projects",
+      "magic@tbilisi:~$ whoami",
+      "> MAGIC — AI Engineer & Automation Specialist. База: Тбілісі, Грузія.",
+      "magic@tbilisi:~$ ls ./projects",
       "> JobHunterAI · SellAI · MAGIC · AI-Office · Content-Farm · Auto-Parts-Marketplace",
-      "alex@tbilisi:~$ cat ./services.txt",
+      "magic@tbilisi:~$ cat ./services.txt",
       "> Автоматизація та AI · Експатам у Грузії · Трансфери · Авто під ключ · Просування",
-      "alex@tbilisi:~$ status",
+      "magic@tbilisi:~$ status",
       "> Відкритий для нових проєктів. Пишіть у Telegram →"
     ],
     divider1_title:'AI, який <span class="accent">працює</span>, поки ви спите',
@@ -278,7 +378,7 @@ const i18n = {
     a3_title:"Аукціони США", a3_desc:"Підбір на американських аукціонах — повний розрахунок вартості.",
     a4_title:"Діагностика та сервіс", a4_desc:"Технічна перевірка перед купівлею та пошук надійного сервісу.",
 
-    cases_tag:"PORTFOLIO", cases_title:"Кейси та проєкти",
+    cases_tag:"PORTFOLIO", cases_title:"Кейси та проєкти", case_more:"Детальніше →",
     c1_desc:"AI Telegram-бот: аналізує резюме, підбирає вакансії, автоматизує перший контакт з роботодавцем.",
     c1_result:"→ Від пошуку до відгуку без ручного перебору",
     c2_desc:"AI-агент для продажів на маркетплейсах — товар, картки, аналіз цін.",
@@ -291,6 +391,30 @@ const i18n = {
     c5_result:"→ Контент виходить за розкладом",
     c6_title:"Auto-Parts Marketplace", c6_desc:"B2B маркетплейс автозапчастин для грузинського ринку.",
     c6_result:"→ Постачальники й покупці в одному місці",
+    c7_title:"QR-меню", c7_desc:"Безконтактне QR-меню із самообслуговуванням та оплатою для ресторанів — замовлення прив'язане до столика.",
+    c7_result:"→ Швидший оборот столів, менше навантаження на персонал",
+    c1_problem:"Пошук роботи забирає години — десятки вакансій, ручний відгук, жодного трекінгу.",
+    c1_solution:"Telegram-бот на LLM: аналізує jobs.ge та HH, підбирає вакансії під профіль, готує відгук.",
+    c1_stack:"Python · aiogram 3 · OpenAI API · SQLite",
+    c2_problem:"Продаж товарів на маркетплейсах — рутина: фото, опис, ціна, конкуренти.",
+    c2_solution:"AI-агент у Telegram: генерує картку з фото, стежить за цінами, рахує вигоду, нагадує про застарілі оголошення.",
+    c2_stack:"Make.com · OpenAI API · Google Sheets",
+    c3_problem:"Експатам важко знайти перевіреного консультанта і розібратись у переїзді.",
+    c3_solution:"TikTok-бренд аватара MAGIC — двомовний контент (RU/EN) і консалтинг з переїзду, авто та бізнесу.",
+    c3_stack:"TikTok · Контент-стратегія · Консалтинг",
+    c4_problem:"Ручний контроль рутинних бізнес-процесів не масштабується.",
+    c4_solution:"Концепція мультиагентного «AI-офісу»: менеджер + агенти-відділи з візуальною оргструктурою.",
+    c4_stack:"AI-агенти · Оркестрація · Візуалізація",
+    c5_problem:"Щоденний постинг контенту на 4 платформи забирає весь день.",
+    c5_solution:"n8n-конвеєр генерації контенту для FB/TikTok/Instagram/YouTube з модерацією в Telegram.",
+    c5_stack:"n8n · AI-генерація · Telegram-модерація",
+    c6_problem:"Автосервіси та постачальники запчастин у Грузії шукають одне одного вручну.",
+    c6_solution:"B2B-маркетплейс на React Native: сервіси знаходять постачальників, замовляють запчастини, кур'єр довозить через Bolt/Yango.",
+    c6_stack:"React Native · NestJS · PostgreSQL",
+    c7_problem:"Черги біля каси й ручний прийом замовлень сповільнюють ресторан у пікові години.",
+    c7_solution:"QR-код на столі відкриває меню, замовлення прив'язане до столика, синхронізація з POS, оплата прямо в застосунку.",
+    c7_stack:"QR-замовлення · POS-інтеграція · In-app оплата",
+    modal_problem:"Задача", modal_solution:"Рішення", modal_stack:"Стек", modal_result:"Результат", modal_link:"Відкрити",
 
     process_tag:"WORKFLOW", process_title:"Як відбувається робота",
     p1_title:"1. Заявка", p1_desc:"Пишете в Telegram коротко про задачу — бот, сайт, переїзд чи авто. Відповідаю протягом дня.",
@@ -308,12 +432,66 @@ const i18n = {
     contact_tag:"GET IN TOUCH", contact_title:"Є ідея? Перетворімо її на робочий продукт.",
     contact_desc:"Напишіть кілька слів про задачу — відповім і запропоную маршрут рішення.",
     btn_telegram:"Написати в Telegram",
-    footer_text:"© 2026 ALEX · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
-    ai_text:"ALEX AI: Онлайн →"
+    visits_label:"Візитів на сайт:",
+    footer_text:"© 2026 MAGIC · TBILISI, GE · alexberik@gmail.com · +995 511 493 394",
+    ai_text:"MAGIC AI: Онлайн →"
   }
 };
 
 let currentLang = 'ru';
+
+// ================= Case study modal =================
+const CASE_LINKS = {
+  1: { url:'https://github.com/Alexberik/JobhanterAI', labelKey:'modal_link' },
+  2: { url:'https://t.me/sellingai_bot', labelKey:'modal_link' },
+};
+let openCaseEl = null;
+
+function renderCaseModal(card){
+  if (!card) return;
+  const id = card.getAttribute('data-case');
+  const dict = i18n[currentLang];
+  const title = card.querySelector('h3')?.textContent || '';
+  const tag = card.querySelector('.case-tag')?.textContent || '';
+  const result = card.querySelector('.case-result')?.textContent || '';
+  document.getElementById('modal-tag').textContent = tag;
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-problem-label').textContent = dict.modal_problem;
+  document.getElementById('modal-problem').textContent = dict['c'+id+'_problem'] || '';
+  document.getElementById('modal-solution-label').textContent = dict.modal_solution;
+  document.getElementById('modal-solution').textContent = dict['c'+id+'_solution'] || '';
+  document.getElementById('modal-stack-label').textContent = dict.modal_stack;
+  document.getElementById('modal-stack').textContent = dict['c'+id+'_stack'] || '';
+  document.getElementById('modal-result-label').textContent = dict.modal_result;
+  document.getElementById('modal-result').textContent = result;
+  const linkEl = document.getElementById('modal-link');
+  const link = CASE_LINKS[id];
+  if (link) {
+    linkEl.href = link.url; linkEl.style.display = 'inline-flex';
+    linkEl.querySelector('span').textContent = dict[link.labelKey];
+  } else {
+    linkEl.style.display = 'none';
+  }
+}
+
+function openCaseModal(card){
+  openCaseEl = card;
+  renderCaseModal(card);
+  document.getElementById('case-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCaseModal(){
+  openCaseEl = null;
+  document.getElementById('case-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.case-card').forEach(card=>{
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', ()=> openCaseModal(card));
+});
+document.getElementById('modal-backdrop')?.addEventListener('click', closeCaseModal);
+document.getElementById('modal-close')?.addEventListener('click', closeCaseModal);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCaseModal(); });
 
 function applyLang(lang){
   currentLang = lang;
@@ -331,6 +509,7 @@ function applyLang(lang){
   });
   document.documentElement.lang = lang;
   restartTerminal();
+  if (openCaseEl) renderCaseModal(openCaseEl);
 }
 document.querySelectorAll('.langs button').forEach(btn=>{
   btn.addEventListener('click', ()=> applyLang(btn.getAttribute('data-lang')));
@@ -402,7 +581,7 @@ function animateParticles() {
 }
 animateParticles();
 
-// ================= REAL terminal typing (whoami about Alex) =================
+// ================= REAL terminal typing (whoami about MAGIC) =================
 const termInteractive = document.getElementById('term-interactive');
 let termTimeoutId = null;
 
@@ -555,7 +734,8 @@ document.querySelectorAll('.neon-divider').forEach(div => {
     scrollTrigger:{ trigger:div, start:'top 80%', toggleActions:'play none none reverse' } });
 });
 document.querySelectorAll('h2.section-title').forEach(h => {
-  gsap.fromTo(h, { opacity:0, y:24 }, { opacity:1, y:0, duration:0.8, ease:'power3.out',
+  gsap.fromTo(h, { clipPath:'inset(0 100% 0 0)', opacity:0.4, x:-12 }, { clipPath:'inset(0 0% 0 0)', opacity:1, x:0,
+    duration:0.9, ease:'power4.out',
     scrollTrigger:{ trigger:h, start:'top 88%', toggleActions:'play none none reverse' } });
 });
 
