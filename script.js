@@ -544,7 +544,7 @@ class Particle {
     this.size = Math.random() * 2 + 1; this.baseX = this.x; this.baseY = this.y;
     this.density = (Math.random() * 22) + 1;
   }
-  draw() { ctx.fillStyle = 'rgba(47, 230, 201, 0.55)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+  draw() { ctx.fillStyle = 'rgba(163, 180, 255, 0.6)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
   update() {
     const dx = mouse.x - this.x, dy = mouse.y - this.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
@@ -568,7 +568,7 @@ function connectParticles() {
     const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
     const dist = Math.sqrt(dx * dx + dy * dy);
     if (dist < 110) {
-      ctx.strokeStyle = `rgba(47, 230, 201, ${0.12 * (1 - dist / 110)})`; ctx.lineWidth = 1;
+      ctx.strokeStyle = `rgba(163, 180, 255, ${0.14 * (1 - dist / 110)})`; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
     }
   }
@@ -688,11 +688,11 @@ class BgField {
   }
 }
 const THEME_COLORS = {
-  'cubes-cyan':   { shape:'cube', colors:['rgb(47,230,201)'] },
-  'cubes-violet': { shape:'cube', colors:['rgb(139,107,255)'] },
-  'dots-mixed':   { shape:'dot',  colors:['rgb(47,230,201)','rgb(139,107,255)'] },
-  'dots-violet':  { shape:'dot',  colors:['rgb(139,107,255)'] },
-  'dots-converge':{ shape:'dot',  colors:['rgb(47,230,201)','rgb(139,107,255)'] }
+  'cubes-cyan':   { shape:'cube', colors:['rgb(163,180,255)'] },
+  'cubes-violet': { shape:'cube', colors:['rgb(255,180,216)'] },
+  'dots-mixed':   { shape:'dot',  colors:['rgb(163,180,255)','rgb(255,180,216)'] },
+  'dots-violet':  { shape:'dot',  colors:['rgb(255,180,216)'] },
+  'dots-converge':{ shape:'dot',  colors:['rgb(163,180,255)','rgb(255,180,216)'] }
 };
 const bgFields = [];
 document.querySelectorAll('canvas.section-bg').forEach(cv => {
