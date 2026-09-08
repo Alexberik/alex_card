@@ -11,7 +11,6 @@
   <link rel="canonical" href="https://alexberik.github.io/alex_card/">
   <meta name="theme-color" content="#030712">
   <meta name="google-site-verification" content="s5Gn9cNIg4SJ5gL07SfMi094Fx7WnytPoqo8IsKJT_Y" />
-  <meta name="google-site-verification" content="D4pxzsUkEmRiSwhGdzuG8KtA4ZWWERjic1R6CauEqcY" />
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alexberik.github.io/alex_card/">
@@ -21,48 +20,115 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:locale:alternate" content="ka_GE">
-  <meta property="og:locale:alternate" content="uk_UA">
   <meta property="og:site_name" content="MAGIC // AI Engineer">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MAGIC — AI-автоматизация и легализация в Грузии">
-  <meta name="twitter:description" content="AI-агенты, Telegram-боты, автоматизация Make/n8n. Легализация и бизнес в Грузии, авто под ключ, SMM. Один эксперт — все вопросы.">
+  <meta name="twitter:description" content="AI-агенты, Telegram-боты, автоматизация Make/n8n. Легализация и бизнес в Грузии, авто под ключ, SMM.">
   <meta name="twitter:image" content="https://alexberik.github.io/alex_card/og-image.jpg">
 
   <link rel="alternate" hreflang="ru" href="https://alexberik.github.io/alex_card/">
-  <link rel="alternate" hreflang="en" href="https://alexberik.github.io/alex_card/">
-  <link rel="alternate" hreflang="ka" href="https://alexberik.github.io/alex_card/">
-  <link rel="alternate" hreflang="uk" href="https://alexberik.github.io/alex_card/">
   <link rel="alternate" hreflang="x-default" href="https://alexberik.github.io/alex_card/">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "MAGIC — AI Engineer & Automation Specialist",
-    "url": "https://alexberik.github.io/alex_card/",
-    "image": "https://alexberik.github.io/alex_card/og-image.jpg",
-    "description": "AI-агенты, Telegram-боты, автоматизация бизнес-процессов, легализация и бизнес в Грузии, авто под ключ, SMM-продвижение.",
-    "areaServed": ["Georgia", "Tbilisi"],
-    "address": { "@type": "PostalAddress", "addressLocality": "Tbilisi", "addressCountry": "GE" },
-    "telephone": "+995511493394",
-    "email": "alexberik@gmail.com",
-    "sameAs": ["https://t.me/alex_berik"],
-    "priceRange": "$$",
-    "founder": { "@type": "Person", "name": "MAGIC", "jobTitle": "AI Engineer & Automation Specialist" }
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://alexberik.github.io/alex_card/#business",
+        "name": "MAGIC — AI Engineer & Automation Specialist",
+        "url": "https://alexberik.github.io/alex_card/",
+        "image": "https://alexberik.github.io/alex_card/og-image.jpg",
+        "description": "AI-агенты, Telegram-боты, автоматизация Make/n8n, легализация и бизнес в Грузии, авто под ключ, SMM.",
+        "areaServed": ["Georgia", "Tbilisi"],
+        "address": {"@type": "PostalAddress", "addressLocality": "Tbilisi", "addressCountry": "GE"},
+        "telephone": "+995511493394",
+        "email": "alexberik@gmail.com",
+        "sameAs": ["https://t.me/alex_berik"],
+        "priceRange": "$$",
+        "founder": {"@id": "https://alexberik.github.io/alex_card/#person"}
+      },
+      {
+        "@type": "Person",
+        "@id": "https://alexberik.github.io/alex_card/#person",
+        "name": "MAGIC",
+        "alternateName": "Alex Berik",
+        "jobTitle": "AI Engineer & Automation Specialist",
+        "url": "https://alexberik.github.io/alex_card/",
+        "email": "alexberik@gmail.com",
+        "telephone": "+995511493394",
+        "address": {"@type": "PostalAddress", "addressLocality": "Tbilisi", "addressCountry": "GE"},
+        "sameAs": ["https://t.me/alex_berik"],
+        "knowsAbout": ["Telegram bots", "AI agents", "n8n", "Make", "Business relocation Georgia"]
+      },
+      {
+        "@type": "Service",
+        "name": "AI и автоматизация",
+        "provider": {"@id": "https://alexberik.github.io/alex_card/#business"},
+        "description": "Telegram-боты и AI-агенты на LLM, сценарии в Make и n8n, внедрение AI в бизнес-процессы.",
+        "areaServed": "Georgia"
+      },
+      {
+        "@type": "Service",
+        "name": "Легализация и бизнес в Грузии",
+        "provider": {"@id": "https://alexberik.github.io/alex_card/#business"},
+        "description": "Переезд, регистрация ИП/компании, банковский счёт, ПТД/ВНЖ — сопровождение экспатов в Тбилиси.",
+        "areaServed": "Georgia"
+      },
+      {
+        "@type": "Service",
+        "name": "Авто под ключ",
+        "provider": {"@id": "https://alexberik.github.io/alex_card/#business"},
+        "description": "Подбор авто на местном рынке, в ЕС или на аукционах США — доставка, растаможка, диагностика.",
+        "areaServed": "Georgia"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://alexberik.github.io/alex_card/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Какие услуги вы оказываете в Тбилиси?",
+            "acceptedAnswer": {"@type": "Answer", "text": "AI-автоматизация и Telegram-боты, легализация и открытие бизнеса в Грузии, трансферы, авто под ключ, SMM и помощь с резюме/карьерой."}
+          },
+          {
+            "@type": "Question",
+            "name": "Делаете ли вы Telegram-ботов и AI-агентов под ключ?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Да. Проектирую и запускаю ботов и AI-агентов на LLM, интеграции с Make/n8n, CRM и API — от идеи до рабочего продукта."}
+          },
+          {
+            "@type": "Question",
+            "name": "Помогаете с релокацией и ИП в Грузии?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Да. Сопровождение переезда, регистрация ИП или компании, банковский счёт, документы для ПТД/ВНЖ."}
+          },
+          {
+            "@type": "Question",
+            "name": "Можно ли заказать авто под ключ с доставкой в Грузию?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Да. Подбор на местном рынке, в ЕС или на аукционах США, логистика, растаможка и диагностика."}
+          },
+          {
+            "@type": "Question",
+            "name": "Как начать работу?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Напишите в Telegram @alex_berik кратко о задаче. Отвечу с понятным маршрутом и следующим шагом."}
+          },
+          {
+            "@type": "Question",
+            "name": "На каких языках можно общаться?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Русский, английский, украинский; сайт также поддерживает грузинский интерфейс."}
+          }
+        ]
+      }
+    ]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -71,7 +137,6 @@
     <div class="beam-line left"></div>
     <div class="beam-line right"></div>
   </div>
-
   <div class="grid-bg"></div>
   <div class="scroll-progress" id="scroll-progress"></div>
 
@@ -79,15 +144,15 @@
     <div class="hwrap">
       <div class="brand"><span class="brand-dot"></span> MAGIC // AI ENGINEER</div>
       <ul class="nav-links">
-        <li><a href="#services" data-i18n="nav_services"></a></li>
-        <li><a href="#expats" data-i18n="nav_expats"></a></li>
-        <li><a href="#auto" data-i18n="nav_auto"></a></li>
-        <li><a href="#cases" data-i18n="nav_cases"></a></li>
-        <li><a href="#process" data-i18n="nav_process"></a></li>
-        <li><a href="#why" data-i18n="nav_why"></a></li>
+        <li><a href="#services" data-i18n="nav_services">Услуги</a></li>
+        <li><a href="#expats" data-i18n="nav_expats">Экспатам</a></li>
+        <li><a href="#auto" data-i18n="nav_auto">Авто</a></li>
+        <li><a href="#cases" data-i18n="nav_cases">Кейсы</a></li>
+        <li><a href="#process" data-i18n="nav_process">Процесс</a></li>
+        <li><a href="#why" data-i18n="nav_why">Почему я</a></li>
       </ul>
       <div style="display:flex;align-items:center;gap:10px;">
-        <a href="https://t.me/alex_berik" target="_blank" class="nav-cta" data-i18n="nav_cta"></a>
+        <a href="https://t.me/alex_berik" target="_blank" class="nav-cta" data-i18n="nav_cta">Написать →</a>
         <div class="langs">
           <i data-lucide="globe" size="15" class="lang-globe"></i>
           <button data-lang="ru" class="active">RU</button>
@@ -103,22 +168,19 @@
     <div class="hero-floor"></div>
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
-      <div class="section-tag" data-i18n="hero_tag"></div>
-      <h1 data-i18n-html="hero_h1"></h1>
-      <p class="hero-subtitle" data-i18n="hero_sub"></p>
+      <div class="section-tag" data-i18n="hero_tag">AI & AUTOMATION SPECIALIST</div>
+      <h1 data-i18n-html="hero_h1">Автоматизирую бизнес.<br><span class="accent">Строю AI</span>, который работает вместо отдела.</h1>
+      <p class="hero-subtitle" data-i18n="hero_sub">Telegram-боты · AI-агенты · Автоматизация Make/n8n · Сайты · Экспатам в Грузии · Авто под ключ</p>
       <div class="hero-btns">
-        <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="rocket"></i> <span data-i18n="btn_discuss"></span></a>
-        <a href="#cases" class="btn btn-secondary"><i data-lucide="folder-kanban"></i> <span data-i18n="btn_cases"></span></a>
+        <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="rocket"></i> <span data-i18n="btn_discuss">Обсудить проект</span></a>
+        <a href="#cases" class="btn btn-secondary"><i data-lucide="folder-kanban"></i> <span data-i18n="btn_cases">Смотреть кейсы</span></a>
       </div>
     </div>
-
     <div class="terminal-window">
       <div class="terminal-header">
         <div class="term-dot term-red"></div><div class="term-dot term-yellow"></div><div class="term-dot term-green"></div>
       </div>
-      <div class="terminal-body" id="term-body">
-        <div id="term-interactive"></div>
-      </div>
+      <div class="terminal-body" id="term-body"><div id="term-interactive"></div></div>
     </div>
   </section>
 
@@ -132,47 +194,47 @@
   <section id="stats" class="cine-section">
     <canvas class="section-bg" data-theme="cubes-cyan"></canvas>
     <div class="stats-grid">
-      <div class="glass-card stat-card"><div class="stat-num" data-target="100">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat1"></div></div>
-      <div class="glass-card stat-card"><div class="stat-num" data-target="20">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat2"></div></div>
-      <div class="glass-card stat-card"><div class="stat-num" data-target="4">0</div><div class="stat-label" data-i18n="stat3"></div></div>
-      <div class="glass-card stat-card"><div class="stat-num">24<span class="accent">/7</span></div><div class="stat-label" data-i18n="stat4"></div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="100">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat1">Реализованных проектов</div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="20">0<span class="accent">+</span></div><div class="stat-label" data-i18n="stat2">Направлений услуг</div></div>
+      <div class="glass-card stat-card"><div class="stat-num" data-target="4">0</div><div class="stat-label" data-i18n="stat3">Языка интерфейса сайта</div></div>
+      <div class="glass-card stat-card"><div class="stat-num">24<span class="accent">/7</span></div><div class="stat-label" data-i18n="stat4">Поддержка и мониторинг</div></div>
     </div>
   </section>
 
   <section id="services" class="cine-section">
     <canvas class="section-bg" data-theme="cubes-cyan"></canvas>
-    <div class="section-tag reveal" data-i18n="services_tag"></div>
-    <h2 class="section-title" data-i18n="services_title"></h2>
+    <div class="section-tag reveal" data-i18n="services_tag">SERVICES</div>
+    <h2 class="section-title" data-i18n="services_title">Чем занимаюсь</h2>
     <div class="services-grid">
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="bot" size="32" class="icon"></i>
-        <h3 data-i18n="s1_title"></h3>
-        <p data-i18n="s1_desc"></p>
+        <h3 data-i18n="s1_title">AI и автоматизация</h3>
+        <p data-i18n="s1_desc">Telegram-боты и AI-агенты на LLM, сценарии в Make и n8n, внедрение AI-инструментов в бизнес-процессы.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="globe" size="32" class="icon"></i>
-        <h3 data-i18n="s2_title"></h3>
-        <p data-i18n="s2_desc"></p>
+        <h3 data-i18n="s2_title">Легализация и бизнес в Грузии</h3>
+        <p data-i18n="s2_desc">Переезд, регистрация ИП/компании, банковский счёт, ПТД/ВНЖ — полное сопровождение.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="navigation" size="32" class="icon"></i>
-        <h3 data-i18n="s3_title"></h3>
-        <p data-i18n="s3_desc"></p>
+        <h3 data-i18n="s3_title">Трансферы</h3>
+        <p data-i18n="s3_desc">Индивидуальные и групповые поездки — аэропорт, город, межгород, за рубеж.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="car" size="32" class="icon"></i>
-        <h3 data-i18n="s4_title"></h3>
-        <p data-i18n="s4_desc"></p>
+        <h3 data-i18n="s4_title">Авто под ключ</h3>
+        <p data-i18n="s4_desc">Подбор на местном рынке, в ЕС или на аукционах США — доставка, растаможка, диагностика.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="trending-up" size="32" class="icon"></i>
-        <h3 data-i18n="s5_title"></h3>
-        <p data-i18n="s5_desc"></p>
+        <h3 data-i18n="s5_title">SMM и продвижение</h3>
+        <p data-i18n="s5_desc">Анализ соцсетей, стратегия продвижения, план контента под ваш бизнес или личный бренд.</p>
       </div>
       <div class="glass-card service-card" data-tilt>
         <i data-lucide="file-text" size="32" class="icon"></i>
-        <h3 data-i18n="s6_title"></h3>
-        <p data-i18n="s6_desc"></p>
+        <h3 data-i18n="s6_title">Резюме и карьера</h3>
+        <p data-i18n="s6_desc">Составление резюме, подготовка к собеседованию, упаковка профиля под целевые вакансии.</p>
       </div>
     </div>
   </section>
@@ -180,82 +242,88 @@
   <div class="neon-divider">
     <div class="corridor"></div>
     <div class="corridor-rungs"></div>
-    <div class="neon-divider-inner reveal">
-      <h2 data-i18n-html="divider1_title"></h2>
-    </div>
+    <div class="neon-divider-inner reveal"><h2 data-i18n-html="divider1_title">От идеи <span class="accent">к системе</span></h2></div>
   </div>
 
   <section id="expats" class="cine-section">
     <canvas class="section-bg" data-theme="dots-violet"></canvas>
-    <div class="section-tag reveal" data-i18n="expats_tag"></div>
-    <h2 class="section-title" data-i18n="expats_title"></h2>
-    <p class="subgrid-note" data-i18n="expats_note"></p>
+    <div class="section-tag reveal" data-i18n="expats_tag">EXPATS</div>
+    <h2 class="section-title" data-i18n="expats_title">Экспатам в Грузии</h2>
+    <p class="subgrid-note" data-i18n="expats_note">Полное сопровождение переезда и легализации в Тбилиси.</p>
     <div class="services-grid">
-      <div class="glass-card service-card" data-tilt><i data-lucide="plane-landing" size="30" class="icon"></i><h3 data-i18n="e1_title"></h3><p data-i18n="e1_desc"></p></div>
-      <div class="glass-card service-card" data-tilt><i data-lucide="briefcase" size="30" class="icon"></i><h3 data-i18n="e2_title"></h3><p data-i18n="e2_desc"></p></div>
-      <div class="glass-card service-card" data-tilt><i data-lucide="landmark" size="30" class="icon"></i><h3 data-i18n="e3_title"></h3><p data-i18n="e3_desc"></p></div>
-      <div class="glass-card service-card" data-tilt><i data-lucide="home" size="30" class="icon"></i><h3 data-i18n="e4_title"></h3><p data-i18n="e4_desc"></p></div>
-      <div class="glass-card service-card" data-tilt><i data-lucide="car-front" size="30" class="icon"></i><h3 data-i18n="e5_title"></h3><p data-i18n="e5_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="plane-landing" size="30" class="icon"></i><h3 data-i18n="e1_title">Переезд</h3><p data-i18n="e1_desc">Маршрут, документы, первые шаги на месте.</p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="briefcase" size="30" class="icon"></i><h3 data-i18n="e2_title">ИП и компания</h3><p data-i18n="e2_desc">Регистрация бизнеса и налоговый старт.</p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="landmark" size="30" class="icon"></i><h3 data-i18n="e3_title">Банк и ВНЖ</h3><p data-i18n="e3_desc">Счёт, ПТД/ВНЖ, сопровождение по документам.</p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="home" size="30" class="icon"></i><h3 data-i18n="e4_title">Жильё</h3><p data-i18n="e4_desc">Поиск и заселение без хаоса.</p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="car-front" size="30" class="icon"></i><h3 data-i18n="e5_title">Авто на месте</h3><p data-i18n="e5_desc">Локальный подбор и оформление.</p></div>
     </div>
   </section>
 
   <section id="auto" class="cine-section">
     <canvas class="section-bg" data-theme="cubes-violet"></canvas>
-    <div class="section-tag reveal" data-i18n="auto_tag"></div>
-    <h2 class="section-title" data-i18n="auto_title"></h2>
-    <p class="subgrid-note" data-i18n="auto_note"></p>
+    <div class="section-tag reveal" data-i18n="auto_tag">AUTO</div>
+    <h2 class="section-title" data-i18n="auto_title">Авто под ключ</h2>
+    <p class="subgrid-note" data-i18n="auto_note">От подбора до растаможки и диагностики.</p>
     <div class="services-grid">
-      <div class="glass-card service-card" data-tilt><i data-lucide="map-pin" size="30" class="icon"></i><h3 data-i18n="a1_title"></h3><p data-i18n="a1_desc"></p></div>
-      <div class="glass-card service-card" data-tilt><i data-lucide="ship" size="30" class="icon"></i><h3 data-i18n="a2_title"></h3><p data-i18n="a2_desc"></p></div>
-      <div class="glass-card service-card" data-tilt><i data-lucide="gavel" size="30" class="icon"></i><h3 data-i18n="a3_title"></h3><p data-i18n="a3_desc"></p></div>
-      <div class="glass-card service-card" data-tilt><i data-lucide="wrench" size="30" class="icon"></i><h3 data-i18n="a4_title"></h3><p data-i18n="a4_desc"></p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="map-pin" size="30" class="icon"></i><h3 data-i18n="a1_title">Локальный рынок</h3><p data-i18n="a1_desc">Подбор в Грузии.</p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="ship" size="30" class="icon"></i><h3 data-i18n="a2_title">ЕС и США</h3><p data-i18n="a2_desc">Аукционы и доставка.</p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="gavel" size="30" class="icon"></i><h3 data-i18n="a3_title">Растаможка</h3><p data-i18n="a3_desc">Оформление без сюрпризов.</p></div>
+      <div class="glass-card service-card" data-tilt><i data-lucide="wrench" size="30" class="icon"></i><h3 data-i18n="a4_title">Диагностика</h3><p data-i18n="a4_desc">Проверка перед покупкой.</p></div>
     </div>
   </section>
 
   <section id="cases" class="cine-section">
     <canvas class="section-bg" data-theme="dots-mixed"></canvas>
-    <div class="section-tag reveal" data-i18n="cases_tag"></div>
-    <h2 class="section-title" data-i18n="cases_title"></h2>
+    <div class="section-tag reveal" data-i18n="cases_tag">CASES</div>
+    <h2 class="section-title" data-i18n="cases_title">Кейсы и проекты</h2>
     <div class="cases-grid">
       <div class="glass-card case-card" data-case="1">
         <div class="case-tag">AI · Career</div><h3>JobHunterAI</h3>
-        <p data-i18n="c1_desc"></p><div class="case-result" data-i18n="c1_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <p data-i18n="c1_desc">Telegram-бот с AI: анализирует резюме, подбирает вакансии под профиль и автоматизирует первый контакт с работодателем.</p>
+        <div class="case-result" data-i18n="c1_result">→ От поиска до отклика — без ручного перебора вакансий</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
       <div class="glass-card case-card" data-case="2">
         <div class="case-tag">AI · Marketplace</div><h3>SellAI</h3>
-        <p data-i18n="c2_desc"></p><div class="case-result" data-i18n="c2_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <p data-i18n="c2_desc">AI-агент для продаж на маркетплейсах (FB/Instagram): подбор товара, генерация карточек, анализ цен и конкурентов.</p>
+        <div class="case-result" data-i18n="c2_result">→ Листинг и ценообразование — на автопилоте</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
       <div class="glass-card case-card" data-case="3">
         <div class="case-tag">Brand · Relocation</div><h3>MAGIC</h3>
-        <p data-i18n="c3_desc"></p><div class="case-result" data-i18n="c3_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <p data-i18n="c3_desc">Единая точка входа: AI, автоматизация и сопровождение жизни/бизнеса в Грузии.</p>
+        <div class="case-result" data-i18n="c3_result">→ Один контакт — несколько направлений</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
       <div class="glass-card case-card" data-case="4">
         <div class="case-tag">AI · Multi-agent</div><h3>AI-Office</h3>
-        <p data-i18n="c4_desc"></p><div class="case-result" data-i18n="c4_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <p data-i18n="c4_desc">Мульти-агентная система для рутинных задач офиса и поддержки.</p>
+        <div class="case-result" data-i18n="c4_result">→ Меньше ручной рутины</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
       <div class="glass-card case-card" data-case="5">
-        <div class="case-tag">Content Automation</div><h3 data-i18n="c5_title"></h3>
-        <p data-i18n="c5_desc"></p><div class="case-result" data-i18n="c5_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <div class="case-tag">Content Automation</div><h3 data-i18n="c5_title">Контент-ферма</h3>
+        <p data-i18n="c5_desc">Автоматизация контент-пайплайна под соцсети и Shorts.</p>
+        <div class="case-result" data-i18n="c5_result">→ Контент без ручного конвейера</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
       <div class="glass-card case-card" data-case="6">
-        <div class="case-tag">B2B Marketplace</div><h3 data-i18n="c6_title"></h3>
-        <p data-i18n="c6_desc"></p><div class="case-result" data-i18n="c6_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <div class="case-tag">B2B Marketplace</div><h3 data-i18n="c6_title">Auto-Parts Marketplace</h3>
+        <p data-i18n="c6_desc">B2B-витрина и процессы вокруг автозапчастей.</p>
+        <div class="case-result" data-i18n="c6_result">→ Быстрее сделки</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
       <div class="glass-card case-card" data-case="7">
-        <div class="case-tag">QR · Restaurant Tech</div><h3 data-i18n="c7_title"></h3>
-        <p data-i18n="c7_desc"></p><div class="case-result" data-i18n="c7_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <div class="case-tag">QR · Restaurant Tech</div><h3 data-i18n="c7_title">QR-меню</h3>
+        <p data-i18n="c7_desc">Цифровое меню и заказы для заведений.</p>
+        <div class="case-result" data-i18n="c7_result">→ Меньше очередей у официанта</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
       <div class="glass-card case-card" data-case="8">
         <div class="case-tag">AI · YouTube Shorts</div><h3>MediaAIFarm</h3>
-        <p data-i18n="c8_desc"></p><div class="case-result" data-i18n="c8_result"></div>
-        <div class="case-more" data-i18n="case_more"></div>
+        <p data-i18n="c8_desc">Telegram-бот: тема → сценарий (Gemini) → озвучка → субтитры → Shorts. Одобрение и публикация на YouTube в один клик.</p>
+        <div class="case-result" data-i18n="c8_result">→ Shorts готовы за минуты, без монтажа</div>
+        <div class="case-more" data-i18n="case_more">Подробнее</div>
       </div>
     </div>
   </section>
@@ -277,62 +345,97 @@
   <div class="neon-divider">
     <div class="corridor"></div>
     <div class="corridor-rungs"></div>
-    <div class="neon-divider-inner reveal">
-      <h2 data-i18n-html="divider2_title"></h2>
-    </div>
+    <div class="neon-divider-inner reveal"><h2 data-i18n-html="divider2_title">Прозрачный <span class="accent">процесс</span></h2></div>
   </div>
 
   <section id="process" class="cine-section">
     <canvas class="section-bg" data-theme="dots-violet"></canvas>
-    <div class="section-tag reveal" data-i18n="process_tag"></div>
-    <h2 class="section-title" data-i18n="process_title"></h2>
+    <div class="section-tag reveal" data-i18n="process_tag">PROCESS</div>
+    <h2 class="section-title" data-i18n="process_title">Как проходит работа</h2>
     <div class="timeline" id="timeline">
       <div class="timeline-progress" id="timeline-progress"></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p1_title"></h3><p data-i18n="p1_desc"></p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p2_title"></h3><p data-i18n="p2_desc"></p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p3_title"></h3><p data-i18n="p3_desc"></p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p4_title"></h3><p data-i18n="p4_desc"></p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p5_title"></h3><p data-i18n="p5_desc"></p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p1_title">Бриф</h3><p data-i18n="p1_desc">Коротко фиксируем цель и ограничения.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p2_title">План</h3><p data-i18n="p2_desc">Маршрут, сроки, стек.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p3_title">Сборка</h3><p data-i18n="p3_desc">Бот, автоматизация или сопровождение.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p4_title">Запуск</h3><p data-i18n="p4_desc">Проверка и передача.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><h3 data-i18n="p5_title">Поддержка</h3><p data-i18n="p5_desc">Мониторинг и доработки.</p></div>
     </div>
   </section>
 
   <section id="why" class="cine-section">
     <canvas class="section-bg" data-theme="cubes-violet"></canvas>
-    <div class="section-tag reveal" data-i18n="why_tag"></div>
-    <h2 class="section-title" data-i18n="why_title"></h2>
+    <div class="section-tag reveal" data-i18n="why_tag">WHY</div>
+    <h2 class="section-title" data-i18n="why_title">Почему выбирают меня</h2>
     <div class="adv-grid">
-      <div class="glass-card"><h3 data-i18n="w1_title"></h3><p data-i18n="w1_desc"></p></div>
-      <div class="glass-card"><h3 data-i18n="w2_title"></h3><p data-i18n="w2_desc"></p></div>
-      <div class="glass-card"><h3 data-i18n="w3_title"></h3><p data-i18n="w3_desc"></p></div>
-      <div class="glass-card"><h3 data-i18n="w4_title"></h3><p data-i18n="w4_desc"></p></div>
-      <div class="glass-card"><h3 data-i18n="w5_title"></h3><p data-i18n="w5_desc"></p></div>
-      <div class="glass-card"><h3 data-i18n="w6_title"></h3><p data-i18n="w6_desc"></p></div>
+      <div class="glass-card"><h3 data-i18n="w1_title">Один контакт</h3><p data-i18n="w1_desc">AI, боты и релокация — без десятка подрядчиков.</p></div>
+      <div class="glass-card"><h3 data-i18n="w2_title">Результат</h3><p data-i18n="w2_desc">Рабочий продукт, а не презентация.</p></div>
+      <div class="glass-card"><h3 data-i18n="w3_title">Тбилиси</h3><p data-i18n="w3_desc">На месте, в контексте Грузии.</p></div>
+      <div class="glass-card"><h3 data-i18n="w4_title">Стек</h3><p data-i18n="w4_desc">LLM, Make, n8n, Telegram API.</p></div>
+      <div class="glass-card"><h3 data-i18n="w5_title">Скорость</h3><p data-i18n="w5_desc">Короткие итерации, понятные апдейты.</p></div>
+      <div class="glass-card"><h3 data-i18n="w6_title">Прозрачность</h3><p data-i18n="w6_desc">Что делаем, зачем и сколько по шагам.</p></div>
     </div>
   </section>
 
-  <!-- CONTACT — centered slogan + TG + visit counter -->
+  <section id="faq" class="cine-section">
+    <canvas class="section-bg" data-theme="dots-violet"></canvas>
+    <div class="section-tag reveal">FAQ</div>
+    <h2 class="section-title">Частые вопросы</h2>
+    <div class="adv-grid" style="max-width:900px;margin:0 auto;">
+      <div class="glass-card">
+        <h3>Какие услуги в Тбилиси?</h3>
+        <p>AI-автоматизация и Telegram-боты, легализация и бизнес в Грузии, трансферы, авто под ключ, SMM, резюме и карьера.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Telegram-боты и AI-агенты под ключ?</h3>
+        <p>Да. Боты и агенты на LLM, Make/n8n, интеграции с CRM и API — от идеи до запуска.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Релокация и ИП в Грузии?</h3>
+        <p>Сопровождение переезда, регистрация ИП/компании, банк, документы для ПТД/ВНЖ.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Авто под ключ с доставкой?</h3>
+        <p>Подбор в Грузии, ЕС или на аукционах США, логистика, растаможка, диагностика.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Как начать?</h3>
+        <p>Напишите в Telegram <a href="https://t.me/alex_berik" target="_blank" rel="noopener">@alex_berik</a> о задаче — отвечу с маршрутом.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Языки общения?</h3>
+        <p>Русский, английский, украинский; интерфейс сайта также на грузинском.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="cine-section">
     <canvas class="section-bg" data-theme="dots-converge"></canvas>
     <div class="glass-card contact-card reveal">
-      <div class="section-tag" data-i18n="contact_tag"></div>
-      <h2 data-i18n="contact_title"></h2>
-      <p data-i18n="contact_desc"></p>
-      <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="send"></i> <span data-i18n="btn_telegram"></span></a>
-      <div class="visit-counter" id="visit-counter" style="margin-top:18px;font-size:13px;color:var(--text-faint);"><span data-i18n="visits_label"></span> <span id="visit-num">—</span></div>
+      <div class="section-tag" data-i18n="contact_tag">GET IN TOUCH</div>
+      <h2 data-i18n="contact_title">Есть идея? Давайте превратим её в работающий продукт.</h2>
+      <p data-i18n="contact_desc">Напишите пару слов о задаче — отвечу и предложу эффективный маршрут решения.</p>
+      <a href="https://t.me/alex_berik" target="_blank" class="btn btn-primary"><i data-lucide="send"></i> <span data-i18n="btn_telegram">Написать в Telegram</span></a>
+      <div class="visit-counter" id="visit-counter" style="margin-top:18px;font-size:13px;color:var(--text-faint);"><span data-i18n="visits_label">Визитов на сайт:</span> <span id="visit-num">—</span></div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <div data-i18n="footer_text"></div>
+      <div data-i18n="footer_text">© 2026 MAGIC · TBILISI, GE · alexberik@gmail.com · +995 511 493 394</div>
     </div>
   </footer>
 
   <a href="https://t.me/alex_berik" target="_blank" class="ai-widget" id="ai-widget" aria-label="AI chat">
     <i data-lucide="sparkles" size="18"></i>
-    <span class="ai-widget-text" data-i18n="ai_text"></span>
+    <span class="ai-widget-text" data-i18n="ai_text">Написать</span>
   </a>
 
+  <noscript>
+    <p style="max-width:720px;margin:24px auto;padding:16px;color:#ccc;text-align:center;">
+      MAGIC — AI Engineer в Тбилиси: Telegram-боты, AI-агенты, автоматизация, легализация в Грузии, авто под ключ.
+      Связь: <a href="https://t.me/alex_berik">@alex_berik</a>
+    </p>
+  </noscript>
   <script src="script.js"></script>
 </body>
 </html>
