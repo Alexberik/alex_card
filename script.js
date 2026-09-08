@@ -1,5 +1,28 @@
-// Load last known-good script, then soft-patch MediaAIFarm case + terminal fixed-height scroll
+// Load last known-good script, then soft-patch MediaAIFarm + terminal + visit counter
 (function () {
+  // --- Visit counter fix (runs immediately; base script looks for wrong id) ---
+  (function initVisitCounter() {
+    var COUNTER_KEY = 'alexberik_alexcard_visits';
+    var numEl = document.getElementById('visit-num') || document.getElementById('visit-counter-num');
+    if (!numEl) return;
+    function animateCount(target) {
+      var start = 0;
+      var duration = 900;
+      var startTime = performance.now();
+      function step(now) {
+        var p = Math.min((now - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        numEl.textContent = Math.round(eased * target).toLocaleString('ru-RU');
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    fetch('https://countapi.mileshilliard.com/api/v1/hit/' + COUNTER_KEY)
+      .then(function (r) { return r.json(); })
+      .then(function (data) { animateCount(parseInt(data.value, 10) || 0); })
+      .catch(function () { numEl.textContent = '—'; });
+  })();
+
   var s = document.createElement('script');
   s.src = 'https://cdn.jsdelivr.net/gh/Alexberik/alex_card@a7063c657609a35e37e94b8f4f1961c7575dcda5/script.js';
   s.onload = function () {
@@ -40,7 +63,6 @@
           i18n.ua.c8_stack = 'Python · aiogram 3 · Gemini · edge-tts · FFmpeg · YouTube API';
         }
 
-        // Update terminal project list to include MediaAIFarm
         ['ru','en','ka','ua'].forEach(function(lang) {
           if (i18n[lang] && Array.isArray(i18n[lang].term)) {
             i18n[lang].term = i18n[lang].term.map(function(line) {
@@ -54,12 +76,11 @@
         });
       }
 
-      // Re-apply language so new strings show up
       if (typeof applyLang === 'function' && typeof currentLang !== 'undefined') {
         applyLang(currentLang);
       }
 
-      // --- Terminal: keep fixed height, scroll lines up ---
+      // --- Terminal: fixed height, scroll lines up ---
       var body = document.getElementById('term-body');
       if (body) {
         body.style.height = '230px';
@@ -69,7 +90,6 @@
         body.style.scrollbarWidth = 'none';
       }
 
-      // Soft-patch tilt (already in CSS)
       document.querySelectorAll('[data-tilt]').forEach(function (card) {
         card.onmousemove = null;
         card.onmouseleave = null;
@@ -81,7 +101,6 @@
         });
       });
 
-      // Observe terminal for new lines and scroll to bottom
       var termInteractive = document.getElementById('term-interactive');
       if (termInteractive && body) {
         var obs = new MutationObserver(function () {
@@ -90,7 +109,6 @@
         obs.observe(termInteractive, { childList: true, subtree: true, characterData: true });
       }
 
-      // Restart terminal so updated project list appears
       if (typeof restartTerminal === 'function') {
         setTimeout(restartTerminal, 100);
       }
