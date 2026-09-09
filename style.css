@@ -1,8 +1,8 @@
-/* ===== MAGIC portfolio styles ===== */
 :root {
-  --bg: #030712;
-  --bg-elevated: #0a0e1f;
-  --card-border: rgba(255,255,255,0.08);
+  --bg: #0a0e1f;
+  --bg-elevated: #131834;
+  --card-bg: rgba(255, 255, 255, 0.055);
+  --card-border: rgba(255, 255, 255, 0.13);
   --text: #f1f5f9;
   --text-muted: #94a3b8;
   --text-faint: #64748b;
@@ -93,7 +93,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filt
 .service-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
 .service-card p, .glass-card p { color: var(--text-muted); font-size: 13.5px; line-height: 1.55; }
 
-.case-tag { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10.5px; font-weight: 700; color: var(--violet); text-transform: uppercase; margin-bottom: 7px; letter-spacing:.05em; }
+.case-tag { font-size: 10.5px; font-weight: 700; color: var(--violet); text-transform: uppercase; margin-bottom: 7px; letter-spacing:.05em; }
 .case-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 9px; color: var(--text); }
 .case-card p { color: var(--text-muted); font-size: 12.6px; margin-bottom: 14px; line-height:1.55; }
 .case-result { color: var(--cyan); font-size: 12.5px; font-weight: 600; }
@@ -103,7 +103,6 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filt
 
 .neon-divider { position: relative; padding: 60px 24px; text-align: center; overflow: hidden; }
 .neon-divider-inner h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; position: relative; z-index: 1; }
-.corridor, .corridor-rungs { position: absolute; inset: 0; pointer-events: none; opacity: 0.25; }
 
 .timeline { position: relative; max-width: 640px; margin: 0 auto; padding-left: 28px; }
 .timeline-progress { position: absolute; left: 7px; top: 0; width: 2px; height: 0; background: var(--grad); }
@@ -134,6 +133,7 @@ footer { border-top: 1px solid var(--card-border); padding: 28px; text-align: ce
   color: var(--cyan);
   background: rgba(34, 211, 238, 0.08);
 }
+
 .ai-widget { position: fixed; bottom: 22px; right: 22px; z-index: 90; display: flex; align-items: center; gap: 10px;
   padding: 12px 16px; border-radius: 999px; border: 1px solid var(--card-border);
   background: rgba(10,14,31,0.9); backdrop-filter: blur(12px); transition: transform .2s ease, border-color .2s ease; }
@@ -154,15 +154,14 @@ footer { border-top: 1px solid var(--card-border); padding: 28px; text-align: ce
 .modal-result { color: var(--cyan); font-weight: 600; }
 .modal-link-btn { margin-top: 12px; }
 
-.marquee-band { position: relative; overflow: hidden; padding: 26px 0; margin: 0 0;
+.marquee-band { position: relative; overflow: hidden; padding: 26px 0;
   border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); background: rgba(255,255,255,0.02); }
 .marquee-track { display: flex; width: max-content; gap: 56px; animation: marqueeScroll 40s linear infinite; }
-.marquee-track span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: clamp(14px, 1.8vw, 20px);
+.marquee-track span { font-weight: 600; font-size: clamp(14px, 1.8vw, 20px);
   color: var(--text-faint); white-space: nowrap; letter-spacing: 0.04em; }
-.marquee-track span.solid { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 1; }
+.marquee-track span.solid { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .marquee-track span::after { content: '✦'; color: var(--violet); font-size: 12px; opacity: .7; }
 @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (max-width: 900px) { .marquee-track { animation-duration: 18s; } }
 
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -174,7 +173,8 @@ footer { border-top: 1px solid var(--card-border); padding: 28px; text-align: ce
   .ai-widget { padding: 14px; }
   .cine-section { padding: 70px 18px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .marquee-track { animation-duration: 18s; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track, .hero-content h1 .accent { animation: none !important; }
+  .marquee-track { animation: none !important; }
 }
