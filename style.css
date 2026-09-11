@@ -28,9 +28,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   position: fixed; top: 0; left: 0; height: 2px; width: 0%;
   background: var(--grad); z-index: 200; transform-origin: left;
 }
-.beam-reveal { position: fixed; inset: 0; z-index: 999; pointer-events: none; display: flex; justify-content: center; gap: 40%; }
-.beam-line { width: 2px; height: 100%; background: linear-gradient(to bottom, transparent, var(--cyan), transparent); opacity: 0; transform: scaleY(0); transform-origin: center; }
-.beam-reveal.animate .beam-line { opacity: 1; transform: scaleY(1); transition: transform .7s ease, opacity .5s ease; }
+.beam-reveal { position: fixed; inset: 0; z-index: 999; pointer-events: none; display: flex; justify-content: center; align-items: stretch; opacity: 1; transition: opacity .4s ease; }
+.beam-line { width: 3px; height: 100%; background: linear-gradient(to bottom, transparent 0%, var(--cyan) 35%, var(--violet) 65%, transparent 100%); opacity: 0; transform: scaleY(0); transform-origin: center; box-shadow: 0 0 18px rgba(34,211,238,.55); transition: transform .85s cubic-bezier(.2,.85,.2,1), opacity .45s ease; }
+.beam-reveal.animate .beam-line { opacity: 1; transform: scaleY(1); }
+.beam-reveal.animate .beam-line.left { transform: translateX(calc(-1 * min(42vw, 520px))) scaleY(1); }
+.beam-reveal.animate .beam-line.right { transform: translateX(min(42vw, 520px)) scaleY(1); }
+.beam-reveal.fade { opacity: 0; }
 header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(18px); background: rgba(10,14,31,0.72); border-bottom: 1px solid var(--card-border); }
 .hwrap { max-width: 1120px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { font-weight: 800; font-size: 13px; letter-spacing: 0.06em; display: flex; align-items: center; gap: 8px; }
@@ -93,7 +96,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filt
 .contact-card p { color: var(--text-muted); margin-bottom: 24px; }
 footer { border-top: 1px solid var(--card-border); padding: 28px; text-align: center; color: var(--text-faint); font-size: 12.5px; }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-.footer-socials { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.footer-socials { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .footer-social {
   width: 40px; height: 40px; border-radius: 12px;
   display: inline-flex; align-items: center; justify-content: center;
