@@ -27,12 +27,19 @@
   s.src = 'https://cdn.jsdelivr.net/gh/Alexberik/alex_card@a7063c657609a35e37e94b8f4f1961c7575dcda5/script.js';
   s.onload = function () {
     try {
-      // --- CASE_LINKS: add MediaAIFarm ---
+      // Beam: ensure spread + fade (base script already adds .animate)
+      (function fixBeam(){
+        var beam = document.getElementById('beam-reveal');
+        if (!beam) return;
+        if (!beam.classList.contains('animate')) beam.classList.add('animate');
+        setTimeout(function(){ beam.classList.add('fade'); }, 900);
+        setTimeout(function(){ if (beam && beam.parentNode) beam.parentNode.removeChild(beam); }, 1400);
+      })();
+
       if (typeof CASE_LINKS !== 'undefined') {
         CASE_LINKS[8] = { url: 'https://t.me/mediaaifarmbot', labelKey: 'modal_link' };
       }
 
-      // --- i18n: add c8 for all langs ---
       if (typeof i18n !== 'undefined') {
         if (i18n.ru) {
           i18n.ru.c8_desc = 'Telegram-бот: тема → сценарий (Gemini) → озвучка → субтитры → Shorts. Одобрение и публикация на YouTube в один клик.';
@@ -63,6 +70,24 @@
           i18n.ua.c8_stack = 'Python · aiogram 3 · Gemini · edge-tts · FFmpeg · YouTube API';
         }
 
+        // s7 Business design
+        if (i18n.ru) {
+          i18n.ru.s7_title = 'Дизайн бизнеса от А до Я';
+          i18n.ru.s7_desc = 'Внешнее оформление офиса, магазина, СТО: проект → печать → монтаж.';
+        }
+        if (i18n.en) {
+          i18n.en.s7_title = 'Business design A to Z';
+          i18n.en.s7_desc = 'Exterior design for office, shop, service station: concept → print → install.';
+        }
+        if (i18n.ka) {
+          i18n.ka.s7_title = 'ბიზნეს დიზაინი A-დან Z-მდე';
+          i18n.ka.s7_desc = 'ოფისის, მაღაზიის, სერვისის გარე გაფორმება: პროექტი → ბეჭდვა → მონტაჟი.';
+        }
+        if (i18n.ua) {
+          i18n.ua.s7_title = 'Дизайн бізнесу від А до Я';
+          i18n.ua.s7_desc = 'Зовнішнє оформлення офісу, магазину, СТО: проєкт → друк → монтаж.';
+        }
+
         ['ru','en','ka','ua'].forEach(function(lang) {
           if (i18n[lang] && Array.isArray(i18n[lang].term)) {
             i18n[lang].term = i18n[lang].term.map(function(line) {
@@ -80,7 +105,6 @@
         applyLang(currentLang);
       }
 
-      // --- Terminal: fixed height, scroll lines up ---
       var body = document.getElementById('term-body');
       if (body) {
         body.style.height = '230px';
@@ -108,6 +132,8 @@
         });
         obs.observe(termInteractive, { childList: true, subtree: true, characterData: true });
       }
+
+      if (window.lucide) lucide.createIcons();
 
       if (typeof restartTerminal === 'function') {
         setTimeout(restartTerminal, 100);
