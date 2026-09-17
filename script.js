@@ -144,13 +144,47 @@
   document.head.appendChild(s);
 })();
 
-/* Contact form → Telegram deep link + GA event */
+/* Contact form: inject UI + Telegram submit + GA */
 (function () {
-  function bindContactForm() {
+  function injectContactForm() {
+    var card = document.querySelector('#contact .contact-card');
+    if (!card || card.querySelector('#contact-form')) return;
+
+    var desc = card.querySelector('[data-i18n="contact_desc"]');
+    if (desc) desc.textContent = 'Оставьте заявку — отвечу в Telegram или по контакту.';
+
+    var oldBtn = card.querySelector('a.btn-primary');
+    var formHtml = ''
+      + '<form id="contact-form" class="contact-form" novalidate>'
+      + '<div class="form-row">'
+      + '<label class="form-field"><span data-i18n="form_name">Имя</span>'
+      + '<input type="text" name="name" id="cf-name" required autocomplete="name" placeholder="Как к вам обращаться"></label>'
+      + '<label class="form-field"><span data-i18n="form_contact">Telegram / телефон / email</span>'
+      + '<input type="text" name="contact" id="cf-contact" required autocomplete="tel" placeholder="@username или +995..."></label>'
+      + '</div>'
+      + '<label class="form-field"><span data-i18n="form_message">Сообщение</span>'
+      + '<textarea name="message" id="cf-message" rows="4" required placeholder="Кратко опишите задачу"></textarea></label>'
+      + '<div class="form-actions">'
+      + '<button type="submit" class="btn btn-primary" id="cf-submit"><i data-lucide="send"></i> <span data-i18n="form_submit">Отправить заявку</span></button>'
+      + '<a href="https://t.me/alex_berik" target="_blank" rel="noopener" class="btn btn-secondary"><i data-lucide="message-circle"></i> <span data-i18n="btn_telegram">Написать в Telegram</span></a>'
+      + '</div>'
+      + '<p class="form-status" id="cf-status" role="status" aria-live="polite"></p>'
+      + '</form>';
+
+    if (oldBtn) {
+      oldBtn.insertAdjacentHTML('beforebegin', formHtml);
+      oldBtn.remove();
+    } else {
+      var counter = card.querySelector('#visit-counter');
+      if (counter) counter.insertAdjacentHTML('beforebegin', formHtml);
+      else card.insertAdjacentHTML('beforeend', formHtml);
+    }
+
+    if (window.lucide) try { lucide.createIcons(); } catch (e) {}
+
     var form = document.getElementById('contact-form');
-    if (!form || form.dataset.bound === '1') return;
-    form.dataset.bound = '1';
     var statusEl = document.getElementById('cf-status');
+    if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = ((document.getElementById('cf-name') || {}).value || '').trim();
@@ -175,9 +209,11 @@
       window.open(url, '_blank', 'noopener');
     });
   }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bindContactForm);
+    document.addEventListener('DOMContentLoaded', injectContactForm);
   } else {
-    bindContactForm();
+    injectContactForm();
   }
+  setTimeout(injectContactForm, 800);
 })();
