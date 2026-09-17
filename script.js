@@ -27,7 +27,6 @@
   s.src = 'https://cdn.jsdelivr.net/gh/Alexberik/alex_card@a7063c657609a35e37e94b8f4f1961c7575dcda5/script.js';
   s.onload = function () {
     try {
-      // Beam: ensure spread + fade (base script already adds .animate)
       (function fixBeam(){
         var beam = document.getElementById('beam-reveal');
         if (!beam) return;
@@ -69,8 +68,6 @@
           i18n.ua.c8_solution = 'Бот сам пише сценарій за трендами, озвучує, збирає відео з субтитрами та анімованим персонажем, заливає на YouTube після схвалення.';
           i18n.ua.c8_stack = 'Python · aiogram 3 · Gemini · edge-tts · FFmpeg · YouTube API';
         }
-
-        // s7 Business design
         if (i18n.ru) {
           i18n.ru.s7_title = 'Дизайн бизнеса от А до Я';
           i18n.ru.s7_desc = 'Внешнее оформление офиса, магазина, СТО: проект → печать → монтаж.';
@@ -87,7 +84,6 @@
           i18n.ua.s7_title = 'Дизайн бізнесу від А до Я';
           i18n.ua.s7_desc = 'Зовнішнє оформлення офісу, магазину, СТО: проєкт → друк → монтаж.';
         }
-
         ['ru','en','ka','ua'].forEach(function(lang) {
           if (i18n[lang] && Array.isArray(i18n[lang].term)) {
             i18n[lang].term = i18n[lang].term.map(function(line) {
@@ -146,4 +142,42 @@
     console.error('Failed to load base script from CDN');
   };
   document.head.appendChild(s);
+})();
+
+/* Contact form → Telegram deep link + GA event */
+(function () {
+  function bindContactForm() {
+    var form = document.getElementById('contact-form');
+    if (!form || form.dataset.bound === '1') return;
+    form.dataset.bound = '1';
+    var statusEl = document.getElementById('cf-status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = ((document.getElementById('cf-name') || {}).value || '').trim();
+      var contact = ((document.getElementById('cf-contact') || {}).value || '').trim();
+      var message = ((document.getElementById('cf-message') || {}).value || '').trim();
+      if (!name || !contact || !message) {
+        if (statusEl) {
+          statusEl.className = 'form-status error';
+          statusEl.textContent = 'Заполните все поля';
+        }
+        return;
+      }
+      var text = 'Заявка с сайта MAGIC\nИмя: ' + name + '\nКонтакт: ' + contact + '\n\n' + message;
+      var url = 'https://t.me/alex_berik?text=' + encodeURIComponent(text);
+      if (typeof gtag === 'function') {
+        try { gtag('event', 'contact_form_submit', { method: 'telegram' }); } catch (err) {}
+      }
+      if (statusEl) {
+        statusEl.className = 'form-status ok';
+        statusEl.textContent = 'Открываю Telegram…';
+      }
+      window.open(url, '_blank', 'noopener');
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindContactForm);
+  } else {
+    bindContactForm();
+  }
 })();
