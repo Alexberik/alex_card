@@ -1,0 +1,26 @@
+:root {
+  --violet: #ff6b2c;
+  --orange: #ff6b2c;
+  --grad: linear-gradient(135deg, #22d3ee 0%, #ff6b2c 100%);
+  --grad-cta: linear-gradient(135deg, #22d3ee 0%, #06b6d4 45%, #ff6b2c 100%);
+}
+.section-tag { color: #22d3ee; }
+.case-tag, .modal-tag { color: #ff6b2c; }
+.nav-cta, .btn-primary {
+  background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 45%, #ff6b2c 100%);
+}
+.beam-line {
+  background: linear-gradient(to bottom, transparent 0%, #22d3ee 35%, #ff6b2c 65%, transparent 100%);
+}
+.price-card.featured {
+  border-color: rgba(255, 107, 44, 0.4);
+  box-shadow: 0 0 0 1px rgba(255, 107, 44, 0.15), 0 20px 40px rgba(0,0,0,0.25);
+}
+.price-badge { background: rgba(255,107,44,0.15); color: #ff6b2c; }
+.ai-widget { border-color: rgba(255,107,44,0.25); }
+.ai-widget:hover { border-color: #ff6b2c; }
+.term-cursor {
+  display: inline-block; margin-left: 1px; color: #22d3ee;
+  animation: term-blink 1s step-end infinite;
+}
+@keyframes term-blink { 50% { opacity: 0; } }
