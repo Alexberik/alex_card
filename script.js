@@ -1,225 +1,194 @@
-// ================= Cinematic beam reveal on load =================
-window.addEventListener('load', () => {
-  const beam = document.getElementById('beam-reveal');
-  if (!beam) return;
-  beam.classList.add('animate');
-  setTimeout(() => beam.classList.add('fade'), 900);
-  setTimeout(() => { if (beam.parentNode) beam.parentNode.removeChild(beam); }, 1400);
-});
-
 if (window.lucide) lucide.createIcons();
+
+(function () {
+  const canvas = document.getElementById('stars-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, stars = [], mouse = { x: 0.5, y: 0.5 }, mx = 0, my = 0;
+  const N = 90;
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < N; i++) {
+      stars.push({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.4 + 0.3, a: Math.random() * 0.5 + 0.15, s: Math.random() * 0.4 + 0.1, p: Math.random() * Math.PI * 2 });
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', e => { mouse.x = e.clientX / w; mouse.y = e.clientY / h; }, { passive: true });
+  function draw() {
+    mx += (mouse.x - 0.5 - mx) * 0.04;
+    my += (mouse.y - 0.5 - my) * 0.04;
+    ctx.clearRect(0, 0, w, h);
+    const t = Date.now() * 0.001;
+    for (let i = 0; i < stars.length; i++) {
+      for (let j = i + 1; j < stars.length; j++) {
+        const a = stars[i], b = stars[j];
+        const dx = a.x - b.x, dy = a.y - b.y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 120) {
+          ctx.strokeStyle = 'rgba(34,211,238,' + (0.12 * (1 - d / 120)) + ')';
+          ctx.beginPath();
+          ctx.moveTo(a.x + mx * 18 * a.s, a.y + my * 18 * a.s);
+          ctx.lineTo(b.x + mx * 18 * b.s, b.y + my * 18 * b.s);
+          ctx.stroke();
+        }
+      }
+    }
+    for (const s of stars) {
+      const px = s.x + mx * 22 * s.s, py = s.y + my * 22 * s.s;
+      const tw = s.a + Math.sin(t * 1.5 + s.p) * 0.15;
+      ctx.fillStyle = 'rgba(34,211,238,' + Math.max(0.05, tw) + ')';
+      ctx.beginPath(); ctx.arc(px, py, s.r, 0, Math.PI * 2); ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 
 const I18N = {
   ru: {
-    nav_services:"Услуги", nav_expats:"Экспатам", nav_auto:"Авто", nav_cases:"Кейсы", nav_process:"Процесс", nav_why:"Почему я", nav_pricing:"Цены", nav_cta:"Написать →",
-    hero_tag:"AI & AUTOMATION SPECIALIST",
+    nav_services:"Услуги", nav_wf:"Workflows", nav_auto:"Авто", nav_cases:"Кейсы", nav_pricing:"Цены", nav_cta:"Написать →",
+    hero_tag:"AI & AUTOMATION · TBILISI",
     hero_h1:"Автоматизирую бизнес.<br><span class=\"accent\">Строю AI</span>, который работает вместо отдела.",
-    hero_sub:"Telegram-боты · AI-агенты · Make/n8n · Экспатам в Грузии · Авто под ключ",
-    btn_telegram:"Написать в Telegram", btn_cases:"Смотреть кейсы",
-    services_tag:"SERVICES", services_title:"Что делаю",
-    services_lead:"Главный фокус — AI и автоматизация. Остальное — в том же контакте, если нужно.",
+    hero_sub:"Telegram-боты · AI-агенты · n8n/Make · Media Farm · AI-Office · Авто под ключ",
+    btn_telegram:"Написать в Telegram", btn_wf:"Готовые workflows",
+    promise_2h:"Ответ в течение 2 часов", promise_24:"На связи 24/7",
+    services_tag:"SERVICES", services_title:"Что делаю", services_lead:"Главный фокус — AI и автоматизация. Остальное — в том же контакте.",
     s1_title:"AI & Автоматизация", s1_desc:"Агенты, боты и пайплайны, которые закрывают рутину.",
-    s1_f1:"AI-агенты и мульти-агентные системы", s1_f2:"Telegram-боты под ключ", s1_f3:"Make / n8n / кастомные пайплайны", s1_f4:"Интеграции API, CRM, маркетплейсы",
-    e1_title:"Легализация", e1_desc:"ВНЖ, документы, сопровождение.",
-    e2_title:"ИП и компания", e2_desc:"Регистрация бизнеса.",
-    a1_title:"Авто под ключ", a1_desc:"Подбор, проверка, оформление.",
-    smm_title:"SMM / Контент", smm_desc:"Контент-пайплайны и Shorts.",
-    pricing_tag:"PRICING", pricing_title:"Пакеты и старт",
-    pricing_note:"Ориентиры. Фикс — после короткого брифа.",
+    s1_f1:"AI-агенты и multi-agent", s1_f2:"Telegram-боты под ключ", s1_f3:"n8n / Make / кастом", s1_f4:"API, CRM, маркетплейсы",
+    e1_title:"Легализация", e1_desc:"ВНЖ, документы, сопровождение.", e2_title:"ИП и компания", e2_desc:"Регистрация бизнеса.",
+    a1_title:"Авто под ключ", a1_desc:"Подбор, проверка, оформление.", smm_title:"SMM / Контент", smm_desc:"Контент-пайплайны и Shorts.",
+    wf_tag:"READY WORKFLOWS", wf_title:"Готовые решения", wf_lead:"Шаблоны n8n / Make — подключаем и запускаем под вашу задачу.",
+    wf1_title:"Контент → Shorts", wf1_desc:"Тема → сценарий → озвучка → монтаж → публикация.",
+    wf2_title:"Входящие → ответ", wf2_desc:"Почта/TG → triage → черновик → CRM → эскалация.",
+    wf3_title:"Вакансии → отклик", wf3_desc:"Поиск → матч резюме → письмо → трекинг статусов.",
+    wf4_title:"Карточка → цена", wf4_desc:"Товар → описание → цены конкурентов → публикация.",
+    wf5_title:"FAQ-бот 24/7", wf5_desc:"База знаний → ответы → эскалация человеку.",
+    wf6_title:"Лид → менеджер", wf6_desc:"Форма/реклама → квалификация → TG-алерт → CRM.",
+    jv_title:"JARVIS — командная консоль", jv_lead:"Holographic HUD в стиле Iron Man: статусы, сканирование, голосовые команды.",
+    bot_demo_title:"Живой цикл бота", bs1:"Сообщение", bs2:"AI-разбор", bs3:"Действие", bs4:"Ответ",
+    auto_tag:"AUTO", auto_title:"Авто под ключ", auto_lead:"Подбор, проверка, оформление — без сюрпризов.",
+    auto_s1:"Звонок / TG", auto_s1s:"Бриф и бюджет", auto_s2:"Аукцион", auto_s2s:"Подбор и ставка",
+    auto_s3:"Порт", auto_s3s:"Доставка и растаможка", auto_s4:"Клиент", auto_s4s:"Передача под ключ",
+    auto_note:"США / Корея / Европа → Грузия. Сопровождение на каждом этапе.",
+    cases_tag:"CASES", cases_title:"Кейсы и проекты",
+    c1_result:"→ Поиск вакансий и первый отклик — без ручного перебора", c1_desc:"Telegram-бот с AI: резюме, вакансии, отклики.",
+    c2_result:"→ Карточка товара и цены — без ручной рутины", c2_desc:"AI-агент для продаж: карточки, цены, конкуренты.",
+    c3_result:"→ AI, автоматизация и релокация — один контакт", c3_desc:"AI, автоматизация и сопровождение в Грузии.",
+    c4_result:"→ Офисная рутина уходит на агентов, не на людей", c4_desc:"Мульти-агентная система для рутины офиса.",
+    c5_title:"Контент-ферма", c5_result:"→ Контент по пайплайну, не «когда руки дойдут»", c5_desc:"Контент-пайплайн под соцсети и Shorts.",
+    c8_result:"→ От темы до Shorts — один пайплайн", c8_desc:"Тема → сценарий → озвучка → Shorts.",
+    pricing_tag:"PRICING", pricing_title:"Пакеты и старт", pricing_note:"Ориентиры. Фикс — после короткого брифа.",
     price1_name:"Старт", price1_amount:"от 149 ₾", price1_desc:"Быстрый запуск бота или автоматизации.",
     price1_f1:"Telegram-бот или простой workflow", price1_f2:"1 интеграция", price1_f3:"Документация и передача", price1_cta:"Обсудить Старт",
     price2_badge:"Частый выбор", price2_name:"Бизнес", price2_amount:"от 499 ₾", price2_desc:"AI-агент или связка процессов под задачу.",
     price2_f1:"AI-агент / multi-step n8n·Make", price2_f2:"До 3 интеграций", price2_f3:"2 недели поддержки", price2_cta:"Обсудить Бизнес",
     price3_name:"Под ключ", price3_amount:"от 1 199 ₾", price3_desc:"Система: агенты, контент, автоматизация офиса.",
     price3_f1:"Мульти-агентная схема", price3_f2:"Кастомные интеграции", price3_f3:"Месяц сопровождения", price3_cta:"Обсудить под ключ",
-    cases_tag:"CASES", cases_title:"Кейсы и проекты", case_more:"Подробнее",
-    c1_result:"→ Поиск вакансий и первый отклик — без ручного перебора", c1_desc:"Telegram-бот с AI: резюме, вакансии, отклики.",
-    c2_result:"→ Карточка товара и цены — без ручной рутины", c2_desc:"AI-агент для продаж: карточки, цены, конкуренты.",
-    c3_result:"→ AI, автоматизация и релокация — один контакт", c3_desc:"AI, автоматизация и сопровождение в Грузии.",
-    c4_result:"→ Офисная рутина уходит на агентов, не на людей", c4_desc:"Мульти-агентная система для рутины офиса.",
-    c5_title:"Контент-ферма", c5_result:"→ Контент по пайплайну, не «когда руки дойдут»", c5_desc:"Контент-пайплайн под соцсети и Shorts.",
-    c6_title:"Auto-Parts Marketplace", c6_result:"→ Поставщик и покупатель — в одном месте", c6_desc:"B2B-витрина автозапчастей.",
-    c7_title:"QR-меню", c7_result:"→ Заказ со стола по QR, меньше очередей у персонала", c7_desc:"Цифровое меню и заказы.",
-    c8_result:"→ От темы до Shorts — один пайплайн", c8_desc:"Тема → сценарий → озвучка → Shorts.",
-    process_tag:"PROCESS", process_title:"Как проходит работа",
-    p1_title:"Бриф", p1_desc:"Цель и ограничения.", p2_title:"План", p2_desc:"Маршрут и сроки.", p3_title:"Сборка", p3_desc:"Бот или сопровождение.", p4_title:"Запуск", p4_desc:"Передача и поддержка.",
-    why_tag:"WHY", why_title:"Почему я",
-    w1_title:"Скорость", w1_desc:"От брифа до рабочего прототипа — дни, не месяцы.",
-    w2_title:"Системность", w2_desc:"Не разовые скрипты, а связки процессов.",
-    w3_title:"Грузия", w3_desc:"Локальный контекст + AI-экспертиза.",
-    cta_title:"Готовы начать?", cta_sub:"Напишите — разберём задачу и предложим маршрут.", cta_btn:"Написать в Telegram",
-    expats_tag:"FOR EXPATS", expats_title:"Экспатам в Грузии",
-    ex1_title:"Документы", ex1_desc:"ВНЖ, регистрация, справки.",
-    ex2_title:"Бизнес", ex2_desc:"ИП, ООО, банковский счёт.",
-    ex3_title:"Быт", ex3_desc:"Жильё, связь, ориентиры.",
-    auto_tag:"AUTO", auto_title:"Авто под ключ", auto_lead:"Подбор, проверка, оформление — без сюрпризов.", auto_s1:"Звонок / TG", auto_s1s:"Бриф и бюджет", auto_s2:"Аукцион", auto_s2s:"Подбор и ставка", auto_s3:"Порт", auto_s3s:"Доставка и растаможка", auto_s4:"Клиент", auto_s4s:"Передача под ключ", auto_note:"США / Корея / Европа → Грузия. Сопровождение на каждом этапе."
+    cta_title:"Готовы начать?", cta_sub:"Напишите — разберём задачу и предложим маршрут.", cta_btn:"Написать в Telegram"
   },
   en: {
-    nav_services:"Services", nav_expats:"For Expats", nav_auto:"Cars", nav_cases:"Cases", nav_process:"Process", nav_why:"Why me", nav_pricing:"Pricing", nav_cta:"Message →",
-    hero_tag:"AI & AUTOMATION SPECIALIST",
+    nav_services:"Services", nav_wf:"Workflows", nav_auto:"Cars", nav_cases:"Cases", nav_pricing:"Pricing", nav_cta:"Message →",
+    hero_tag:"AI & AUTOMATION · TBILISI",
     hero_h1:"I automate business.<br><span class=\"accent\">I build AI</span> that works instead of a department.",
-    hero_sub:"Telegram bots · AI agents · Make/n8n · Expats in Georgia · Cars turnkey",
-    btn_telegram:"Message on Telegram", btn_cases:"View cases",
-    services_tag:"SERVICES", services_title:"What I do",
-    services_lead:"Primary focus — AI and automation. Everything else is the same contact when you need it.",
-    s1_title:"AI & Automation", s1_desc:"Agents, bots and pipelines that close the routine.",
-    s1_f1:"AI agents and multi-agent systems", s1_f2:"Telegram bots end-to-end", s1_f3:"Make / n8n / custom pipelines", s1_f4:"API, CRM, marketplace integrations",
-    e1_title:"Legalization", e1_desc:"Residence, documents, support.",
-    e2_title:"Sole prop & company", e2_desc:"Business registration.",
-    a1_title:"Cars turnkey", a1_desc:"Selection, inspection, paperwork.",
-    smm_title:"SMM / Content", smm_desc:"Content pipelines and Shorts.",
-    pricing_tag:"PRICING", pricing_title:"Packages & starting points",
-    pricing_note:"Ballpark figures. Fixed quote after a short brief.",
-    price1_name:"Start", price1_amount:"from 149 ₾", price1_desc:"Quick bot or automation launch.",
-    price1_f1:"Telegram bot or simple workflow", price1_f2:"1 integration", price1_f3:"Docs and handoff", price1_cta:"Discuss Start",
-    price2_badge:"Popular", price2_name:"Business", price2_amount:"from 499 ₾", price2_desc:"AI agent or process chain for the job.",
-    price2_f1:"AI agent / multi-step n8n·Make", price2_f2:"Up to 3 integrations", price2_f3:"2 weeks support", price2_cta:"Discuss Business",
-    price3_name:"Turnkey", price3_amount:"from 1,199 ₾", price3_desc:"System: agents, content, office automation.",
-    price3_f1:"Multi-agent setup", price3_f2:"Custom integrations", price3_f3:"One month support", price3_cta:"Discuss turnkey",
-    cases_tag:"CASES", cases_title:"Cases & projects", case_more:"More",
-    c1_result:"→ Job search and first reply — without manual scrolling", c1_desc:"Telegram bot with AI: resume, jobs, replies.",
-    c2_result:"→ Product card and pricing — without manual grind", c2_desc:"AI agent for sales: cards, prices, competitors.",
-    c3_result:"→ AI, automation, relocation — one contact", c3_desc:"AI, automation and support in Georgia.",
-    c4_result:"→ Office routine on agents, not on people", c4_desc:"Multi-agent system for office routine.",
-    c5_title:"Content farm", c5_result:"→ Content on a pipeline, not when we have time", c5_desc:"Content pipeline for social and Shorts.",
-    c6_title:"Auto-Parts Marketplace", c6_result:"→ Supplier and buyer in one place", c6_desc:"B2B auto-parts storefront.",
-    c7_title:"QR menu", c7_result:"→ Order from the table via QR, less staff load", c7_desc:"Digital menu and orders.",
-    c8_result:"→ From topic to Shorts — one pipeline", c8_desc:"Topic → script → voice → Shorts.",
-    process_tag:"PROCESS", process_title:"How work goes",
-    p1_title:"Brief", p1_desc:"Goal and constraints.", p2_title:"Plan", p2_desc:"Route and timeline.", p3_title:"Build", p3_desc:"Bot or support.", p4_title:"Launch", p4_desc:"Handoff and support.",
-    why_tag:"WHY", why_title:"Why me",
-    w1_title:"Speed", w1_desc:"From brief to working prototype — days, not months.",
-    w2_title:"Systems", w2_desc:"Not one-off scripts — process chains.",
-    w3_title:"Georgia", w3_desc:"Local context + AI expertise.",
-    cta_title:"Ready to start?", cta_sub:"Message me — we map the task and a route.", cta_btn:"Message on Telegram",
-    expats_tag:"FOR EXPATS", expats_title:"For expats in Georgia",
-    ex1_title:"Documents", ex1_desc:"Residence, registration, certificates.",
-    ex2_title:"Business", ex2_desc:"Sole prop, LLC, bank account.",
-    ex3_title:"Daily life", ex3_desc:"Housing, connectivity, orientation.",
-    auto_tag:"AUTO", auto_title:"Cars turnkey", auto_lead:"Selection, inspection, paperwork — no surprises.", auto_s1:"Call / TG", auto_s1s:"Brief & budget", auto_s2:"Auction", auto_s2s:"Pick & bid", auto_s3:"Port", auto_s3s:"Shipping & customs", auto_s4:"Client", auto_s4s:"Keys in hand", auto_note:"USA / Korea / Europe → Georgia. Support at every step."
+    hero_sub:"Telegram bots · AI agents · n8n/Make · Media Farm · AI-Office · Cars turnkey",
+    btn_telegram:"Message on Telegram", btn_wf:"Ready workflows",
+    promise_2h:"Reply within 2 hours", promise_24:"Available 24/7",
+    services_tag:"SERVICES", services_title:"What I do", services_lead:"Primary focus — AI and automation.",
+    s1_title:"AI & Automation", s1_desc:"Agents, bots and pipelines.", s1_f1:"AI agents", s1_f2:"Telegram bots", s1_f3:"n8n / Make", s1_f4:"API, CRM",
+    e1_title:"Legalization", e1_desc:"Residence, documents.", e2_title:"Company setup", e2_desc:"Registration.",
+    a1_title:"Cars turnkey", a1_desc:"Selection, paperwork.", smm_title:"SMM / Content", smm_desc:"Content pipelines.",
+    wf_tag:"READY WORKFLOWS", wf_title:"Ready solutions", wf_lead:"n8n / Make templates.",
+    wf1_title:"Content → Shorts", wf1_desc:"Topic → script → voice → Shorts.",
+    wf2_title:"Inbox → reply", wf2_desc:"Mail/TG → triage → CRM.",
+    wf3_title:"Jobs → apply", wf3_desc:"Search → match → letter.",
+    wf4_title:"Card → price", wf4_desc:"SKU → copy → publish.",
+    wf5_title:"FAQ bot 24/7", wf5_desc:"Knowledge base → answers.",
+    wf6_title:"Lead → manager", wf6_desc:"Form → TG alert → CRM.",
+    jv_title:"JARVIS — command console", jv_lead:"Iron Man style holographic HUD.",
+    bot_demo_title:"Live bot cycle", bs1:"Message", bs2:"AI parse", bs3:"Action", bs4:"Reply",
+    auto_tag:"AUTO", auto_title:"Cars turnkey", auto_lead:"Selection, inspection, paperwork.",
+    auto_s1:"Call / TG", auto_s1s:"Brief", auto_s2:"Auction", auto_s2s:"Bid",
+    auto_s3:"Port", auto_s3s:"Customs", auto_s4:"Client", auto_s4s:"Keys",
+    auto_note:"USA / Korea / Europe → Georgia.",
+    cases_tag:"CASES", cases_title:"Cases & projects",
+    c1_result:"→ Job search without manual scrolling", c1_desc:"Telegram bot with AI.",
+    c2_result:"→ Product card without manual grind", c2_desc:"AI agent for sales.",
+    c3_result:"→ AI and relocation — one contact", c3_desc:"AI and support in Georgia.",
+    c4_result:"→ Office routine on agents", c4_desc:"Multi-agent system.",
+    c5_title:"Content farm", c5_result:"→ Content on a pipeline", c5_desc:"Content pipeline.",
+    c8_result:"→ Topic to Shorts", c8_desc:"Topic → script → Shorts.",
+    pricing_tag:"PRICING", pricing_title:"Packages", pricing_note:"Ballpark figures.",
+    price1_name:"Start", price1_amount:"from 149 ₾", price1_desc:"Quick bot launch.",
+    price1_f1:"Bot or workflow", price1_f2:"1 integration", price1_f3:"Docs", price1_cta:"Discuss Start",
+    price2_badge:"Popular", price2_name:"Business", price2_amount:"from 499 ₾", price2_desc:"AI agent.",
+    price2_f1:"AI / n8n·Make", price2_f2:"Up to 3 integrations", price2_f3:"2 weeks support", price2_cta:"Discuss Business",
+    price3_name:"Turnkey", price3_amount:"from 1,199 ₾", price3_desc:"Full system.",
+    price3_f1:"Multi-agent", price3_f2:"Custom", price3_f3:"1 month", price3_cta:"Discuss turnkey",
+    cta_title:"Ready to start?", cta_sub:"Message me — we map the task.", cta_btn:"Message on Telegram"
   },
   ka: {
-    nav_services:"სერვისები", nav_expats:"ექსპატებს", nav_auto:"ავტო", nav_cases:"ქეისები", nav_process:"პროცესი", nav_why:"რატომ მე", nav_pricing:"ფასები", nav_cta:"დაწერეთ →",
-    hero_tag:"AI & AUTOMATION SPECIALIST",
+    nav_services:"სერვისები", nav_wf:"Workflows", nav_auto:"ავტო", nav_cases:"ქეისები", nav_pricing:"ფასები", nav_cta:"დაწერეთ →",
+    hero_tag:"AI & AUTOMATION · TBILISI",
     hero_h1:"ავტომატიზაციას ვაკეთებ ბიზნესზე.<br><span class=\"accent\">ვაშენებ AI-ს</span>, რომელიც განყოფილების ნაცვლად მუშაობს.",
-    hero_sub:"Telegram-ბოტები · AI-აგენტები · Make/n8n · ექსპატები საქართველოში · ავტო სრულად",
-    btn_telegram:"დაწერეთ Telegram-ში", btn_cases:"ქეისების ნახვა",
-    services_tag:"SERVICES", services_title:"რას ვაკეთებ",
-    services_lead:"მთავარი ფოკუსი — AI და ავტომატიზაცია. დანარჩენი — იმავე კონტაქტზე.",
-    s1_title:"AI & ავტომატიზაცია", s1_desc:"აგენტები, ბოტები და მილები, რომლებიც რუტინას ხურავენ.",
-    s1_f1:"AI-აგენტები და მულტი-აგენტური სისტემები", s1_f2:"Telegram-ბოტები სრულად", s1_f3:"Make / n8n / კასტომ მილები", s1_f4:"API, CRM, მარკეტფლეის ინტეგრაციები",
-    e1_title:"ლეგალიზაცია", e1_desc:"ბინადრობა, დოკუმენტები, თანხლება.",
-    e2_title:"ინდ. მეწარმე და კომპანია", e2_desc:"ბიზნესის რეგისტრაცია.",
-    a1_title:"ავტო სრულად", a1_desc:"შერჩევა, შემოწმება, გაფორმება.",
-    smm_title:"SMM / კონტენტი", smm_desc:"კონტენტ-მილები და Shorts.",
-    pricing_tag:"PRICING", pricing_title:"პაკეტები და სტარტი",
-    pricing_note:"ორიენტირები. ფიქსი — მოკლე ბრიფის შემდეგ.",
-    price1_name:"Start", price1_amount:"149 ₾-დან", price1_desc:"ბოტის ან ავტომატიზაციის სწრაფი გაშვება.",
-    price1_f1:"Telegram-ბოტი ან მარტივი workflow", price1_f2:"1 ინტეგრაცია", price1_f3:"დოკუმენტაცია და გადაცემა", price1_cta:"განვიხილოთ Start",
-    price2_badge:"ხშირი არჩევანი", price2_name:"Business", price2_amount:"499 ₾-დან", price2_desc:"AI-აგენტი ან პროცესების ჯაჭვი ამოცანისთვის.",
-    price2_f1:"AI-აგენტი / multi-step n8n·Make", price2_f2:"მდე 3 ინტეგრაცია", price2_f3:"2 კვირის მხარდაჭერა", price2_cta:"განვიხილოთ Business",
-    price3_name:"Turnkey", price3_amount:"1,199 ₾-დან", price3_desc:"სისტემა: აგენტები, კონტენტი, ოფისის ავტომატიზაცია.",
-    price3_f1:"მულტი-აგენტური სქემა", price3_f2:"კასტომ ინტეგრაციები", price3_f3:"ერთი თვის თანხლება", price3_cta:"განვიხილოთ turnkey",
-    cases_tag:"CASES", cases_title:"ქეისები და პროექტები", case_more:"მეტი",
-    c1_result:"→ ვაკანსიების ძიება", c1_desc:"Telegram-ბოტი AI-ით.",
-    c2_result:"→ პროდუქტის ბარათი", c2_desc:"AI-აგენტი გაყიდვებისთვის.",
-    c3_result:"→ AI და რელოკაცია", c3_desc:"AI და თანხლება საქართველოში.",
-    c4_result:"→ ოფისის რუტინა აგენტებზე", c4_desc:"მულტი-აგენტური სისტემა.",
-    c5_title:"კონტენტ-ფერმა", c5_result:"→ კონტენტი მილით", c5_desc:"კონტენტ-მილი.",
-    c6_title:"Auto-Parts Marketplace", c6_result:"→ მომწოდებელი და მყიდველი", c6_desc:"B2B ვიტრინა.",
-    c7_title:"QR-მენიუ", c7_result:"→ შეკვეთა QR-ით", c7_desc:"ციფრული მენიუ.",
-    c8_result:"→ თემიდან Shorts-მდე", c8_desc:"თემა → სცენარი → Shorts.",
-    process_tag:"PROCESS", process_title:"როგორ მიდის სამუშაო",
-    p1_title:"ბრიფი", p1_desc:"მიზანი.", p2_title:"გეგმა", p2_desc:"მარშრუტი.", p3_title:"აწყობა", p3_desc:"ბოტი.", p4_title:"გაშვება", p4_desc:"გადაცემა.",
-    why_tag:"WHY", why_title:"რატომ მე",
-    w1_title:"სიჩქარე", w1_desc:"დღეები, არა თვეები.",
-    w2_title:"სისტემურობა", w2_desc:"პროცესების ჯაჭვები.",
-    w3_title:"საქართველო", w3_desc:"ლოკალური კონტექსტი + AI.",
-    cta_title:"მზად ხართ?", cta_sub:"დამიწერეთ.", cta_btn:"დაწერეთ Telegram-ში",
-    expats_tag:"FOR EXPATS", expats_title:"ექსპატებს საქართველოში",
-    ex1_title:"დოკუმენტები", ex1_desc:"ბინადრობა.",
-    ex2_title:"ბიზნესი", ex2_desc:"რეგისტრაცია.",
-    ex3_title:"ყოველდღიურობა", ex3_desc:"საცხოვრებელი.",
-    auto_tag:"AUTO", auto_title:"ავტო სრულად", auto_lead:"შერჩევა, შემოწმება, გაფორმება — სიურპრიზების გარეშე.", auto_s1:"ზარი / TG", auto_s1s:"ბრიფი და ბიუჯეტი", auto_s2:"აუქციონი", auto_s2s:"შერჩევა და ფსონი", auto_s3:"პორტი", auto_s3s:"მიწოდება და განბაჟება", auto_s4:"კლიენტი", auto_s4s:"გადაცემა", auto_note:"აშშ / კორეა / ევროპა → საქართველო."
+    hero_sub:"Telegram-ბოტები · AI-აგენტები · n8n/Make",
+    btn_telegram:"დაწერეთ Telegram-ში", btn_wf:"მზა workflows",
+    promise_2h:"პასუხი 2 საათში", promise_24:"24/7 კავშირზე",
+    services_tag:"SERVICES", services_title:"რას ვაკეთებ", services_lead:"მთავარი ფოკუსი — AI.",
+    s1_title:"AI & ავტომატიზაცია", s1_desc:"აგენტები და ბოტები.", s1_f1:"AI-აგენტები", s1_f2:"ბოტები", s1_f3:"n8n / Make", s1_f4:"API",
+    e1_title:"ლეგალიზაცია", e1_desc:"ბინადრობა.", e2_title:"კომპანია", e2_desc:"რეგისტრაცია.",
+    a1_title:"ავტო", a1_desc:"შერჩევა.", smm_title:"SMM", smm_desc:"კონტენტი.",
+    wf_tag:"READY WORKFLOWS", wf_title:"მზა გადაწყვეტილებები", wf_lead:"n8n / Make შაბლონები.",
+    wf1_title:"კონტენტი → Shorts", wf1_desc:"თემა → Shorts.", wf2_title:"Inbox → პასუხი", wf2_desc:"ფოსტა → CRM.",
+    wf3_title:"ვაკანსიები", wf3_desc:"ძიება → წერილი.", wf4_title:"ბარათი → ფასი", wf4_desc:"SKU → ფასები.",
+    wf5_title:"FAQ-ბოტი", wf5_desc:"ცოდნის ბაზა.", wf6_title:"ლიდი", wf6_desc:"ფორმა → CRM.",
+    jv_title:"JARVIS", jv_lead:"Iron Man HUD.", bot_demo_title:"ბოტის ციკლი", bs1:"შეტყობინება", bs2:"AI", bs3:"მოქმედება", bs4:"პასუხი",
+    auto_tag:"AUTO", auto_title:"ავტო სრულად", auto_lead:"შერჩევა.", auto_s1:"ზარი", auto_s1s:"ბრიფი", auto_s2:"აუქციონი", auto_s2s:"ფსონი", auto_s3:"პორტი", auto_s3s:"განბაჟება", auto_s4:"კლიენტი", auto_s4s:"გადაცემა", auto_note:"აშშ → საქართველო.",
+    cases_tag:"CASES", cases_title:"ქეისები", c1_result:"→ ვაკანსიები", c1_desc:"ბოტი.", c2_result:"→ ბარათი", c2_desc:"AI.", c3_result:"→ რელოკაცია", c3_desc:"AI.", c4_result:"→ ოფისი", c4_desc:"აგენტები.", c5_title:"კონტენტი", c5_result:"→ მილი", c5_desc:"კონტენტი.", c8_result:"→ Shorts", c8_desc:"Shorts.",
+    pricing_tag:"PRICING", pricing_title:"პაკეტები", pricing_note:"ორიენტირები.",
+    price1_name:"Start", price1_amount:"149 ₾-დან", price1_desc:"სწრაფი გაშვება.", price1_f1:"ბოტი", price1_f2:"1 ინტეგრაცია", price1_f3:"დოკი", price1_cta:"განვიხილოთ",
+    price2_badge:"პოპულარული", price2_name:"Business", price2_amount:"499 ₾-დან", price2_desc:"AI.", price2_f1:"n8n", price2_f2:"3 ინტეგრაცია", price2_f3:"2 კვირა", price2_cta:"განვიხილოთ",
+    price3_name:"Turnkey", price3_amount:"1,199 ₾-დან", price3_desc:"სისტემა.", price3_f1:"მულტი", price3_f2:"კასტომი", price3_f3:"1 თვე", price3_cta:"განვიხილოთ",
+    cta_title:"მზად ხართ?", cta_sub:"დამიწერეთ.", cta_btn:"დაწერეთ Telegram-ში"
   },
   ua: {
-    nav_services:"Послуги", nav_expats:"Експатам", nav_auto:"Авто", nav_cases:"Кейси", nav_process:"Процес", nav_why:"Чому я", nav_pricing:"Ціни", nav_cta:"Написати →",
-    hero_tag:"AI & AUTOMATION SPECIALIST",
+    nav_services:"Послуги", nav_wf:"Workflows", nav_auto:"Авто", nav_cases:"Кейси", nav_pricing:"Ціни", nav_cta:"Написати →",
+    hero_tag:"AI & AUTOMATION · TBILISI",
     hero_h1:"Автоматизую бізнес.<br><span class=\"accent\">Будую AI</span>, який працює замість відділу.",
-    hero_sub:"Telegram-боти · AI-агенти · Make/n8n · Експатам у Грузії · Авто під ключ",
-    btn_telegram:"Написати в Telegram", btn_cases:"Дивитися кейси",
-    services_tag:"SERVICES", services_title:"Що роблю",
-    services_lead:"Головний фокус — AI і автоматизація.",
-    s1_title:"AI & Автоматизація", s1_desc:"Агенти, боти і пайплайни.",
-    s1_f1:"AI-агенти", s1_f2:"Telegram-боти", s1_f3:"Make / n8n", s1_f4:"Інтеграції API, CRM",
-    e1_title:"Легалізація", e1_desc:"ВНЖ, документи.",
-    e2_title:"ФОП і компанія", e2_desc:"Реєстрація бізнесу.",
-    a1_title:"Авто під ключ", a1_desc:"Підбір, перевірка, оформлення.",
-    smm_title:"SMM / Контент", smm_desc:"Контент-пайплайни і Shorts.",
-    pricing_tag:"PRICING", pricing_title:"Пакети і старт",
-    pricing_note:"Орієнтири. Фікс — після короткого брифу.",
-    price1_name:"Старт", price1_amount:"від 149 ₾", price1_desc:"Швидкий запуск бота або автоматизації.",
-    price1_f1:"Telegram-бот або простий workflow", price1_f2:"1 інтеграція", price1_f3:"Документація і передача", price1_cta:"Обговорити Старт",
-    price2_badge:"Частий вибір", price2_name:"Бізнес", price2_amount:"від 499 ₾", price2_desc:"AI-агент або зв'язка процесів під задачу.",
-    price2_f1:"AI-агент / multi-step n8n·Make", price2_f2:"До 3 інтеграцій", price2_f3:"2 тижні підтримки", price2_cta:"Обговорити Бізнес",
-    price3_name:"Під ключ", price3_amount:"від 1 199 ₾", price3_desc:"Система: агенти, контент, автоматизація офісу.",
-    price3_f1:"Мульти-агентна схема", price3_f2:"Кастомні інтеграції", price3_f3:"Місяць супроводу", price3_cta:"Обговорити під ключ",
-    cases_tag:"CASES", cases_title:"Кейси і проєкти", case_more:"Детальніше",
-    c1_result:"→ Пошук вакансій", c1_desc:"Telegram-бот з AI.",
-    c2_result:"→ Картка товару", c2_desc:"AI-агент для продажів.",
-    c3_result:"→ AI і релокація", c3_desc:"AI і супровід у Грузії.",
-    c4_result:"→ Офісна рутина на агентів", c4_desc:"Мульти-агентна система.",
-    c5_title:"Контент-ферма", c5_result:"→ Контент пайплайном", c5_desc:"Контент-пайплайн.",
-    c6_title:"Auto-Parts Marketplace", c6_result:"→ Постачальник і покупець", c6_desc:"B2B-вітрина.",
-    c7_title:"QR-меню", c7_result:"→ Замовлення з QR", c7_desc:"Цифрове меню.",
-    c8_result:"→ Від теми до Shorts", c8_desc:"Тема → сценарій → Shorts.",
-    process_tag:"PROCESS", process_title:"Як проходить робота",
-    p1_title:"Бриф", p1_desc:"Мета.", p2_title:"План", p2_desc:"Маршрут.", p3_title:"Збірка", p3_desc:"Бот.", p4_title:"Запуск", p4_desc:"Передача.",
-    why_tag:"WHY", why_title:"Чому я",
-    w1_title:"Швидкість", w1_desc:"Дні, не місяці.",
-    w2_title:"Системність", w2_desc:"Зв'язки процесів.",
-    w3_title:"Грузія", w3_desc:"Локальний контекст + AI.",
-    cta_title:"Готові почати?", cta_sub:"Напишіть — розберемо задачу.", cta_btn:"Написати в Telegram",
-    expats_tag:"FOR EXPATS", expats_title:"Експатам у Грузії",
-    ex1_title:"Документи", ex1_desc:"ВНЖ, реєстрація.",
-    ex2_title:"Бізнес", ex2_desc:"ФОП, ТОВ.",
-    ex3_title:"Побут", ex3_desc:"Житло, зв'язок.",
-    auto_tag:"AUTO", auto_title:"Авто під ключ", auto_lead:"Підбір, перевірка, оформлення — без сюрпризів.", auto_s1:"Дзвінок / TG", auto_s1s:"Бриф і бюджет", auto_s2:"Аукціон", auto_s2s:"Підбір і ставка", auto_s3:"Порт", auto_s3s:"Доставка і розмитнення", auto_s4:"Клієнт", auto_s4s:"Передача під ключ", auto_note:"США / Корея / Європа → Грузія."
+    hero_sub:"Telegram-боти · AI-агенти · n8n/Make",
+    btn_telegram:"Написати в Telegram", btn_wf:"Готові workflows",
+    promise_2h:"Відповідь протягом 2 годин", promise_24:"На зв'язку 24/7",
+    services_tag:"SERVICES", services_title:"Що роблю", services_lead:"Головний фокус — AI.",
+    s1_title:"AI & Автоматизація", s1_desc:"Агенти і боти.", s1_f1:"AI-агенти", s1_f2:"Боти", s1_f3:"n8n / Make", s1_f4:"API",
+    e1_title:"Легалізація", e1_desc:"ВНЖ.", e2_title:"ФОП", e2_desc:"Реєстрація.", a1_title:"Авто", a1_desc:"Підбір.", smm_title:"SMM", smm_desc:"Контент.",
+    wf_tag:"READY WORKFLOWS", wf_title:"Готові рішення", wf_lead:"Шаблони n8n / Make.",
+    wf1_title:"Контент → Shorts", wf1_desc:"Тема → Shorts.", wf2_title:"Вхідні → відповідь", wf2_desc:"Пошта → CRM.",
+    wf3_title:"Вакансії", wf3_desc:"Пошук → лист.", wf4_title:"Картка → ціна", wf4_desc:"SKU → ціни.",
+    wf5_title:"FAQ-бот", wf5_desc:"База знань.", wf6_title:"Лід", wf6_desc:"Форма → CRM.",
+    jv_title:"JARVIS", jv_lead:"HUD Iron Man.", bot_demo_title:"Цикл бота", bs1:"Повідомлення", bs2:"AI", bs3:"Дія", bs4:"Відповідь",
+    auto_tag:"AUTO", auto_title:"Авто під ключ", auto_lead:"Підбір.", auto_s1:"Дзвінок", auto_s1s:"Бриф", auto_s2:"Аукціон", auto_s2s:"Ставка", auto_s3:"Порт", auto_s3s:"Розмитнення", auto_s4:"Клієнт", auto_s4s:"Передача", auto_note:"США → Грузія.",
+    cases_tag:"CASES", cases_title:"Кейси", c1_result:"→ Вакансії", c1_desc:"Бот.", c2_result:"→ Картка", c2_desc:"AI.", c3_result:"→ Релокація", c3_desc:"AI.", c4_result:"→ Офіс", c4_desc:"Агенти.", c5_title:"Контент", c5_result:"→ Пайплайн", c5_desc:"Контент.", c8_result:"→ Shorts", c8_desc:"Shorts.",
+    pricing_tag:"PRICING", pricing_title:"Пакети", pricing_note:"Орієнтири.",
+    price1_name:"Старт", price1_amount:"від 149 ₾", price1_desc:"Швидкий запуск.", price1_f1:"Бот", price1_f2:"1 інтеграція", price1_f3:"Документація", price1_cta:"Обговорити",
+    price2_badge:"Популярний", price2_name:"Бізнес", price2_amount:"від 499 ₾", price2_desc:"AI.", price2_f1:"n8n", price2_f2:"3 інтеграції", price2_f3:"2 тижні", price2_cta:"Обговорити",
+    price3_name:"Під ключ", price3_amount:"від 1 199 ₾", price3_desc:"Система.", price3_f1:"Мульти", price3_f2:"Кастом", price3_f3:"Місяць", price3_cta:"Обговорити",
+    cta_title:"Готові почати?", cta_sub:"Напишіть.", cta_btn:"Написати в Telegram"
   }
 };
 
 function applyLang(lang) {
   const t = I18N[lang] || I18N.ru;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const k = el.getAttribute('data-i18n');
-    if (t[k] != null) el.textContent = t[k];
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const k = el.getAttribute('data-i18n-html');
-    if (t[k] != null) el.innerHTML = t[k];
-  });
-  document.querySelectorAll('.langs button').forEach(b => {
-    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
-  });
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k] != null) el.textContent = t[k]; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { const k = el.getAttribute('data-i18n-html'); if (t[k] != null) el.innerHTML = t[k]; });
+  document.querySelectorAll('.langs button').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
   try { localStorage.setItem('magic_lang', lang); } catch (e) {}
   if (window.lucide) lucide.createIcons();
 }
+document.querySelectorAll('.langs button').forEach(btn => btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang'))));
+try { const saved = localStorage.getItem('magic_lang'); if (saved && I18N[saved]) applyLang(saved); } catch (e) {}
 
-document.querySelectorAll('.langs button').forEach(btn => {
-  btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
-});
-
-try {
-  const saved = localStorage.getItem('magic_lang');
-  if (saved && I18N[saved]) applyLang(saved);
-} catch (e) {}
-
-const TERM_LINES = [
-  '$ magic init --project ai-agent',
-  '→ scanning workflows…',
-  '→ wiring n8n + telegram…',
-  '✓ agent online · waiting for brief'
-];
+const TERM_LINES = ['$ magic init --project ai-office', '→ loading agents…', '→ wiring n8n + telegram…', '✓ agent online · waiting for brief'];
 function typeTerminal() {
   const out = document.getElementById('term-out');
   if (!out) return;
@@ -229,12 +198,29 @@ function typeTerminal() {
     const line = TERM_LINES[lineIdx];
     out.textContent = TERM_LINES.slice(0, lineIdx).join('\n') + (lineIdx ? '\n' : '') + line.slice(0, charIdx);
     charIdx++;
-    if (charIdx > line.length) { lineIdx++; charIdx = 0; setTimeout(tick, 420); }
-    else setTimeout(tick, 28);
+    if (charIdx > line.length) { lineIdx++; charIdx = 0; setTimeout(tick, 400); }
+    else setTimeout(tick, 26);
   }
   tick();
 }
-setTimeout(typeTerminal, 600);
+setTimeout(typeTerminal, 500);
+
+const jvStatuses = ['SYSTEM ONLINE', 'SCANNING…', 'VOICE READY', 'AGENTS LINKED', 'SYSTEM ONLINE'];
+let jvI = 0;
+setInterval(() => { const el = document.getElementById('jv-status'); if (!el) return; jvI = (jvI + 1) % jvStatuses.length; el.textContent = jvStatuses[jvI]; }, 2200);
+
+const BOT_LOGS = ['> user: «Нужен бот для заявок»', '> parse: intent=lead_bot · lang=ru', '> action: create n8n draft + TG alert', '> reply: «Схема готова. Отправил в TG.»'];
+let botStep = 0;
+function runBotDemo() {
+  const steps = document.querySelectorAll('.bot-step');
+  const log = document.getElementById('bot-log');
+  if (!steps.length || !log) return;
+  steps.forEach((s, i) => s.classList.toggle('active', i === botStep));
+  log.textContent = BOT_LOGS[botStep];
+  botStep = (botStep + 1) % BOT_LOGS.length;
+}
+runBotDemo();
+setInterval(runBotDemo, 2400);
 
 const progress = document.getElementById('scroll-progress');
 window.addEventListener('scroll', () => {
@@ -245,27 +231,7 @@ window.addEventListener('scroll', () => {
 
 if (window.gsap && window.ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray('.glass-card, .section-title, .section-tag, .auto-flow').forEach(el => {
-    gsap.from(el, { opacity: 0, y: 24, duration: 0.55, ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 88%' } });
+  gsap.utils.toArray('.glass-card, .wf-card, .section-title, .auto-flow, .jarvis-stage, .bot-demo').forEach(el => {
+    gsap.from(el, { opacity: 0, y: 22, duration: 0.5, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
 }
-
-document.querySelectorAll('[data-case]').forEach(card => {
-  card.addEventListener('click', () => {
-    const modal = document.getElementById('case-modal');
-    const body = document.getElementById('case-modal-body');
-    if (!modal || !body) return;
-    const title = card.querySelector('h3')?.textContent || '';
-    const result = card.querySelector('.case-result')?.textContent || '';
-    const desc = card.querySelector('p')?.textContent || '';
-    body.innerHTML = '<h3>' + title + '</h3><p class="case-result">' + result + '</p><p>' + desc + '</p>';
-    modal.setAttribute('aria-hidden', 'false');
-  });
-});
-document.getElementById('case-close')?.addEventListener('click', () => {
-  document.getElementById('case-modal')?.setAttribute('aria-hidden', 'true');
-});
-document.getElementById('case-modal')?.addEventListener('click', e => {
-  if (e.target.id === 'case-modal') e.target.setAttribute('aria-hidden', 'true');
-});
