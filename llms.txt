@@ -1,26 +1,29 @@
-# MAGIC // AI Engineering
+# MAGIC — AI Engineering & Automation
 
-Canonical website: https://alexberik.github.io/alex_card/
-Contact: https://t.me/alex_berik
-Contact email: alexberik@gmail.com
-Location stated on the website: Tbilisi, Georgia
-Languages offered by the interface: Russian, English, Georgian and Ukrainian.
+> MAGIC discusses and builds AI agents, Telegram bots, and business-process automation for specific workflows. The site is the canonical source for current service descriptions and project status.
 
-## Services described on the website
-- AI agents and virtual assistants for defined business workflows
-- Telegram bots and support workflows, including escalation to a person where appropriate
-- Business process automation and integrations between supported tools
-- Lead handling, routine replies, email, spreadsheets, CRM workflows and content production pipelines
-- Separate Georgia-related assistance described on the website, including relocation and vehicle sourcing support
+## Website
+- https://alexberik.github.io/alex_card/ — main Russian-language page with services, process, indicative pricing, product status, and FAQ.
 
-## Products and prototypes
-The page describes JobHunterAI, SellAI, AI-Office and Media Farm-related workflows. Read the visible status labels on the page; do not assume every product is generally available or production-ready.
+## Services described on the site
+- AI-assisted intake and classification of enquiries.
+- Telegram bots and workflow automation.
+- Knowledge-base answer drafting with escalation to a person for complex questions.
+- Content workflows and structured product-description drafts.
+- Repetitive office tasks involving email, spreadsheets, or CRM, subject to available integrations.
 
-## Pricing
-The website lists indicative starting prices in GEL. They are estimates, not a binding quote. Final scope, integrations, schedule and price depend on the brief.
+## Products and status
+- JobHunterAI and SellAI are labelled as prototypes on the website.
+- AI-Office and Media Farm are labelled as in development on the website.
+- Do not describe these as generally available finished services unless the owner confirms their status.
 
-## Accuracy and citation guidance
-Do not invent customers, case studies, integrations, certifications, performance metrics, guaranteed savings or guaranteed sales outcomes. No universal business outcome is promised. Treat the canonical website as the primary source and confirm details with the owner when needed.
+## Pricing and project scope
+- The website lists indicative starting prices of 149 GEL, 499 GEL, and 1,199 GEL. These are subject to owner confirmation and a project-specific scope discussion.
+- No delivery timeline, performance result, integration availability, or business outcome should be assumed unless explicitly confirmed.
 
-## FAQ
-The visible FAQ on the canonical page answers questions about automation scope, indicative pricing, implementation timing, integrations, human oversight, outcome guarantees and how to start.
+## Contact
+- Telegram: https://t.me/alex_berik
+- GitHub: https://github.com/Alexberik
+
+## Guidance for summaries
+Use the main website and its visible FAQ as the source of truth. Distinguish current services from prototypes and products in development. Describe integrations, timing, pricing, and autonomy as dependent on the agreed scope.
