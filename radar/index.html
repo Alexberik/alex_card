@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CATALYST RADAR — 24–48h market anomaly scanner</title>
+  <meta name="description" content="Радар аномалий рынка: крипта и акции на 24–48 часов. Реальные графики, risk-score, paper trading demo $100. Не инвестиционная рекомендация.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top"><span class="brand-mark"></span> CATALYST RADAR</a>
+      <ul class="nav-links">
+        <li><a href="#radar">Radar</a></li>
+        <li><a href="#desk">Desk</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#track">Track record</a></li>
+      </ul>
+      <a class="nav-cta" href="#desk">Demo $100 →</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">24–48H ANOMALY SCANNER · CRYPTO + EQUITIES</div>
+        <h1>Где рынок уже <em>нервничает</em> — до того, как это станет очевидным.</h1>
+        <p class="hero-lead">Не обещаем x1000. Показываем пересечения объёма, катализаторов и риска на горизонте 24–48 часов. С реальными графиками и честным paper-треком.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#desk">Открыть demo-счёт $100</a>
+          <a class="btn btn-ghost" href="#radar">Смотреть radar</a>
+        </div>
+        <div class="trust-line">
+          <span><i class="dot-live"></i> Live price feed</span>
+          <span>Paper trading only</span>
+          <span>Not investment advice</span>
+        </div>
+      </div>
+      <div class="hero-panel" id="hero-panel">
+        <div class="panel-top"><span>SESSION OVERVIEW</span><span id="clock">—</span></div>
+        <div class="mini-stats">
+          <div class="mini-stat"><b id="stat-crypto">—</b><span>CRYPTO IN SCAN</span></div>
+          <div class="mini-stat"><b id="stat-eq">10</b><span>EQUITY WATCH</span></div>
+          <div class="mini-stat"><b id="stat-cash" class="up">$100.00</b><span>DEMO CASH</span></div>
+        </div>
+        <div class="panel-top" style="margin-top:8px"><span>TOP SIGNAL (LIVE)</span><span id="top-signal-meta">loading…</span></div>
+        <div id="top-signal-name" style="font-size:20px;font-weight:500;margin:8px 0 4px">—</div>
+        <div id="top-signal-detail" style="font-size:13px;color:var(--color-ash)">Загружаем рынок…</div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="radar">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">RADAR</div>
+          <h2>Кандидаты на 24–48ч</h2>
+        </div>
+        <p>Ранжирование по объёму, импульсу и простому risk-score. Крипта — live (CoinGecko). Акции — curated watchlist с демо-динамикой.</p>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="crypto" type="button">Crypto</button>
+        <button class="tab" data-tab="equity" type="button">Equities</button>
+      </div>
+      <div class="radar-card">
+        <div class="table-scroll">
+          <table class="radar" id="radar-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Asset</th>
+                <th>Price</th>
+                <th>24h</th>
+                <th>Vol score</th>
+                <th>Risk</th>
+                <th>Tag</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="radar-body">
+              <tr><td colspan="8" style="padding:24px;color:var(--color-ash)">Loading market data…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="desk">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">DESK · PAPER TRADING</div>
+          <h2>Demo-счёт $100</h2>
+        </div>
+        <p>Виртуальные деньги. Покупайте из radar, смотрите PnL. Никаких выводов — только проверка, как ведут себя сигналы.</p>
+      </div>
+      <div class="desk">
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <h3 style="margin:0" id="chart-title">CHART</h3>
+            <span id="chart-price" style="font-family:var(--font-mono);font-size:12px;color:var(--color-ash)">—</span>
+          </div>
+          <div id="chart-box"></div>
+          <div class="trade-form">
+            <input type="number" id="trade-amount" min="1" step="1" value="25" placeholder="USD amount">
+            <div style="display:flex;gap:6px">
+              <button class="btn btn-buy btn-sm" type="button" id="btn-buy">Buy</button>
+              <button class="btn btn-sell btn-sm" type="button" id="btn-sell">Sell</button>
+            </div>
+          </div>
+          <p style="margin-top:10px;font-size:11px;color:var(--color-mist)">Выберите строку в radar, затем Buy/Sell на сумму в USD. Позиции хранятся в localStorage.</p>
+        </div>
+        <div class="panel">
+          <h3>PORTFOLIO</h3>
+          <div class="cash-line"><span>Cash</span><b id="cash-display">$100.00</b></div>
+          <div class="cash-line"><span>Equity value</span><b id="equity-display">$0.00</b></div>
+          <div class="cash-line"><span>Total</span><b id="total-display">$100.00</b></div>
+          <div class="cash-line"><span>PnL</span><b id="pnl-display">$0.00</b></div>
+          <div id="positions-list" class="portfolio-empty">Нет позиций — купите из radar</div>
+          <button class="btn btn-ghost btn-sm" type="button" id="btn-reset" style="margin-top:12px">Reset demo to $100</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="method">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">METHOD</div>
+          <h2>Как это считается</h2>
+        </div>
+        <p>Прозрачная логика MVP. Без «секретных AI» и выдуманных hit-rate.</p>
+      </div>
+      <div class="method-grid">
+        <article class="method-card">
+          <div class="num">01 / UNIVERSE</div>
+          <h4>Ликвидность</h4>
+          <p>Отсекаем тонкий стакан и мусорные объёмы. Без выхода по цене сигнал бесполезен.</p>
+        </article>
+        <article class="method-card">
+          <div class="num">02 / SPIKE</div>
+          <h4>Объём и импульс</h4>
+          <p>Ищем отклонения 24h volume и price change относительно типичного ряда монеты/бумаги.</p>
+        </article>
+        <article class="method-card">
+          <div class="num">03 / RISK</div>
+          <h4>Risk score</h4>
+          <p>Высокая волатильность без объёма = риск. Помечаем, а не прячем. Anti-pump слой в roadmap.</p>
+        </article>
+      </div>
+      <div class="disclaimer">
+        <strong>Дисклеймер.</strong> CATALYST RADAR — демонстрационный аналитический инструмент. Это не индивидуальная инвестиционная рекомендация и не оферта. Рынки волатильны: возможна полная потеря капитала. Demo-счёт использует виртуальные $100. Решения о сделках вы принимаете самостоятельно. Прошлые аномалии не гарантируют будущий результат.
+      </div>
+    </section>
+
+    <section class="wrap section" id="track">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">TRACK RECORD</div>
+          <h2>Публичный счёт</h2>
+        </div>
+        <p>MVP показывает структуру. После накопления live-сигналов сюда попадёт фактическая статистика «что было в топе → что стало через 24/48ч».</p>
+      </div>
+      <div class="track-stats">
+        <div class="track-stat"><b>—</b><span>SIGNALS LOGGED</span></div>
+        <div class="track-stat"><b>—</b><span>HIT RATE 24H</span></div>
+        <div class="track-stat"><b>—</b><span>AVG MOVE</span></div>
+        <div class="track-stat"><b>LIVE</b><span>DATA MODE</span></div>
+      </div>
+      <div class="radar-card" style="padding:20px;color:var(--color-ash);font-size:13px">
+        Track record заполнится после того, как radar проработает несколько циклов и сохранит снимки топа. Сейчас важнее честный live-feed и paper desk, чем выдуманные проценты.
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <span>CATALYST RADAR · paper demo</span>
+    <span><a href="https://github.com/Alexberik/catalyst-radar" target="_blank" rel="noopener">GitHub</a> · <a href="https://t.me/alex_berik" target="_blank" rel="noopener">Telegram</a></span>
+  </footer>
+
+  <div class="status-bar" id="status-bar">
+    <span id="status-feed">Feed: idle</span>
+    <span id="status-updated">Updated: —</span>
+    <span>Source: CoinGecko public API (crypto)</span>
+  </div>
+</body>
+</html>
