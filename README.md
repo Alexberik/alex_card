@@ -1,63 +1,26 @@
-# alex_card
+# alex_card — MAGIC // AI Engineering
 
-Личный лендинг **MAGIC // AI Engineer**.
+Website: https://alexberik.github.io/alex_card/
 
-Сайт: https://alexberik.github.io/alex_card/
+Multilingual static landing page (RU / EN / KA / UA), deployed with GitHub Pages from the root of the `main` branch.
 
-## О чём
+## Files
+- `index.html` — page content, SEO metadata, Schema.org JSON-LD, visible FAQ.
+- `style.css` — responsive styling and accessible FAQ accordions.
+- `script.js` — language switching, animations and interactions.
+- `robots.txt` — crawler guidance and sitemap location.
+- `sitemap.xml` — canonical page URL.
+- `llms.txt` — concise, accuracy-focused summary for AI-assisted discovery. This is a convention, not a ranking or citation guarantee.
 
-Визитка и точка входа для клиентов:
+## SEO / AI discovery
+The page includes a canonical URL, descriptive title and meta description, Open Graph / Twitter metadata, structured data for the service and person, WebSite and FAQPage, plus a visible multilingual FAQ. FAQ answers use native HTML `details/summary` elements and remain readable without JavaScript. Structured data does not guarantee rich results or AI citations.
 
-- AI-агенты и Telegram-боты
-- Автоматизация (n8n / Make)
-- Легализация и бизнес в Грузии
-- Авто под ключ
-- SMM
+## Verify after deployment
+1. Open the site on desktop and mobile; test all four language controls and FAQ accordions.
+2. Confirm `/robots.txt`, `/sitemap.xml` and `/llms.txt` return successfully.
+3. Check the page in Google Search Console and Bing Webmaster Tools.
+4. Confirm that `og-image.jpg` exists and is the intended social preview.
 
-Мультиязычность: RU / EN / KA / UA.
-
-## Стек
-
-- Статический HTML + CSS + JS
-- GSAP + ScrollTrigger
-- Lucide icons
-- GitHub Pages
-
-## Структура
-
-| Файл | Назначение |
-|------|------------|
-| `index.html` | Разметка, SEO, Open Graph, Schema.org |
-| `style.css` | Стили |
-| `script.js` | i18n, анимации, кейсы, canvas |
-| `og-image.jpg` | Превью для соцсетей |
-| `sitemap.xml` / `robots.txt` | SEO |
-
-## Локальный просмотр
-
-Открой `index.html` в браузере или подними любой static server:
-
-```bash
-python -m http.server 8080
-# http://localhost:8080
-```
-
-## Деплой
-
-GitHub Pages из ветки `main` (корневая директория).
-После пуша сайт обновляется автоматически.
-
-## Кейсы на сайте
-
-Связаны с реальными репозиториями:
-
-- JobHunterAI
-- SellAI
-- Media Farm OS (в развитии)
-
-При добавлении нового кейса обнови блок cases в `script.js` / `index.html`.
-
-## Контакты
-
-- Telegram: https://t.me/alex_berik
-- Email: alexberik@gmail.com
+## Contact
+Telegram: https://t.me/alex_berik
+Email: alexberik@gmail.com
