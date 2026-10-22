@@ -625,3 +625,16 @@ footer {
   .geo-grid { grid-template-columns: 1fr; }
   .hero-points { margin-bottom: 16px; }
 }
+
+
+/* Accessible FAQ section */
+.faq-section { scroll-margin-top: 92px; }
+.faq-list { display: grid; gap: 10px; max-width: 900px; margin: 28px auto 0; }
+.faq-item { padding: 0; overflow: hidden; }
+.faq-item summary { cursor: pointer; list-style: none; position: relative; padding: 19px 54px 19px 20px; font-weight: 650; line-height: 1.5; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--cyan, #22d3ee); font-size: 24px; font-weight: 400; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item summary:focus-visible { outline: 2px solid var(--cyan, #22d3ee); outline-offset: -3px; }
+.faq-answer { padding: 0 20px 20px; color: var(--muted, #94a3b8); font-size: 14px; line-height: 1.75; max-width: 78ch; }
+@media (max-width: 640px) { .faq-item summary { padding: 16px 46px 16px 16px; } .faq-answer { padding: 0 16px 16px; } }
