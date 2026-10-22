@@ -1,26 +1,29 @@
-# alex_card — MAGIC // AI Engineering
+# MAGIC website — SEO and AI-discovery review build
 
-Website: https://alexberik.github.io/alex_card/
-
-Multilingual static landing page (RU / EN / KA / UA), deployed with GitHub Pages from the root of the `main` branch.
+This is an unpublished local review build for `Alexberik/alex_card`. It has not been pushed to GitHub and does not change the live site.
 
 ## Files
-- `index.html` — page content, SEO metadata, Schema.org JSON-LD, visible FAQ.
-- `style.css` — responsive styling and accessible FAQ accordions.
-- `script.js` — language switching, animations and interactions.
-- `robots.txt` — crawler guidance and sitemap location.
-- `sitemap.xml` — canonical page URL.
-- `llms.txt` — concise, accuracy-focused summary for AI-assisted discovery. This is a convention, not a ranking or citation guarantee.
+- `index.html` — page structure, SEO metadata, JSON-LD (`Organization`, `WebSite`, `ProfessionalService`, `FAQPage`) and visible FAQ.
+- `style.css` — responsive design and accessible FAQ styling.
+- `script.js` — mobile navigation, scroll progress, reveal effects. FAQ answers use native HTML `<details>` and remain available without JavaScript.
+- `robots.txt` — allows general crawling and points to the sitemap.
+- `sitemap.xml` — canonical homepage URL.
+- `llms.txt` — concise machine-readable summary and accuracy guidance for AI-assisted discovery. It is a useful convention, not a guarantee of indexing or AI citations.
 
-## SEO / AI discovery
-The page includes a canonical URL, descriptive title and meta description, Open Graph / Twitter metadata, structured data for the service and person, WebSite and FAQPage, plus a visible multilingual FAQ. FAQ answers use native HTML `details/summary` elements and remain readable without JavaScript. Structured data does not guarantee rich results or AI citations.
+## SEO / AI discovery changes
+- More specific Russian title and description, canonical URL, Open Graph and Twitter metadata.
+- Semantic structured data for the brand, website, service and FAQ; FAQ answers are also visible in page HTML.
+- Clearer entity and service descriptions, contact link, product status, indicative pricing and scope caveats.
+- FAQ navigation link and native accessible accordions.
+- Sitemap, robots.txt and llms.txt added.
 
-## Verify after deployment
-1. Open the site on desktop and mobile; test all four language controls and FAQ accordions.
-2. Confirm `/robots.txt`, `/sitemap.xml` and `/llms.txt` return successfully.
-3. Check the page in Google Search Console and Bing Webmaster Tools.
-4. Confirm that `og-image.jpg` exists and is the intended social preview.
+## Important before publication
+- Confirm the listed starting prices (149 / 499 / 1,199 GEL).
+- Confirm the current status/descriptions of JobHunterAI, SellAI, AI-Office and Media Farm.
+- Confirm whether the Georgia relocation/business/auto support block should remain.
+- The current English switch remains a placeholder; it is disabled so it does not falsely imply a working translation. A real English page should be added before enabling language switching.
+- Add a verified `og:image` URL when a suitable social-preview image exists in the repository.
+- Check the rendered page on mobile and desktop after publishing, then verify canonical URL, sitemap availability and crawl/index status in Google Search Console and Bing Webmaster Tools.
 
-## Contact
-Telegram: https://t.me/alex_berik
-Email: alexberik@gmail.com
+## Validation
+The JavaScript is syntax-checked; JSON-LD is parse-checked; links/anchors and FAQ schema-to-visible-copy are checked locally. Search-engine inclusion and AI citation cannot be guaranteed by markup alone.
