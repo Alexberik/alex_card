@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MAGIC Studio · Design</title>
-<meta name="description" content="Brand, motion, video, UI. MAGIC Studio.">
-<meta name="theme-color" content="#0e100f">
 <link rel="canonical" href="https://alexberik.github.io/magic_studio/design/">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/themes.css">
+<link rel="stylesheet" href="../assets/css/visuals.css">
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
@@ -22,29 +21,45 @@
     <a href="../auto/" data-i18n="nav_auto">Auto</a>
   </nav>
   <div class="top-actions">
-    <button type="button" class="lang-btn" id="lang-btn">EN</button>
+    <button type="button" class="lang-btn" id="lang-btn">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 9.5h17M3.5 14.5h17" stroke="currentColor" stroke-width="1.2"/></svg>
+      <span class="lang-code">EN</span>
+    </button>
     <a class="btn btn-primary btn-sm" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a>
   </div>
 </header>
 <main>
-<section class="hero"><div class="hero-glow"></div><div class="wrap">
-  <p class="eyebrow">02 · DESIGN</p>
-  <h1 data-show="ru">Визуал, который<br><em>работает на задачу.</em></h1>
-  <h1 data-show="en" hidden>Visual systems that<br><em>serve the goal.</em></h1>
-  <p class="sub" data-show="ru">Бренд, motion, short-form video, UI и контент-системы.</p>
-  <p class="sub" data-show="en" hidden>Brand, motion, short-form video, UI and content systems.</p>
-  <div class="hero-cta"><a class="btn btn-primary" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a></div>
-</div></section>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">02 · DESIGN</p>
+      <h1 data-show="ru">Визуал, который<br><em>работает на задачу.</em></h1>
+      <h1 data-show="en" hidden>Visual systems that<br><em>serve the goal.</em></h1>
+      <p class="sub" data-show="ru">Бренд, motion, short-form video, UI и контент-системы.</p>
+      <p class="sub" data-show="en" hidden>Brand, motion, short-form video, UI and content systems.</p>
+      <div class="hero-cta"><a class="btn btn-primary" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a></div>
+    </div>
+    <div class="hero-visual viz-design" aria-hidden="true">
+      <div class="viz-label">SKETCH / 001</div>
+      <div class="pen"></div>
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+        <path class="stroke" d="M60 220 C120 80, 180 80, 240 160 S340 240, 360 120"/>
+        <path class="stroke s2" d="M80 240 L140 120 L200 200 L280 90 L340 180"/>
+        <rect class="stroke s3" x="120" y="70" width="160" height="110" rx="8"/>
+        <circle class="stroke s4" cx="200" cy="125" r="36"/>
+      </svg>
+    </div>
+  </div>
+</section>
 <section class="section"><div class="wrap">
   <div class="section-label">SERVICES</div>
   <h2 data-show="ru">Что делаем</h2><h2 data-show="en" hidden>What we do</h2>
   <div class="grid-2" style="margin-top:28px">
-    <div class="card"><h3 data-show="ru">Бренд и визуальная система</h3><h3 data-show="en" hidden>Brand & visual system</h3><p data-show="ru">Логотип, палитра, типографика, гайдлайны.</p><p data-show="en" hidden>Logo, palette, type, guidelines.</p></div>
-    <div class="card"><h3 data-show="ru">Motion & UI</h3><h3 data-show="en" hidden>Motion & UI</h3><p data-show="ru">Анимация интерфейсов и продукта.</p><p data-show="en" hidden>Interface and product motion.</p></div>
-    <div class="card"><h3 data-show="ru">Short-form video</h3><h3 data-show="en" hidden>Short-form video</h3><p data-show="ru">Reels / TikTok / LinkedIn 9:16.</p><p data-show="en" hidden>Reels / TikTok / LinkedIn 9:16.</p></div>
-    <div class="card"><h3 data-show="ru">UI / лендинги</h3><h3 data-show="en" hidden>UI / landings</h3><p data-show="ru">Экраны, лендинги, terminal UI.</p><p data-show="en" hidden>Screens, landings, terminal UI.</p></div>
-    <div class="card"><h3 data-show="ru">Контент-системы</h3><h3 data-show="en" hidden>Content systems</h3><p data-show="ru">Шаблоны и пайплайны.</p><p data-show="en" hidden>Templates and pipelines.</p></div>
-    <div class="card"><h3 data-show="ru">Арт-дирекшн</h3><h3 data-show="en" hidden>Art direction</h3><p data-show="ru">Визуальный язык AI-продуктов.</p><p data-show="en" hidden>Visual language for AI products.</p></div>
+    <div class="card"><h3 data-show="ru">Бренд</h3><h3 data-show="en" hidden>Brand</h3><p data-show="ru">Логотип, палитра, гайдлайны.</p><p data-show="en" hidden>Logo, palette, guidelines.</p></div>
+    <div class="card"><h3 data-show="ru">Motion & UI</h3><h3 data-show="en" hidden>Motion & UI</h3><p data-show="ru">Анимация интерфейсов.</p><p data-show="en" hidden>Interface motion.</p></div>
+    <div class="card"><h3 data-show="ru">Short-form video</h3><h3 data-show="en" hidden>Short-form video</h3><p data-show="ru">Reels / TikTok / LinkedIn.</p><p data-show="en" hidden>Reels / TikTok / LinkedIn.</p></div>
+    <div class="card"><h3 data-show="ru">UI / лендинги</h3><h3 data-show="en" hidden>UI / landings</h3><p data-show="ru">Экраны и terminal UI.</p><p data-show="en" hidden>Screens and terminal UI.</p></div>
   </div>
 </div></section>
 <section class="section"><div class="wrap" style="text-align:center">
@@ -54,7 +69,15 @@
 </div></section>
 </main>
 <footer class="footer"><div class="footer-inner">
-  <div><strong>MAGIC STUDIO</strong><span data-i18n="footer_note">Research & delivery</span></div>
+  <div><strong>MAGIC STUDIO</strong><span data-i18n="footer_note">Research & delivery</span>
+    <div class="socials">
+      <a class="social" href="https://wa.me/" target="_blank" rel="noopener">💬</a>
+      <a class="social" href="https://t.me/alex_berik" target="_blank" rel="noopener">✈️</a>
+      <a class="social" href="https://youtube.com/" target="_blank" rel="noopener">▶</a>
+      <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
+      <a class="social" href="https://facebook.com/" target="_blank" rel="noopener">f</a>
+    </div>
+  </div>
   <div class="footer-links"><a href="../ai/">AI</a><a href="../design/">Design</a><a href="../business/">Business</a><a href="../auto/">Auto</a></div>
 </div></footer>
 <script src="../assets/js/main.js"></script>

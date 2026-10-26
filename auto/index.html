@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MAGIC Studio · Auto</title>
-<meta name="description" content="Full-cycle auto: selection, inspection, delivery, local service.">
-<meta name="theme-color" content="#010101">
 <link rel="canonical" href="https://alexberik.github.io/magic_studio/auto/">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/themes.css">
+<link rel="stylesheet" href="../assets/css/visuals.css">
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
@@ -22,30 +21,46 @@
     <a class="active" href="../auto/" data-i18n="nav_auto">Auto</a>
   </nav>
   <div class="top-actions">
-    <button type="button" class="lang-btn" id="lang-btn">EN</button>
+    <button type="button" class="lang-btn" id="lang-btn">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 9.5h17M3.5 14.5h17" stroke="currentColor" stroke-width="1.2"/></svg>
+      <span class="lang-code">EN</span>
+    </button>
     <a class="btn btn-primary btn-sm" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a>
   </div>
 </header>
 <main>
-<section class="hero"><div class="hero-glow"></div><div class="wrap">
-  <p class="eyebrow">04 · AUTO</p>
-  <h1 data-show="ru">Авто под ключ.<br><em>Полный цикл.</em></h1>
-  <h1 data-show="en" hidden>Car, end to end.<br><em>Full cycle.</em></h1>
-  <p class="sub" data-show="ru">Подбор, проверка, доставка и советы по местным СТО в Грузии.</p>
-  <p class="sub" data-show="en" hidden>Selection, inspection, delivery and local service-station guidance in Georgia.</p>
-  <div class="hero-cta"><a class="btn btn-primary" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a></div>
-</div></section>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">04 · AUTO</p>
+      <h1 data-show="ru">Авто под ключ.<br><em>Полный цикл.</em></h1>
+      <h1 data-show="en" hidden>Car, end to end.<br><em>Full cycle.</em></h1>
+      <p class="sub" data-show="ru">Подбор, проверка, доставка и советы по местным СТО в Грузии.</p>
+      <p class="sub" data-show="en" hidden>Selection, inspection, delivery and local service-station guidance in Georgia.</p>
+      <div class="hero-cta"><a class="btn btn-primary" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a></div>
+    </div>
+    <div class="hero-visual viz-auto" aria-hidden="true">
+      <div class="viz-label">SCAN / VEHICLE</div>
+      <div class="viz-stage">
+        <div class="car"><span class="wheel l"></span><span class="wheel r"></span></div>
+        <div class="scan"></div>
+        <div class="hud">VIN · OK<br>BODY · CHECK<br>ENGINE · SCAN<br>STO · MAP</div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section"><div class="wrap">
   <div class="section-label">FULL CYCLE</div>
   <h2 data-show="ru">Что входит</h2><h2 data-show="en" hidden>What is included</h2>
   <div class="grid-2" style="margin-top:28px">
-    <div class="card"><h3 data-show="ru">Подбор</h3><h3 data-show="en" hidden>Selection</h3><p data-show="ru">Бюджет, год, пробег — короткий список.</p><p data-show="en" hidden>Budget, year, mileage — shortlist.</p></div>
+    <div class="card"><h3 data-show="ru">Подбор</h3><h3 data-show="en" hidden>Selection</h3><p data-show="ru">Бюджет, год, пробег.</p><p data-show="en" hidden>Budget, year, mileage.</p></div>
     <div class="card"><h3 data-show="ru">Проверка</h3><h3 data-show="en" hidden>Inspection</h3><p data-show="ru">Осмотр, диагностика, отчёт.</p><p data-show="en" hidden>Inspection, diagnostics, report.</p></div>
-    <div class="card"><h3 data-show="ru">Сделка и доставка</h3><h3 data-show="en" hidden>Deal & delivery</h3><p data-show="ru">Оргсопровождение логистики в Грузию.</p><p data-show="en" hidden>Org support for logistics to Georgia.</p></div>
-    <div class="card"><h3 data-show="ru">Местные СТО</h3><h3 data-show="en" hidden>Local service</h3><p data-show="ru">Советы по СТО и первым работам.</p><p data-show="en" hidden>Workshop advice and first service.</p></div>
+    <div class="card"><h3 data-show="ru">Сделка и доставка</h3><h3 data-show="en" hidden>Deal & delivery</h3><p data-show="ru">Логистика в Грузию.</p><p data-show="en" hidden>Logistics to Georgia.</p></div>
+    <div class="card"><h3 data-show="ru">Местные СТО</h3><h3 data-show="en" hidden>Local service</h3><p data-show="ru">Советы по СТО.</p><p data-show="en" hidden>Workshop advice.</p></div>
   </div>
-  <p class="note" data-show="ru">Не гарантируем состояние от имени продавца. Работаем в согласованном объёме.</p>
-  <p class="note" data-show="en" hidden>We do not guarantee condition on behalf of sellers. Agreed scope only.</p>
+  <p class="note" data-show="ru">Не гарантируем состояние от имени продавца.</p>
+  <p class="note" data-show="en" hidden>We do not guarantee condition on behalf of sellers.</p>
 </div></section>
 <section class="section"><div class="wrap" style="text-align:center">
   <h2 data-show="ru">Ищете авто с сопровождением?</h2>
@@ -54,7 +69,15 @@
 </div></section>
 </main>
 <footer class="footer"><div class="footer-inner">
-  <div><strong>MAGIC STUDIO</strong><span data-i18n="footer_note">Research & delivery</span></div>
+  <div><strong>MAGIC STUDIO</strong><span data-i18n="footer_note">Research & delivery</span>
+    <div class="socials">
+      <a class="social" href="https://wa.me/" target="_blank" rel="noopener">💬</a>
+      <a class="social" href="https://t.me/alex_berik" target="_blank" rel="noopener">✈️</a>
+      <a class="social" href="https://youtube.com/" target="_blank" rel="noopener">▶</a>
+      <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
+      <a class="social" href="https://facebook.com/" target="_blank" rel="noopener">f</a>
+    </div>
+  </div>
   <div class="footer-links"><a href="../ai/">AI</a><a href="../design/">Design</a><a href="../business/">Business</a><a href="../auto/">Auto</a></div>
 </div></footer>
 <script src="../assets/js/main.js"></script>

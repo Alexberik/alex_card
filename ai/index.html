@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MAGIC Studio · AI Engineering</title>
-<meta name="description" content="AI agents, Telegram bots and automation. MAGIC Studio.">
-<meta name="theme-color" content="#0b0c0e">
+<meta name="description" content="AI agents and automation. MAGIC Studio.">
 <link rel="canonical" href="https://alexberik.github.io/magic_studio/ai/">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/themes.css">
+<link rel="stylesheet" href="../assets/css/visuals.css">
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
@@ -22,43 +22,55 @@
     <a href="../auto/" data-i18n="nav_auto">Auto</a>
   </nav>
   <div class="top-actions">
-    <button type="button" class="lang-btn" id="lang-btn">EN</button>
+    <button type="button" class="lang-btn" id="lang-btn" title="Language">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 9.5h17M3.5 14.5h17" stroke="currentColor" stroke-width="1.2"/></svg>
+      <span class="lang-code">EN</span>
+    </button>
     <a class="btn btn-primary btn-sm" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a>
   </div>
 </header>
 <main>
-<section class="hero"><div class="hero-glow"></div><div class="wrap">
-  <p class="eyebrow">01 · AI ENGINEERING</p>
-  <h1 data-show="ru">Меньше рутины.<br><em>Больше работающего AI.</em></h1>
-  <h1 data-show="en" hidden>Less routine.<br><em>More working AI.</em></h1>
-  <p class="sub" data-show="ru">AI-агенты, Telegram-боты и автоматизации: заявки, поддержка, контент, офис и продажи.</p>
-  <p class="sub" data-show="en" hidden>AI agents, Telegram bots and automations for leads, support, content, office and sales.</p>
-  <div class="hero-cta">
-    <a class="btn btn-primary" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a>
-    <a class="btn btn-ghost" href="#services" data-show="ru">Смотреть услуги</a>
-    <a class="btn btn-ghost" href="#services" data-show="en" hidden>View services</a>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">01 · AI ENGINEERING</p>
+      <h1 data-show="ru">Меньше рутины.<br><em>Больше работающего AI.</em></h1>
+      <h1 data-show="en" hidden>Less routine.<br><em>More working AI.</em></h1>
+      <p class="sub" data-show="ru">AI-агенты, Telegram-боты и автоматизации: заявки, поддержка, контент, офис и продажи.</p>
+      <p class="sub" data-show="en" hidden>AI agents, Telegram bots and automations for leads, support, content, office and sales.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://t.me/alex_berik" target="_blank" rel="noopener" data-i18n="cta_tg">Написать в Telegram</a>
+        <a class="btn btn-ghost" href="#services" data-show="ru">Смотреть услуги</a>
+        <a class="btn btn-ghost" href="#services" data-show="en" hidden>View services</a>
+      </div>
+    </div>
+    <div class="hero-visual viz-terminal" aria-hidden="true">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="viz-label" style="top:42px">agent.py</div>
+      <div style="padding:52px 18px 18px">
+        <div class="line">$ magic init agent --channel telegram</div>
+        <div class="line">→ loading tools: crm, sheets, llm</div>
+        <div class="line">def handle(lead):</div>
+        <div class="line">    score = classify(lead)</div>
+        <div class="line">    if score.high:</div>
+        <div class="line">        route(lead, to="sales")</div>
+        <div class="line">    return notify(team)</div>
+        <div class="line">✓ agent online<span class="cursor"></span></div>
+      </div>
+    </div>
   </div>
-</div></section>
+</section>
 <section class="section" id="services"><div class="wrap">
   <div class="section-label">SERVICES</div>
   <h2 data-show="ru">Решения под задачи</h2><h2 data-show="en" hidden>Solutions for tasks</h2>
   <div class="grid-3" style="margin-top:28px">
-    <div class="card"><h3 data-show="ru">Заявки и лиды</h3><h3 data-show="en" hidden>Leads & intake</h3><p data-show="ru">Сбор, квалификация, передача в CRM.</p><p data-show="en" hidden>Collect, qualify, route to CRM.</p><div class="tags"><span class="tag">Telegram</span><span class="tag">CRM</span></div></div>
-    <div class="card"><h3 data-show="ru">AI-поддержка</h3><h3 data-show="en" hidden>AI support</h3><p data-show="ru">База знаний + эскалация человеку.</p><p data-show="en" hidden>Knowledge base + human escalation.</p><div class="tags"><span class="tag">Agent</span></div></div>
-    <div class="card"><h3 data-show="ru">Контент-процессы</h3><h3 data-show="en" hidden>Content pipelines</h3><p data-show="ru">Идеи → сценарии → черновики.</p><p data-show="en" hidden>Ideas → scripts → drafts.</p><div class="tags"><span class="tag">Content</span></div></div>
-    <div class="card"><h3 data-show="ru">Офисная рутина</h3><h3 data-show="en" hidden>Office routine</h3><p data-show="ru">Почта, таблицы, CRM.</p><p data-show="en" hidden>Mail, sheets, CRM.</p><div class="tags"><span class="tag">Ops</span></div></div>
-    <div class="card"><h3 data-show="ru">Товары и продажи</h3><h3 data-show="en" hidden>Products & sales</h3><p data-show="ru">Описания для площадок.</p><p data-show="en" hidden>Product copy for marketplaces.</p><div class="tags"><span class="tag">Commerce</span></div></div>
-    <div class="card"><h3 data-show="ru">Свой сценарий</h3><h3 data-show="en" hidden>Custom</h3><p data-show="ru">Опишите процесс — оценим.</p><p data-show="en" hidden>Describe the process — we assess.</p><div class="tags"><span class="tag">Custom</span></div></div>
-  </div>
-</div></section>
-<section class="section"><div class="wrap">
-  <div class="section-label">PRODUCT LAB</div>
-  <h2 data-show="ru">Продукты и эксперименты</h2><h2 data-show="en" hidden>Products & experiments</h2>
-  <div class="grid-2" style="margin-top:28px">
-    <div class="card"><div class="tags"><span class="tag">PROTOTYPE</span></div><h3>JobHunterAI</h3><p data-show="ru">Вакансии, отклики, статусы.</p><p data-show="en" hidden>Jobs, applications, statuses.</p></div>
-    <div class="card"><div class="tags"><span class="tag">PROTOTYPE</span></div><h3>SellAI</h3><p data-show="ru">Описания для e-commerce.</p><p data-show="en" hidden>E-commerce product copy.</p></div>
-    <div class="card"><div class="tags"><span class="tag">IN DEV</span></div><h3>AI-Office</h3><p data-show="ru">Помощники для офисных задач.</p><p data-show="en" hidden>Assistants for office workflows.</p></div>
-    <div class="card"><div class="tags"><span class="tag">IN DEV</span></div><h3>Media Farm</h3><p data-show="ru">Пайплайн контента.</p><p data-show="en" hidden>Content pipeline.</p></div>
+    <div class="card"><h3 data-show="ru">Заявки и лиды</h3><h3 data-show="en" hidden>Leads</h3><p data-show="ru">Сбор, квалификация, CRM.</p><p data-show="en" hidden>Collect, qualify, CRM.</p></div>
+    <div class="card"><h3 data-show="ru">AI-поддержка</h3><h3 data-show="en" hidden>AI support</h3><p data-show="ru">База знаний + эскалация.</p><p data-show="en" hidden>Knowledge base + escalate.</p></div>
+    <div class="card"><h3 data-show="ru">Контент</h3><h3 data-show="en" hidden>Content</h3><p data-show="ru">Идеи → сценарии → черновики.</p><p data-show="en" hidden>Ideas → scripts → drafts.</p></div>
+    <div class="card"><h3 data-show="ru">Офис</h3><h3 data-show="en" hidden>Office</h3><p data-show="ru">Почта, таблицы, CRM.</p><p data-show="en" hidden>Mail, sheets, CRM.</p></div>
+    <div class="card"><h3 data-show="ru">Продажи</h3><h3 data-show="en" hidden>Sales</h3><p data-show="ru">Описания для площадок.</p><p data-show="en" hidden>Marketplace copy.</p></div>
+    <div class="card"><h3 data-show="ru">Свой сценарий</h3><h3 data-show="en" hidden>Custom</h3><p data-show="ru">Опишите процесс.</p><p data-show="en" hidden>Describe the process.</p></div>
   </div>
 </div></section>
 <section class="section"><div class="wrap">
@@ -77,7 +89,15 @@
 </div></section>
 </main>
 <footer class="footer"><div class="footer-inner">
-  <div><strong>MAGIC STUDIO</strong><span data-i18n="footer_note">Research & delivery</span></div>
+  <div><strong>MAGIC STUDIO</strong><span data-i18n="footer_note">Research & delivery</span>
+    <div class="socials">
+      <a class="social" href="https://wa.me/" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+      <a class="social" href="https://t.me/alex_berik" target="_blank" rel="noopener" title="Telegram">✈️</a>
+      <a class="social" href="https://youtube.com/" target="_blank" rel="noopener" title="YouTube">▶</a>
+      <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+      <a class="social" href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">f</a>
+    </div>
+  </div>
   <div class="footer-links"><a href="../ai/">AI</a><a href="../design/">Design</a><a href="../business/">Business</a><a href="../auto/">Auto</a></div>
 </div></footer>
 <script src="../assets/js/main.js"></script>
