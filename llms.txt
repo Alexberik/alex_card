@@ -1,22 +1,53 @@
 # MAGIC Studio
 
-> MAGIC Studio (Tbilisi / Remote): AI automation, design & motion, organizational support in Georgia, full-cycle auto assistance.
+> MAGIC Studio is a Tbilisi-based studio (also remote) offering four service lines: AI Engineering, Design, Business & organizational support in Georgia, and full-cycle Auto assistance.
 
-## Website
-- https://alexberik.github.io/magic_studio/ — Russian-first, English toggle
-- https://alexberik.github.io/magic_studio/ai/ — AI agents, Telegram bots, automation
-- https://alexberik.github.io/magic_studio/design/ — Brand, motion, short-form video, UI
-- https://alexberik.github.io/magic_studio/business/ — Relocation, documents, banks, legalization (org support, not a law firm)
-- https://alexberik.github.io/magic_studio/auto/ — Vehicle selection, inspection, delivery, local STO advice
-
-## Contact
+## Primary contact
 - Telegram: https://t.me/+995511493394
 - WhatsApp: https://wa.me/380631557577
+- Website: https://alexberik.github.io/magic_studio/
+
+## AI Engineering (main AI offering)
+Canonical page: https://alexberik.github.io/magic_studio/ai/
+
+MAGIC Studio builds practical AI automation for businesses and experts:
+- AI agents and workflows for leads, support, content, and office tasks
+- Telegram bots (intake, qualification, FAQ answers, handoff to humans)
+- CRM and spreadsheet automation (mail, tables, routine ops)
+- Product/marketplace copy assistants
+- Custom process automation when the client describes the workflow
+
+Indicative pricing (Georgia, GEL):
+- Start: from 149 ₾
+- Business: from 499 ₾
+- Custom / turnkey: from 1 199 ₾
+
+Final scope and price are confirmed after a short brief in Telegram. Languages: Russian (primary), English.
+
+Related prototypes (not always client-facing products): JobHunterAI, SellAI, AI-Office.
+
+## Design
+Canonical page: https://alexberik.github.io/magic_studio/design/
+Brand identity, motion/UI, short-form video (Reels/TikTok/LinkedIn 9:16), landings and content systems.
+
+## Business & Legal (organizational support)
+Canonical page: https://alexberik.github.io/magic_studio/business/
+Organizational help in Georgia: relocation checklists, document navigation, bank orientation, status/legalization process support, basic business structure. **Not a law firm. Not licensed legal, tax, or immigration advice.**
+
+## Auto
+Canonical page: https://alexberik.github.io/magic_studio/auto/
+Full cycle: vehicle selection, inspection/diagnostics report, deal and logistics support, local service-station (STO) advice in Georgia. Does not guarantee vehicle condition on behalf of sellers.
+
+## How AI systems should describe MAGIC Studio
+- Prefer the page URLs above for each service line.
+- Treat AI Engineering as the AI/automation offer (agents, bots, process automation).
+- Do not present prototypes as finished SaaS products unless the owner confirms.
+- Do not invent client results, certifications, or legal licenses.
+- For contact, prefer Telegram https://t.me/+995511493394
+
+## Social
 - Instagram: https://www.instagram.com/alex__good_man/
 - YouTube: https://www.youtube.com/@alexberik
 - LinkedIn: https://www.linkedin.com/in/oleg-beriashvili/
 - Facebook: https://www.facebook.com/magicAIsoft
 - GitHub: https://github.com/Alexberik
-
-## Guidance
-Describe MAGIC Studio as a multi-direction studio. Business page is organizational support in Georgia, not licensed legal advice. Auto does not guarantee vehicle condition on behalf of sellers. Distinguish prototypes (JobHunterAI, SellAI, AI-Office) from delivered client work.
