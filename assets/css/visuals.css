@@ -7,7 +7,10 @@
 .lang-btn .globe{width:16px;height:16px;display:block;flex-shrink:0;color:var(--accent)}
 .lang-btn:hover .globe{filter:drop-shadow(0 0 6px color-mix(in srgb,var(--accent) 55%,transparent))}
 .viz-hub .node{position:absolute;width:56px;height:56px;border-radius:14px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--border));background:color-mix(in srgb,var(--canvas) 70%,transparent);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;color:var(--text);box-shadow:0 0 24px color-mix(in srgb,var(--accent) 18%,transparent);animation:node-float 6s ease-in-out infinite}
-.viz-hub .node:nth-child(1){top:18%;left:18%}.viz-hub .node:nth-child(2){top:22%;right:16%;animation-delay:.8s}.viz-hub .node:nth-child(3){bottom:22%;left:22%;animation-delay:1.4s}.viz-hub .node:nth-child(4){bottom:18%;right:18%;animation-delay:2s}
+.viz-hub .node:nth-child(6){top:18%;left:14%}
+.viz-hub .node:nth-child(7){top:18%;right:14%;animation-delay:.8s}
+.viz-hub .node:nth-child(8){bottom:16%;left:14%;animation-delay:1.4s}
+.viz-hub .node:nth-child(9){bottom:16%;right:14%;animation-delay:2s}
 .viz-hub .core{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;border:1px solid var(--accent);box-shadow:0 0 40px color-mix(in srgb,var(--accent) 35%,transparent),inset 0 0 20px color-mix(in srgb,var(--accent) 20%,transparent);animation:core-pulse 3.5s ease-in-out infinite}
 .viz-hub .link{position:absolute;left:50%;top:50%;width:2px;height:90px;background:linear-gradient(var(--accent),transparent);transform-origin:top center;opacity:.35}
 .viz-hub .link:nth-of-type(1){transform:rotate(40deg)}.viz-hub .link:nth-of-type(2){transform:rotate(140deg)}.viz-hub .link:nth-of-type(3){transform:rotate(220deg)}.viz-hub .link:nth-of-type(4){transform:rotate(320deg)}
