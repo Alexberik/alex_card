@@ -1,13 +1,13 @@
 # MAGIC Studio
 
-> MAGIC Studio — AI engineering, design, business organizational support in Georgia, and full-cycle auto services. Based in Tbilisi, works remote.
+> MAGIC Studio (Tbilisi / Remote): AI automation, design & motion, organizational support in Georgia, full-cycle auto assistance.
 
 ## Website
-- https://alexberik.github.io/magic_studio/ — hub (RU primary, EN toggle)
+- https://alexberik.github.io/magic_studio/ — Russian-first, English toggle
 - https://alexberik.github.io/magic_studio/ai/ — AI agents, Telegram bots, automation
-- https://alexberik.github.io/magic_studio/design/ — brand, motion, short-form video, UI
-- https://alexberik.github.io/magic_studio/business/ — relocation, documents, banks, legalization (org support, not a law firm)
-- https://alexberik.github.io/magic_studio/auto/ — car selection, inspection, delivery, local service advice
+- https://alexberik.github.io/magic_studio/design/ — Brand, motion, short-form video, UI
+- https://alexberik.github.io/magic_studio/business/ — Relocation, documents, banks, legalization (org support, not a law firm)
+- https://alexberik.github.io/magic_studio/auto/ — Vehicle selection, inspection, delivery, local STO advice
 
 ## Contact
 - Telegram: https://t.me/+995511493394
@@ -19,4 +19,4 @@
 - GitHub: https://github.com/Alexberik
 
 ## Guidance
-Do not present prototypes (JobHunterAI, SellAI, AI-Office) as finished SaaS products. Business is organizational support, not licensed legal/tax/immigration advice. Auto does not guarantee vehicle condition on behalf of sellers.
+Describe MAGIC Studio as a multi-direction studio. Business page is organizational support in Georgia, not licensed legal advice. Auto does not guarantee vehicle condition on behalf of sellers. Distinguish prototypes (JobHunterAI, SellAI, AI-Office) from delivered client work.
