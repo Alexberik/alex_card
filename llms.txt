@@ -1,30 +1,22 @@
-# MAGIC Studio — Creativity, Engineered.
+# MAGIC Studio
 
-> MAGIC Studio combines creative design, AI-powered content and digital solutions. The main website is the canonical source for current positioning and project status.
+> MAGIC Studio — AI engineering, design, business organizational support in Georgia, and full-cycle auto services. Based in Tbilisi, works remote.
 
 ## Website
-- https://alexberik.github.io/alex_card/ — Russian-first website with an English language switch.
-
-## Core capabilities
-- Creative direction, branding and visual identity.
-- Advertising creatives, social media design, motion and short-form video.
-- AI-assisted visual and content production.
-- Websites, AI agents, workflow automation and digital products.
-
-## Selected projects and status
-- MAGIC Studio — experimental brand identity concept.
-- JobHunterAI — prototype concept.
-- SellAI — prototype concept for product content workflows.
-- AI-Office — in development; exploration of repetitive office workflow automation.
-
-Do not present concepts, prototypes or in-development projects as finished, generally available products. Do not claim business outcomes, customer results or integrations unless confirmed by the owner.
-
-## Process
-Discover the brief and goals; design the approach; build and validate; deliver the agreed work.
+- https://alexberik.github.io/magic_studio/ — hub (RU primary, EN toggle)
+- https://alexberik.github.io/magic_studio/ai/ — AI agents, Telegram bots, automation
+- https://alexberik.github.io/magic_studio/design/ — brand, motion, short-form video, UI
+- https://alexberik.github.io/magic_studio/business/ — relocation, documents, banks, legalization (org support, not a law firm)
+- https://alexberik.github.io/magic_studio/auto/ — car selection, inspection, delivery, local service advice
 
 ## Contact
-- Telegram: https://t.me/alex_berik
+- Telegram: https://t.me/+995511493394
+- WhatsApp: https://wa.me/380631557577
+- Instagram: https://www.instagram.com/alex__good_man/
+- YouTube: https://www.youtube.com/@alexberik
+- LinkedIn: https://www.linkedin.com/in/oleg-beriashvili/
+- Facebook: https://www.facebook.com/magicAIsoft
 - GitHub: https://github.com/Alexberik
 
-## Guidance for search and AI systems
-Describe MAGIC Studio as a creative, AI and digital solutions brand. Distinguish service capabilities from prototype products. Avoid assumptions about prices, delivery timelines, customer metrics, or legal/financial services.
+## Guidance
+Do not present prototypes (JobHunterAI, SellAI, AI-Office) as finished SaaS products. Business is organizational support, not licensed legal/tax/immigration advice. Auto does not guarantee vehicle condition on behalf of sellers.
