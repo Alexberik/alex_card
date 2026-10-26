@@ -1,41 +1,30 @@
 (function () {
   const dict = {
     ru: {
-      nav_services: 'Услуги', nav_work: 'Работы', nav_process: 'Процесс', nav_contact: 'Контакты',
-      nav_ai: 'AI', nav_design: 'Дизайн', nav_business: 'Бизнес', nav_auto: 'Авто',
-      cta_tg: 'Обсудить проект ↗', lang: 'EN', footer_note: 'Креатив, AI и цифровые решения.',
-      title: 'MAGIC Studio — Креатив, AI и цифровые решения',
-      description: 'MAGIC Studio объединяет креативный дизайн, AI-контент и цифровые решения: брендинг, рекламные материалы, AI-автоматизация и цифровые продукты.'
+      nav_ai: 'AI', nav_design: 'Design', nav_business: 'Business', nav_auto: 'Auto',
+      cta_tg: 'Написать в Telegram', lang: 'EN',
+      footer_note: 'Research & delivery · Не является юридической или инвестиционной консультацией'
     },
     en: {
-      nav_services: 'Services', nav_work: 'Work', nav_process: 'Process', nav_contact: 'Contact',
       nav_ai: 'AI', nav_design: 'Design', nav_business: 'Business', nav_auto: 'Auto',
-      cta_tg: 'Discuss a project ↗', lang: 'RU', footer_note: 'Creative, AI and digital solutions.',
-      title: 'MAGIC Studio — Creativity, Engineered.',
-      description: 'MAGIC Studio combines creative design, AI-powered content and digital solutions: branding, campaign assets, AI automation and digital products.'
+      cta_tg: 'Message on Telegram', lang: 'RU',
+      footer_note: 'Research & delivery · Not legal or investment advice'
     }
   };
 
   function applyLang(lang) {
-    const active = dict[lang] ? lang : 'ru';
-    document.documentElement.lang = active;
+    document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      const pack = dict[active];
+      const pack = dict[lang] || dict.ru;
       if (pack[key]) el.textContent = pack[key];
     });
     document.querySelectorAll('[data-show]').forEach((el) => {
-      el.hidden = el.getAttribute('data-show') !== active;
+      el.hidden = el.getAttribute('data-show') !== lang;
     });
     const btn = document.getElementById('lang-btn');
-    if (btn) {
-      btn.textContent = dict[active].lang;
-      btn.setAttribute('aria-label', active === 'ru' ? 'Switch language to English' : 'Переключить язык на русский');
-    }
-    document.title = dict[active].title;
-    const description = document.querySelector('meta[name="description"]');
-    if (description) description.setAttribute('content', dict[active].description);
-    try { localStorage.setItem('magic_lang', active); } catch (_) {}
+    if (btn) btn.textContent = (dict[lang] || dict.ru).lang;
+    try { localStorage.setItem('magic_lang', lang); } catch (_) {}
   }
 
   let lang = 'ru';
@@ -75,4 +64,12 @@
     my = e.clientY;
     if (!raf) raf = requestAnimationFrame(moveSpot);
   }, { passive: true });
+
+  document.querySelectorAll('.portal').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
 })();
