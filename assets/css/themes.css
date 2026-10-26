@@ -1,35 +1,50 @@
-/* Theme tokens per direction */
+/* Theme tokens per direction — multi-layer aurora */
 [data-theme="hub"] {
   --canvas: #050508; --surface: #0c0c12; --elevated: #12121a; --border: #1e1e2a;
   --text: #f2f2f5; --text-muted: #8b8b9a; --accent: #ab8ff1;
-  --glow: radial-gradient(circle, rgba(171,143,241,0.55), rgba(137,96,240,0.15));
+  --glow: radial-gradient(circle, rgba(171,143,241,0.65), rgba(137,96,240,0.12));
+  --glow-a: radial-gradient(circle, rgba(171,143,241,0.7) 0%, rgba(137,96,240,0.15) 55%, transparent 70%);
+  --glow-b: radial-gradient(circle, rgba(255,125,218,0.35) 0%, rgba(98,95,255,0.12) 50%, transparent 70%);
+  --glow-c: radial-gradient(circle, rgba(142,108,228,0.4) 0%, transparent 65%);
   --cta-bg: #dad7de; --cta-text: #08080a;
 }
 [data-theme="ai"] {
   --canvas: #0b0c0e; --surface: #0e111b; --elevated: #0d172b; --border: #172540;
   --text: #ffffff; --text-muted: #abaebb; --accent: #2862d7;
-  --glow: radial-gradient(circle, rgba(98,95,255,0.4), rgba(40,98,215,0.12));
+  --glow: radial-gradient(circle, rgba(98,95,255,0.55), rgba(40,98,215,0.12));
+  --glow-a: radial-gradient(circle, rgba(98,95,255,0.6) 0%, rgba(40,98,215,0.18) 50%, transparent 70%);
+  --glow-b: radial-gradient(circle, rgba(255,125,218,0.28) 0%, rgba(40,98,215,0.1) 55%, transparent 70%);
+  --glow-c: radial-gradient(circle, rgba(40,98,215,0.45) 0%, transparent 65%);
   --cta-bg: #ffffff; --cta-text: #050606;
 }
 [data-theme="design"] {
   --canvas: #0e100f; --surface: #191919; --elevated: #222222; --border: #42433d;
   --text: #fffce1; --text-muted: #7c7c6f; --accent: #0ae448;
-  --glow: radial-gradient(circle, rgba(10,228,72,0.25), rgba(254,197,251,0.12));
+  --glow: radial-gradient(circle, rgba(10,228,72,0.35), rgba(254,197,251,0.12));
+  --glow-a: radial-gradient(circle, rgba(10,228,72,0.4) 0%, rgba(171,255,132,0.12) 50%, transparent 70%);
+  --glow-b: radial-gradient(circle, rgba(254,197,251,0.3) 0%, rgba(157,149,255,0.12) 50%, transparent 70%);
+  --glow-c: radial-gradient(circle, rgba(0,186,226,0.25) 0%, transparent 65%);
   --cta-bg: transparent; --cta-text: #fffce1;
 }
 [data-theme="design"] .btn-primary {
-  background: transparent; color: #fffce1; border: 1.5px solid #0ae448; box-shadow: none;
+  background: transparent; color: #fffce1; border: 1.5px solid #0ae448; box-shadow: 0 0 24px rgba(10,228,72,0.2);
 }
 [data-theme="design"] .btn-primary:hover { background: rgba(10,228,72,0.1); filter: none; }
 [data-theme="business"] {
   --canvas: #08080a; --surface: #0d0d12; --elevated: #17171c; --border: #31313a;
   --text: #dad7de; --text-muted: #8b8e9c; --accent: #ab8ff1;
-  --glow: radial-gradient(circle, rgba(142,108,228,0.35), rgba(114,79,201,0.08));
+  --glow: radial-gradient(circle, rgba(142,108,228,0.45), rgba(114,79,201,0.1));
+  --glow-a: radial-gradient(circle, rgba(142,108,228,0.5) 0%, rgba(114,79,201,0.15) 50%, transparent 70%);
+  --glow-b: radial-gradient(circle, rgba(171,143,241,0.28) 0%, transparent 65%);
+  --glow-c: radial-gradient(circle, rgba(137,96,240,0.22) 0%, transparent 65%);
   --cta-bg: #dad7de; --cta-text: #08080a;
 }
 [data-theme="auto"] {
   --canvas: #010101; --surface: #16191b; --elevated: #1f1f23; --border: #252525;
   --text: #e0e0e0; --text-muted: #828b8d; --accent: #5eead4;
-  --glow: radial-gradient(circle, rgba(94,234,212,0.2), rgba(31,31,35,0.1));
+  --glow: radial-gradient(circle, rgba(94,234,212,0.28), rgba(31,31,35,0.1));
+  --glow-a: radial-gradient(circle, rgba(94,234,212,0.35) 0%, rgba(45,212,191,0.1) 50%, transparent 70%);
+  --glow-b: radial-gradient(circle, rgba(125,211,252,0.2) 0%, transparent 65%);
+  --glow-c: radial-gradient(circle, rgba(94,234,212,0.18) 0%, transparent 65%);
   --cta-bg: #e0e0e0; --cta-text: #010101;
 }
