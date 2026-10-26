@@ -1,6 +1,6 @@
 /* hero split + thematic visuals + socials */
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
-.hero-visual{position:relative;min-height:320px;border-radius:20px;border:1px solid var(--border);background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(14px);overflow:hidden;box-shadow:0 20px 60px color-mix(in srgb,var(--accent) 10%,transparent)}
+.hero-visual{position:relative;min-height:340px;border-radius:20px;border:1px solid var(--border);background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(14px);overflow:hidden;box-shadow:0 20px 60px color-mix(in srgb,var(--accent) 10%,transparent)}
 .hero-visual .viz-label{position:absolute;top:14px;left:16px;z-index:3;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
 .hero-visual .viz-stage{position:absolute;inset:0}
 .lang-btn{display:inline-flex;align-items:center;gap:6px}
@@ -17,33 +17,76 @@
 @keyframes node-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes core-pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.06);opacity:1}}
 .viz-terminal{font-family:var(--font-mono);font-size:12px;line-height:1.55;color:color-mix(in srgb,var(--accent) 85%,#fff);height:100%;overflow:hidden}
-.viz-terminal .bar{position:absolute;top:0;left:0;right:0;height:36px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;padding:0 14px;background:color-mix(in srgb,var(--canvas) 60%,transparent)}
-.viz-terminal .dot{width:8px;height:8px;border-radius:50%;background:var(--border)}.viz-terminal .dot:nth-child(1){background:#ff5f57}.viz-terminal .dot:nth-child(2){background:#febc2e}.viz-terminal .dot:nth-child(3){background:#28c840}
-.viz-terminal .line{opacity:0;animation:term-line 12s linear infinite;white-space:pre}
-.viz-terminal .line:nth-child(1){animation-delay:0s}.viz-terminal .line:nth-child(2){animation-delay:.8s}.viz-terminal .line:nth-child(3){animation-delay:1.6s}.viz-terminal .line:nth-child(4){animation-delay:2.4s}.viz-terminal .line:nth-child(5){animation-delay:3.2s}.viz-terminal .line:nth-child(6){animation-delay:4s}.viz-terminal .line:nth-child(7){animation-delay:4.8s}.viz-terminal .line:nth-child(8){animation-delay:5.6s}
+.viz-terminal .bar{position:absolute;top:0;left:0;right:0;height:36px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;padding:0 14px;background:color-mix(in srgb,var(--canvas) 60%,transparent);z-index:2}
+.viz-terminal .dot{width:8px;height:8px;border-radius:50%;background:var(--border)}
+.viz-terminal .dot:nth-child(1){background:#ff5f57}.viz-terminal .dot:nth-child(2){background:#febc2e}.viz-terminal .dot:nth-child(3){background:#28c840}
+.viz-terminal .term-body{position:absolute;inset:36px 0 0;padding:16px 18px;overflow:hidden}
+.viz-terminal .line{opacity:0;animation:term-line 14s linear infinite;white-space:pre}
+.viz-terminal .line:nth-child(1){animation-delay:0s}.viz-terminal .line:nth-child(2){animation-delay:.7s}.viz-terminal .line:nth-child(3){animation-delay:1.4s}.viz-terminal .line:nth-child(4){animation-delay:2.1s}.viz-terminal .line:nth-child(5){animation-delay:2.8s}.viz-terminal .line:nth-child(6){animation-delay:3.5s}.viz-terminal .line:nth-child(7){animation-delay:4.2s}.viz-terminal .line:nth-child(8){animation-delay:4.9s}.viz-terminal .line:nth-child(9){animation-delay:5.6s}.viz-terminal .line:nth-child(10){animation-delay:6.3s}.viz-terminal .line:nth-child(11){animation-delay:7s}
 .viz-terminal .cursor{display:inline-block;width:8px;height:14px;margin-left:2px;background:var(--accent);vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
-@keyframes term-line{0%{opacity:0}5%{opacity:1}85%{opacity:1}100%{opacity:.35}}
+.viz-terminal .muted{color:color-mix(in srgb,var(--accent) 45%,var(--text-muted))}
+.viz-terminal .ok{color:#5eead4}
+@keyframes term-line{0%{opacity:0}4%{opacity:1}88%{opacity:1}100%{opacity:.4}}
 @keyframes blink{50%{opacity:0}}
 .viz-design svg{width:100%;height:100%;display:block}
-.viz-design .stroke{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:400;stroke-dashoffset:400;animation:draw-stroke 4.5s ease forwards infinite}
-.viz-design .stroke.s2{animation-delay:.6s;opacity:.75}.viz-design .stroke.s3{animation-delay:1.2s;opacity:.55}.viz-design .stroke.s4{animation-delay:1.8s;opacity:.4}
-.viz-design .pen{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent);animation:pen-move 4.5s ease-in-out infinite}
-@keyframes draw-stroke{0%{stroke-dashoffset:400}40%{stroke-dashoffset:0}80%{stroke-dashoffset:0}100%{stroke-dashoffset:400}}
-@keyframes pen-move{0%{left:18%;top:70%}25%{left:35%;top:30%}50%{left:62%;top:28%}75%{left:78%;top:58%}100%{left:18%;top:70%}}
-.viz-business .doc{position:absolute;width:42%;height:58%;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--border));border-radius:10px;background:color-mix(in srgb,var(--surface) 90%,transparent);padding:14px;box-shadow:0 12px 32px rgba(0,0,0,.35)}
-.viz-business .doc:nth-child(1){left:12%;top:18%;transform:rotate(-6deg);animation:doc-in 5s ease-in-out infinite}.viz-business .doc:nth-child(2){left:30%;top:24%;transform:rotate(2deg);animation:doc-in 5s ease-in-out infinite .4s}.viz-business .doc:nth-child(3){left:48%;top:20%;transform:rotate(7deg);animation:doc-in 5s ease-in-out infinite .8s}
-.viz-business .line-bar{height:6px;border-radius:3px;margin-bottom:8px;background:color-mix(in srgb,var(--accent) 25%,var(--border))}.viz-business .line-bar.short{width:55%}
-.viz-business .check{width:14px;height:14px;border-radius:4px;margin-top:10px;border:1px solid var(--accent);animation:check-fill 5s ease-in-out infinite}
-@keyframes doc-in{0%,100%{opacity:.7}50%{opacity:1}}
-@keyframes check-fill{0%,30%{box-shadow:inset 0 0 0 0 var(--accent)}50%,80%{box-shadow:inset 0 0 0 8px var(--accent)}100%{box-shadow:inset 0 0 0 0 var(--accent)}}
-.viz-auto .car{position:absolute;left:50%;top:50%;width:180px;height:70px;margin:-35px 0 0 -90px;border:1.5px solid var(--accent);border-radius:18px 18px 10px 10px;opacity:.85}
-.viz-auto .car::before{content:'';position:absolute;left:20px;right:20px;top:-28px;height:28px;border:1.5px solid var(--accent);border-bottom:none;border-radius:40px 40px 0 0}
-.viz-auto .wheel{position:absolute;bottom:-12px;width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);background:var(--canvas)}.viz-auto .wheel.l{left:22px}.viz-auto .wheel.r{right:22px}
-.viz-auto .scan{position:absolute;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);box-shadow:0 0 18px var(--accent);animation:scan-y 3.2s ease-in-out infinite}
-.viz-auto .hud{position:absolute;right:16px;top:48px;font-family:var(--font-mono);font-size:10px;color:var(--accent);line-height:1.7;opacity:.8}
-@keyframes scan-y{0%{top:18%;opacity:.3}50%{top:72%;opacity:1}100%{top:18%;opacity:.3}}
+.viz-design .stroke{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw-stroke 5.5s ease-in-out infinite}
+.viz-design .stroke.s2{animation-delay:.5s;opacity:.85;stroke-width:1.3}
+.viz-design .stroke.s3{animation-delay:1.1s;opacity:.7;stroke-width:1.2}
+.viz-design .stroke.s4{animation-delay:1.7s;opacity:.55;stroke-width:1.1}
+.viz-design .stroke.s5{animation-delay:2.2s;opacity:.45;stroke-width:1}
+.viz-design .fill-soft{fill:color-mix(in srgb,var(--accent) 8%,transparent);stroke:none;opacity:0;animation:fill-in 5.5s ease-in-out infinite}
+.viz-design .pen{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent),0 0 4px #fff;animation:pen-plan 5.5s ease-in-out infinite;z-index:2}
+.viz-design .room-tag{position:absolute;font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent);opacity:0;animation:tag-in 5.5s ease-in-out infinite}
+.viz-design .room-tag.t1{top:28%;left:22%;animation-delay:2.4s}
+.viz-design .room-tag.t2{top:28%;right:20%;animation-delay:2.8s}
+.viz-design .room-tag.t3{bottom:22%;left:38%;animation-delay:3.2s}
+@keyframes draw-stroke{0%{stroke-dashoffset:600}35%{stroke-dashoffset:0}75%{stroke-dashoffset:0}100%{stroke-dashoffset:600}}
+@keyframes fill-in{0%,20%{opacity:0}40%,75%{opacity:1}100%{opacity:0}}
+@keyframes tag-in{0%,40%{opacity:0}50%,75%{opacity:.9}100%{opacity:0}}
+@keyframes pen-plan{0%{left:12%;top:78%}15%{left:14%;top:22%}30%{left:50%;top:20%}45%{left:86%;top:22%}60%{left:84%;top:72%}75%{left:50%;top:78%}100%{left:12%;top:78%}}
+.viz-business .id-card{position:absolute;width:48%;height:42%;border-radius:12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--accent) 45%,var(--border));background:linear-gradient(135deg,color-mix(in srgb,var(--surface) 95%,transparent),color-mix(in srgb,var(--accent) 8%,var(--surface)));box-shadow:0 14px 36px rgba(0,0,0,.4);font-family:var(--font-mono);color:var(--text);animation:card-float 5s ease-in-out infinite}
+.viz-business .id-card:nth-child(1){left:8%;top:16%;z-index:3;--r:-8deg}
+.viz-business .id-card:nth-child(2){left:28%;top:30%;z-index:2;--r:2deg;animation-delay:.35s}
+.viz-business .id-card:nth-child(3){left:46%;top:22%;z-index:1;--r:9deg;animation-delay:.7s}
+.viz-business .id-card .chip{width:28px;height:20px;border-radius:4px;margin-bottom:10px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 55%,#c9a227),color-mix(in srgb,var(--accent) 25%,#8a7a3a));box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
+.viz-business .id-card .ctype{font-size:9px;letter-spacing:.14em;color:var(--accent);margin-bottom:6px}
+.viz-business .id-card .cname{font-size:12px;font-weight:600;letter-spacing:.04em;margin-bottom:4px;color:var(--text)}
+.viz-business .id-card .cmeta{font-size:9px;color:var(--text-muted);line-height:1.5}
+.viz-business .id-card .stripe{position:absolute;left:0;right:0;bottom:18px;height:18px;background:color-mix(in srgb,var(--accent) 18%,#111);opacity:.7}
+.viz-business .stamp{position:absolute;right:10px;bottom:10px;width:36px;height:36px;border-radius:50%;border:1.5px dashed var(--accent);opacity:0;animation:stamp-in 5s ease-in-out infinite}
+.viz-business .id-card:nth-child(1) .stamp{animation-delay:1.2s}
+.viz-business .id-card:nth-child(2) .stamp{animation-delay:1.8s}
+.viz-business .id-card:nth-child(3) .stamp{animation-delay:2.4s}
+@keyframes card-float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(var(--r,0deg))}}
+@keyframes stamp-in{0%,25%{opacity:0;transform:scale(1.4)}40%,70%{opacity:.85;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+.viz-auto .road{position:absolute;left:0;right:0;bottom:18%;height:2px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--accent) 35%,transparent),transparent)}
+.viz-auto .car-wrap{position:absolute;left:50%;top:52%;width:220px;height:90px;margin:-45px 0 0 -110px;animation:car-bob 3s ease-in-out infinite}
+.viz-auto .body{position:absolute;left:10px;right:10px;bottom:18px;height:36px;border:2px solid var(--accent);border-radius:10px 28px 8px 8px;background:color-mix(in srgb,var(--accent) 6%,transparent);box-shadow:0 0 24px color-mix(in srgb,var(--accent) 25%,transparent)}
+.viz-auto .cabin{position:absolute;left:48px;right:52px;bottom:48px;height:28px;border:2px solid var(--accent);border-bottom:none;border-radius:8px 18px 0 0;background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.viz-auto .cabin::after{content:'';position:absolute;left:42%;top:0;bottom:0;width:2px;background:var(--accent);opacity:.5}
+.viz-auto .light-f{position:absolute;right:12px;bottom:30px;width:10px;height:8px;border-radius:2px;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:light-pulse 2s ease-in-out infinite}
+.viz-auto .light-r{position:absolute;left:14px;bottom:30px;width:8px;height:8px;border-radius:2px;background:color-mix(in srgb,var(--accent) 50%,#f44);opacity:.8}
+.viz-auto .wheel{position:absolute;bottom:4px;width:26px;height:26px;border-radius:50%;border:2.5px solid var(--accent);background:var(--canvas);box-shadow:inset 0 0 0 5px color-mix(in srgb,var(--canvas) 80%,var(--accent));animation:wheel-spin 1.2s linear infinite}
+.viz-auto .wheel.l{left:28px}.viz-auto .wheel.r{right:28px}
+.viz-auto .scan{position:absolute;left:6%;right:6%;height:2px;z-index:5;background:linear-gradient(90deg,transparent,var(--accent),transparent);box-shadow:0 0 20px var(--accent),0 0 40px color-mix(in srgb,var(--accent) 40%,transparent);animation:scan-y 2.4s ease-in-out infinite}
+.viz-auto .scan-glow{position:absolute;left:10%;right:10%;height:40px;z-index:4;pointer-events:none;background:linear-gradient(transparent,color-mix(in srgb,var(--accent) 12%,transparent),transparent);animation:scan-y 2.4s ease-in-out infinite}
+.viz-auto .hud{position:absolute;right:14px;top:44px;font-family:var(--font-mono);font-size:10px;color:var(--accent);line-height:1.75;opacity:.85}
+.viz-auto .hud span{display:block;opacity:0;animation:hud-line 4s ease-in-out infinite}
+.viz-auto .hud span:nth-child(1){animation-delay:0s}.viz-auto .hud span:nth-child(2){animation-delay:.4s}.viz-auto .hud span:nth-child(3){animation-delay:.8s}.viz-auto .hud span:nth-child(4){animation-delay:1.2s}
+@keyframes car-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes wheel-spin{to{transform:rotate(360deg)}}
+@keyframes light-pulse{0%,100%{opacity:.7}50%{opacity:1;box-shadow:0 0 18px var(--accent)}}
+@keyframes scan-y{0%{top:20%;opacity:.25}50%{top:70%;opacity:1}100%{top:20%;opacity:.25}}
+@keyframes hud-line{0%{opacity:0}15%{opacity:1}70%{opacity:1}100%{opacity:.35}}
+.card,.price-card,.step{animation:card-rise .7s var(--ease) both}
+.grid-2 .card:nth-child(1),.grid-3 .card:nth-child(1),.price-grid .price-card:nth-child(1),.steps .step:nth-child(1){animation-delay:.05s}
+.grid-2 .card:nth-child(2),.grid-3 .card:nth-child(2),.price-grid .price-card:nth-child(2),.steps .step:nth-child(2){animation-delay:.12s}
+.grid-2 .card:nth-child(3),.grid-3 .card:nth-child(3),.price-grid .price-card:nth-child(3),.steps .step:nth-child(3){animation-delay:.19s}
+.grid-2 .card:nth-child(4),.grid-3 .card:nth-child(4),.steps .step:nth-child(4){animation-delay:.26s}
+.grid-3 .card:nth-child(5){animation-delay:.33s}.grid-3 .card:nth-child(6){animation-delay:.4s}
+@keyframes card-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 .social{width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;line-height:1;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--accent);transition:transform .2s var(--ease),box-shadow .2s,border-color .2s;font-weight:600}
 .social:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 0 20px color-mix(in srgb,var(--accent) 30%,transparent)}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{min-height:240px;order:-1}}
-@media (prefers-reduced-motion:reduce){.viz-terminal .line,.viz-design .stroke,.viz-design .pen,.viz-hub .node,.viz-hub .core,.viz-auto .scan{animation:none!important}}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{min-height:260px;order:-1}}
+@media (prefers-reduced-motion:reduce){.viz-terminal .line,.viz-design .stroke,.viz-design .pen,.viz-design .fill-soft,.viz-design .room-tag,.viz-hub .node,.viz-hub .core,.viz-auto .scan,.viz-auto .scan-glow,.viz-auto .wheel,.viz-auto .car-wrap,.viz-business .id-card,.viz-business .stamp,.card,.price-card,.step{animation:none!important;opacity:1}}
