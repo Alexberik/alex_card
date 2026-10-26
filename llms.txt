@@ -1,29 +1,30 @@
-# MAGIC — AI Engineering & Automation
+# MAGIC Studio — Creativity, Engineered.
 
-> MAGIC discusses and builds AI agents, Telegram bots, and business-process automation for specific workflows. The site is the canonical source for current service descriptions and project status.
+> MAGIC Studio combines creative design, AI-powered content and digital solutions. The main website is the canonical source for current positioning and project status.
 
 ## Website
-- https://alexberik.github.io/alex_card/ — main Russian-language page with services, process, indicative pricing, product status, and FAQ.
+- https://alexberik.github.io/alex_card/ — Russian-first website with an English language switch.
 
-## Services described on the site
-- AI-assisted intake and classification of enquiries.
-- Telegram bots and workflow automation.
-- Knowledge-base answer drafting with escalation to a person for complex questions.
-- Content workflows and structured product-description drafts.
-- Repetitive office tasks involving email, spreadsheets, or CRM, subject to available integrations.
+## Core capabilities
+- Creative direction, branding and visual identity.
+- Advertising creatives, social media design, motion and short-form video.
+- AI-assisted visual and content production.
+- Websites, AI agents, workflow automation and digital products.
 
-## Products and status
-- JobHunterAI and SellAI are labelled as prototypes on the website.
-- AI-Office and Media Farm are labelled as in development on the website.
-- Do not describe these as generally available finished services unless the owner confirms their status.
+## Selected projects and status
+- MAGIC Studio — experimental brand identity concept.
+- JobHunterAI — prototype concept.
+- SellAI — prototype concept for product content workflows.
+- AI-Office — in development; exploration of repetitive office workflow automation.
 
-## Pricing and project scope
-- The website lists indicative starting prices of 149 GEL, 499 GEL, and 1,199 GEL. These are subject to owner confirmation and a project-specific scope discussion.
-- No delivery timeline, performance result, integration availability, or business outcome should be assumed unless explicitly confirmed.
+Do not present concepts, prototypes or in-development projects as finished, generally available products. Do not claim business outcomes, customer results or integrations unless confirmed by the owner.
+
+## Process
+Discover the brief and goals; design the approach; build and validate; deliver the agreed work.
 
 ## Contact
 - Telegram: https://t.me/alex_berik
 - GitHub: https://github.com/Alexberik
 
-## Guidance for summaries
-Use the main website and its visible FAQ as the source of truth. Distinguish current services from prototypes and products in development. Describe integrations, timing, pricing, and autonomy as dependent on the agreed scope.
+## Guidance for search and AI systems
+Describe MAGIC Studio as a creative, AI and digital solutions brand. Distinguish service capabilities from prototype products. Avoid assumptions about prices, delivery timelines, customer metrics, or legal/financial services.
