@@ -1,0 +1,22 @@
+/* JARVIS hub: legacy arc-reactor + CSS signals are replaced by the canvas core */
+.viz-hub .core,.viz-hub .signal{display:none!important}
+.viz-hub .jarvis-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+.viz-hub .node{z-index:2;transition:box-shadow .3s,border-color .3s,background .3s}
+.viz-hub .node.hit{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 22%,var(--canvas));box-shadow:0 0 34px color-mix(in srgb,var(--accent) 60%,transparent)}
+.viz-hub .viz-label::after{content:" · J.A.R.V.I.S ONLINE";opacity:.7}
+/* Auto: Tesla Model 3 pencil-line draw (pathLength=1 on every stroke) */
+.viz-auto .tesla-draw .pen{display:none}
+.viz-auto .tesla-draw .stroke{fill:none;stroke:var(--accent);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:m3-draw 9s ease-in-out infinite;filter:drop-shadow(0 0 3px color-mix(in srgb,var(--accent) 55%,transparent))}
+.viz-auto .tesla-draw .stroke.s2{animation-delay:.9s;opacity:.9}.viz-auto .tesla-draw .stroke.s3{animation-delay:1.8s;opacity:.8}
+.viz-auto .tesla-draw .stroke.s4{animation-delay:2.6s;opacity:.7}.viz-auto .tesla-draw .stroke.s5{animation-delay:3.4s;opacity:.55}
+.viz-auto .tesla-draw .fill-soft{fill:color-mix(in srgb,var(--accent) 7%,transparent);stroke:none;opacity:0;animation:m3-fill 9s ease-in-out infinite}
+.viz-auto .tesla-draw .ground{stroke:color-mix(in srgb,var(--accent) 40%,transparent);stroke-width:1;stroke-dasharray:6 9;fill:none;animation:m3-ground 1.6s linear infinite}
+@keyframes m3-draw{0%{stroke-dashoffset:1;opacity:0}4%{opacity:1}42%{stroke-dashoffset:0}84%{stroke-dashoffset:0;opacity:1}96%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes m3-fill{0%,38%{opacity:0}55%,84%{opacity:1}96%,100%{opacity:0}}
+@keyframes m3-ground{to{stroke-dashoffset:-30}}
+@media (prefers-reduced-motion:reduce){.viz-auto .tesla-draw .stroke{animation:none!important;stroke-dashoffset:0;opacity:1}.viz-auto .tesla-draw .ground{animation:none}}
+
+.viz-auto .hud-label{top:auto;bottom:14px;right:16px;text-align:right}
+.viz-auto .tesla-draw{inset:14% 4% 20% 4%}
+[hidden]{display:none!important}
+h1,h2{text-wrap:balance}
