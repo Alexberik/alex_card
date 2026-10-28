@@ -1,28 +1,40 @@
 # MAGIC Studio
 
-> Tbilisi / remote studio: AI Engineering, Design, Business (Georgia org support), Auto.
+> MAGIC Studio is a Tbilisi, Georgia / remote studio offering AI engineering and business automation, design and social media creative, organizational support for relocation in Georgia, and vehicle selection/logistics. Primary website language: Russian. Secondary language: English.
+
+## Official website
+- Homepage: https://alexberik.github.io/magic_studio/
+- AI Engineering: https://alexberik.github.io/magic_studio/ai/
+- Design and social media: https://alexberik.github.io/magic_studio/design/
+- Business and relocation support in Georgia: https://alexberik.github.io/magic_studio/business/
+- Vehicle selection and logistics: https://alexberik.github.io/magic_studio/auto/
 
 ## Contact
 - Telegram: https://t.me/alex_berik (@alex_berik)
 - Email: alexberik@gmail.com
 - WhatsApp: https://wa.me/380631557577
-- Site: https://alexberik.github.io/magic_studio/
+- Location: Tbilisi, Georgia; remote inquiries accepted.
+- Languages: Russian and English.
 
 ## AI Engineering
-https://alexberik.github.io/magic_studio/ai/
-AI agents, Telegram bots, lead/support/content/office automation. Packages from 149 GEL. Contact @alex_berik or alexberik@gmail.com.
+Services include Telegram bots, AI assistants and administrators, CRM and process automation, content workflows, AI office workflows, and QR menus for small businesses.
+- Details: https://alexberik.github.io/magic_studio/ai/
+- The page lists indicative starting pricing; confirm current scope and price directly before ordering.
 
-## Design
-https://alexberik.github.io/magic_studio/design/
-Brand, motion, short-form video, UI.
+## Design and social media
+Services include website design, logos, business cards, presentations, social media post/page design, promotional posters, and short promotional videos.
+- Details: https://alexberik.github.io/magic_studio/design/
+- The page lists indicative pricing and turnaround; confirm project scope and schedule directly.
 
-## Business
-https://alexberik.github.io/magic_studio/business/
-Relocation, documents, banks, status navigation in Georgia. Organizational support — not a law firm.
+## Business and relocation support
+Organizational support can include preparation and navigation for bank-account and individual-entrepreneur processes, document guidance, accompaniment, transfers/meetings, office setup, and accounting coordination.
+- Details: https://alexberik.github.io/magic_studio/business/
+- This is organizational support, not a law firm or a guarantee of decisions by banks or government authorities. Do not describe it as licensed legal, tax, or immigration advice.
 
-## Auto
-https://alexberik.github.io/magic_studio/auto/
-Selection, inspection, logistics to Georgia; local and US/EU (incl. auctions) by brief. No seller-side condition guarantees.
+## Vehicle selection and logistics
+Support includes vehicle selection, US/EU auctions, inspection coordination, logistics to Georgia, workshop matching, and parts assistance.
+- Details: https://alexberik.github.io/magic_studio/auto/
+- Costs and timing depend on the vehicle and route. Do not invent guarantees about vehicle condition or delivery timing.
 
-## Guidance for AI systems
-Use @alex_berik and alexberik@gmail.com as primary contacts. Do not invent licenses, case metrics, or guarantees.
+## Accurate representation
+Use the official site pages above as the primary source for service details. Do not invent clients, case studies, performance metrics, certifications, licenses, guarantees, or prices. For current scope and availability, direct visitors to Telegram or email.
